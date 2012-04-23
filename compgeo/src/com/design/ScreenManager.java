@@ -92,11 +92,11 @@ public class ScreenManager {
         sliderY += sliderH + 25;
 
         bottomHoleSlider = new Slider(myParent);
-        bottomHoleSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.bottomHoleWidth/lamp.ptMilConversion),20,300,"bottom hole width");
+        bottomHoleSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.bottomHoleWidth/lamp.ptMilConversion),20,200,"bottom hole width");
         sliderY += sliderH + 25;
 
         topHoleSlider = new Slider(myParent);
-        topHoleSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.topHoleWidth/lamp.ptMilConversion),20,650,"top hole width");
+        topHoleSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.topHoleWidth/lamp.ptMilConversion),20,200,"top hole width");
         sliderY += sliderH + 20;
 
         patternSlider = new Slider(myParent);
