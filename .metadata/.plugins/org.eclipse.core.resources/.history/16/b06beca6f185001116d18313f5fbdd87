@@ -1,0 +1,69 @@
+package com.design;
+
+import com.math.CompPoint;
+import com.math.Trig;
+
+public class Base extends Part {
+	public String type;
+	public Base(double width, double height, String type){
+		super(width,height);
+		this.type = type;
+	}
+	
+	public void addNotches(double notchWidth, double notchHeight, double ribNotchOffset,int ribNum){
+		
+		for(int i =ribNum-1;i>=0;i--){
+			//double alpha = 0-((Math.PI*2/ribNum)*180/Math.PI)+360/(ribNum*2); // determines the degree position of your current point
+			
+			double startTheta = Trig.cartToPolar(edges.get(i).start.getX(), edges.get(i).start.getY())[1];
+			double alpha = 360/ribNum;
+			double theta = startTheta+(i)*alpha; //current position on circle for your intended point
+			System.out.println("startTheta="+startTheta);
+			
+			System.out.println("theta="+theta);
+			Notch notch = new Notch(notchWidth,notchHeight);
+			
+			
+				notch.rotate(startTheta+180, notch.focus);
+			
+			int after=0;
+			if(i==0){
+				after=ribNum-1;
+			}
+			else{
+				after=i-1;
+			}
+			this.setNotch(notch,i,after);
+		}
+		
+		
+			
+	}
+	
+	
+	private void setNotch(Notch notch, int edgeNum, int edgeNumAfter){
+		
+		
+		notch.translate(this.edges.get(edgeNum).start.getX(),this.edges.get(edgeNum).start.getY());
+		notch.merge(this,edgeNumAfter,edgeNum);
+	}
+	
+	
+	private void generateHole(double radius){
+		int res = 50; // we will define the circles by a set of evenly spaced points. This variable controls the number of points in your circles 
+
+	    for(int i=0;i<res;i++){ //loop over the number of points in the circle
+	   
+	       double alpha = Math.PI*2/drawLimit; // determines the degree position of your current point
+	  
+	       float cirtheta = i*_alpha; //current position on circle for your intended point
+	 
+	      drawPoint(width/2, height/2,cirtheta,diameter); //this will generate the center circle
+
+	   }
+		
+	}
+	}
+	
+	
+}

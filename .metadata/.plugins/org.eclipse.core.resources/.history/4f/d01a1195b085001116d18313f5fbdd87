@@ -1,0 +1,17 @@
+package com.design;
+
+public class Rib extends Part {
+
+	
+	
+	public Rib(double width, double height){
+		super(width,height);
+	}
+	public void addNotches(double notchWidth, double notchHeight){
+		Notch notch = new Notch(notchWidth,notchHeight);
+		notch.translate(rib.edges.get(5).start.getX()+ribNotchXOffset,rib.edges.get(5).start.getY()+ribNotchYOffset);
+		testNotch.merge(rib);
+			
+	}
+	
+}

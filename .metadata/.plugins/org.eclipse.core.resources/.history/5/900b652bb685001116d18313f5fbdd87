@@ -1,0 +1,31 @@
+package com.design;
+import com.design.Notch;
+
+public class Rib extends Part {
+
+	
+	
+	public Rib(double width, double height){
+		super(width,height);
+	}
+	public void addNotches(double notchWidth, double notchHeight, double ribNotchOffset,double topCirclePos,double bottomCirclePos){
+		Notch notch1 = new Notch(notchWidth,notchHeight);
+		Notch notch2 = new Notch(notchWidth,notchHeight);
+		int edgeNum=1;
+		for(int i=1;i<edges.size()/2-1;i++){
+			System.out.println("rib edge y="+edges.get(i).start.getY());
+			System.out.println("notch offset ="+topCirclePos);
+			
+			if(edges.get(i).start.getY()<=topCirclePos && edges.get(i+1).start.getY()>=topCirclePost ){
+					edgeNum=i;
+					System.out.println("found level at"+i);
+				}
+			
+			
+		}
+		notch1.translate(this.edges.get(edgeNum).start.getX()+ribNotchOffset,this.edges.get(edgeNum).start.getY());
+		notch1.merge(this);
+			
+	}
+	
+}

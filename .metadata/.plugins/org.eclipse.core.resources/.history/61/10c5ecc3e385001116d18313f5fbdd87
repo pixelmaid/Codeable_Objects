@@ -1,0 +1,47 @@
+package com.design;
+
+import com.math.CompPoint;
+
+public class Base extends Part {
+	public String type;
+	public Base(double width, double height, String type){
+		super(width,height);
+		this.type = type;
+	}
+	
+	public void addNotches(double notchWidth, double notchHeight, double ribNotchOffset,int ribNum){
+		
+		for(int i =0;i<ribNum;i++){
+			//double alpha = 0-((Math.PI*2/ribNum)*180/Math.PI)+360/(ribNum*2); // determines the degree position of your current point
+			double alpha = 360/ribNum;
+			double theta = (ribNum-i)*alpha; //current position on circle for your intended point
+			System.out.println("alpha="+alpha);
+			System.out.println("theta="+theta);
+			Notch notch = new Notch(notchWidth,notchHeight);
+			
+				notch.rotate(theta, notch.focus);
+			
+			int after=0;
+			if(i==ribNum-1){
+				after=0;
+			}
+			else{
+				after=i+1;
+			}
+			this.setNotch(notch,i,after);
+		}
+		
+		
+			
+	}
+	
+	
+	private void setNotch(Notch notch, int edgeNum, int edgeNumAfter){
+		
+		
+		notch.translate(this.edges.get(edgeNum).start.getX(),this.edges.get(edgeNum).start.getY());
+		notch.merge(this,edgeNum,edgeNumAfter);
+	}
+	
+	
+}

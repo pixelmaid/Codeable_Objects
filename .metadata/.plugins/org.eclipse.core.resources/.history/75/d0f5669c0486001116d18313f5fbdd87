@@ -1,0 +1,480 @@
+package com.design;
+import java.util.Random;
+import java.util.Vector;
+
+import processing.core.PApplet;
+
+import com.algorithm.VoronoiGenerator;
+import com.datastruct.DCHalfEdge;
+import com.datastruct.DoublyConnectedEdgeList;
+import com.math.CompPoint;
+import com.math.CompPoint3d;
+import com.math.Trig;
+
+public class VoronoiPointController {
+	private VoronoiGenerator vorGenerator;
+	private PApplet myParent;
+	private Vector<CompPoint> currentPoints;
+	public LampShape lamp;
+	private DoublyConnectedEdgeList border;
+	private DoublyConnectedEdgeList ribBorder;
+	private float width;
+	private float height;
+	private boolean drawPoints = false;
+
+
+	public VoronoiPointController(PApplet myParent){
+
+		this.myParent = myParent;
+		this.width = myParent.width;
+		this.height = myParent.height;
+		vorGenerator = new VoronoiGenerator(myParent);
+		currentPoints = new Vector<CompPoint>();
+		this.lamp=new LampShape(myParent);
+		border = new DoublyConnectedEdgeList();
+		double decrease= 100;
+		DCHalfEdge top = new DCHalfEdge(new CompPoint(width/2,decrease),new CompPoint(decrease,height/2));
+		DCHalfEdge right = new DCHalfEdge(new CompPoint(decrease,height/2),new CompPoint(width/2,height-decrease));
+		DCHalfEdge bottom = new DCHalfEdge(new CompPoint(width/2,height-decrease),new CompPoint(width-decrease,height/2));
+		DCHalfEdge left = new DCHalfEdge(new CompPoint(width-decrease,height/2),new CompPoint(width/2,decrease));
+		border.addHalfEdge(top);
+		border.addHalfEdge(right);
+		border.addHalfEdge(bottom);
+		border.addHalfEdge(left);
+
+
+
+
+	}
+
+	public void setWidth(float width){
+		this.lamp.maxWidth=width*this.lamp.ptMilConversion;
+	}
+
+	public void setHeight(float height){
+		this.lamp.maxHeight=height*this.lamp.ptMilConversion;
+	}
+
+	public void setTopWidth(float top){
+		if(top*this.lamp.ptMilConversion>Math.max(this.lamp.maxWidth, this.lamp.bottomWidth)){
+			this.lamp.topWidth=Math.min(this.lamp.maxWidth, this.lamp.bottomWidth);
+		}
+		else{
+			this.lamp.topWidth = top*this.lamp.ptMilConversion;
+		}
+	}
+
+	public void setBottomWidth(float bottom){
+		this.lamp.bottomWidth= bottom*this.lamp.ptMilConversion;
+	}
+	
+	public void setResolution(int resolution){
+		this.lamp.curveResolution=resolution;
+	}
+
+	public void setSideNum(int side){
+		this.lamp.ribNum = side;
+	}
+
+	
+	public void setTopCirclePos(float pos){
+		this.lamp.topCirclePos=pos*this.lamp.ptMilConversion;
+	}
+
+	public void setBottomCirclePos(float pos){
+		this.lamp.bottomCirclePos=pos*this.lamp.ptMilConversion;
+	}
+	
+	public void setTopHoleWidth(float width){
+		this.lamp.topHoleWidth=width*this.lamp.ptMilConversion;
+	}
+
+	public void setBottomHoleWidth(float width){
+		this.lamp.bottomHoleWidth=width*this.lamp.ptMilConversion;
+	}
+	
+
+	public void addPoint(double x, double y){
+		currentPoints.addElement(new CompPoint(x,y));
+
+	}
+
+
+	public void clearAllPoints(){
+		currentPoints = new Vector<CompPoint>();
+
+	}
+	public void removePoint(double x, double y){
+		CompPoint tempPoint   = new CompPoint(x,y);
+
+		for (int i=0;i<currentPoints.size();i++){
+			CompPoint point = currentPoints.get(i);
+			if((point.getX()==tempPoint.getX())&&(point.getY()==tempPoint.getY())){
+				currentPoints.remove(i);
+			}
+		}
+	}
+
+
+	public void drawPoints(boolean set){
+		drawPoints = set;
+	}
+
+
+	private double getRandomRanged(double aStart, double aEnd, Random aRandom){
+		if ( aStart > aEnd ) {
+			throw new IllegalArgumentException("Start cannot exceed End.");
+		}
+		//get the range, casting to long to avoid overflow problems
+		double range = aEnd - aStart;
+		// compute a fraction of the range, 0 <= frac < range
+		double fraction = (range * aRandom.nextGaussian());
+		double randomNumber =  (fraction + aStart);    
+		return randomNumber;
+	}
+
+	
+
+	public void drawScreen(int screenNum){
+		if(screenNum==0){
+			this.draw3d();
+		}
+		if(screenNum==1){
+			this.drawParts();
+		}
+		
+		if(screenNum==2){
+	      this.drawDiagram();
+		}
+	  
+	}
+	
+	public void draw3d(){
+		myParent.loop();
+		lamp.drawModel();
+		
+		
+	}
+	
+	public void saveFiles(){
+		myParent.translate(width/2,0,0);
+		myParent.background(200,200,200);
+		String filename1="rib.pdf";
+		String filename2="topBase.pdf";
+		String filename3="bottomBase.pdf";
+		String filename4="shade.pdf";
+		String filename5="pattern.pdf";
+		
+		lamp.saveRib(filename1);
+		lamp.savetopBase(filename2);
+		lamp.savebottomBase(filename3);
+		lamp.saveShade(filename4);
+		
+		this.savePattern(filename5);
+		
+		
+	}
+	
+	public void drawParts(){
+		DoublyConnectedEdgeList [] borders = lamp.drawLamp();
+		this.border = borders[0];
+		this.ribBorder = borders[1];
+		if(drawPoints){
+			myParent.stroke(255,0,0);
+			myParent.strokeWeight(3);
+			for (int i=0;i<currentPoints.size();i++){
+				CompPoint point = currentPoints.get(i); 
+
+				myParent.point((float)point.getX(),(float)point.getY());
+
+			}
+		}
+
+
+		//add noise to points location to prevent issue with same x or y coordinates
+		double focusX = width/2;
+		double focusY = height/2;
+		Vector<CompPoint> rotatedPoints = new Vector<CompPoint>();
+		Random randomGenerator = new Random();
+		for(int i=0;i<currentPoints.size();i++){
+			CompPoint point = currentPoints.get(i);
+			double x = point.getX();
+			double y = point.getY();
+
+			double dx=x-focusX; //direction x
+			double dy=y-focusY; //direction y
+			double pointTheta = Trig.cartToPolar(dx, dy)[1];//degree of edge
+			double pointR = Trig.cartToPolar(dx, dy)[0];//degree of edge
+
+
+			double newTheta = pointTheta + getRandomRanged(-0.01, 0.01, randomGenerator);
+			double xNew = Math.cos(newTheta * Math.PI/ 180.0)*pointR;
+			double yNew = Math.sin(newTheta * Math.PI/ 180.0)*pointR;
+			CompPoint newPoint = new CompPoint(xNew+focusX,yNew+focusY);
+			//myParent.println("x="+x+" y="+y+"dOldx="+dx+" dOldy="+dy+" r="+pointR+" theta="+pointTheta+" new theta="+newTheta+" dnewX="+xNew+" dnewY="+yNew+" newX="+(xNew+focusX)+" newY="+(yNew+focusY));
+
+		/*	myParent.strokeWeight(3);
+		myParent.stroke(0,255,0);
+		 myParent.point((float)newPoint.getX(),(float)newPoint.getY());*/
+			rotatedPoints.addElement(newPoint);
+
+		}
+
+
+		Vector <DCHalfEdge> elist = vorGenerator.getEdges(rotatedPoints,border,myParent.width,myParent.height);
+		myParent.loop();
+		lamp.drawParts();
+		
+	}
+	
+	public void savePattern(String fileName){
+		myParent.beginRaw(myParent.PDF, fileName); //enables you to save your design to a pdf
+		myParent.background(100,100,100);
+		myParent.translate(0,0,0);
+		
+		DoublyConnectedEdgeList [] borders = lamp.drawLamp();
+		this.border = borders[0];
+		this.ribBorder = borders[1];
+		if(drawPoints){
+			myParent.stroke(255,0,0);
+			myParent.strokeWeight(3);
+			for (int i=0;i<currentPoints.size();i++){
+				CompPoint point = currentPoints.get(i); 
+
+				myParent.point((float)point.getX(),(float)point.getY());
+
+			}
+		}
+
+
+
+
+
+		//add noise to points location to prevent issue with same x or y coordinates
+		double focusX = width/2;
+		double focusY = height/2;
+		Vector<CompPoint> rotatedPoints = new Vector<CompPoint>();
+		Random randomGenerator = new Random();
+		for(int i=0;i<currentPoints.size();i++){
+			CompPoint point = currentPoints.get(i);
+			double x = point.getX();
+			double y = point.getY();
+
+			double dx=x-focusX; //direction x
+			double dy=y-focusY; //direction y
+			double pointTheta = Trig.cartToPolar(dx, dy)[1];//degree of edge
+			double pointR = Trig.cartToPolar(dx, dy)[0];//degree of edge
+
+
+			double newTheta = pointTheta + getRandomRanged(-0.01, 0.01, randomGenerator);
+			double xNew = Math.cos(newTheta * Math.PI/ 180.0)*pointR;
+			double yNew = Math.sin(newTheta * Math.PI/ 180.0)*pointR;
+			CompPoint newPoint = new CompPoint(xNew+focusX,yNew+focusY);
+			//myParent.println("x="+x+" y="+y+"dOldx="+dx+" dOldy="+dy+" r="+pointR+" theta="+pointTheta+" new theta="+newTheta+" dnewX="+xNew+" dnewY="+yNew+" newX="+(xNew+focusX)+" newY="+(yNew+focusY));
+
+		/*	myParent.strokeWeight(3);
+		myParent.stroke(0,255,0);
+		 myParent.point((float)newPoint.getX(),(float)newPoint.getY());*/
+			rotatedPoints.addElement(newPoint);
+
+		}
+
+
+		Vector <DCHalfEdge> elist = vorGenerator.getEdges(rotatedPoints,border,myParent.width,myParent.height);
+	
+
+		for(int i=0;i<border.edges.size(); i++){
+			DCHalfEdge edge = border.edges.get(i);
+
+
+			float edgeStartX=(float)(edge.start.getX());
+			float edgeStartY=(float)(edge.start.getY());
+
+			float edgeEndX=(float)(edge.end.getX());
+			float edgeEndY=(float)(edge.end.getY());
+			myParent.stroke(0);
+			myParent.strokeWeight(1);
+
+			myParent.line(edgeStartX,edgeStartY,edgeEndX,edgeEndY);
+			/*myParent.stroke(255,0,0);
+			myParent.strokeWeight(3);
+			  myParent.point((float)edge.start.getX(), (float)edge.start.getY());
+			myParent.stroke(0,255,0);
+			myParent.strokeWeight(5);
+			myParent.point((float)edge.end.getX(), (float)edge.end.getY());*/
+
+		}
+
+		myParent.println("drew border");
+		for (int k=0;k<elist.size();k++) {
+			//myParent.println("look for k");
+			DCHalfEdge edge = elist.get(k);
+			// myParent.println("found k");
+			// myParent.println("edge.start="+edge.start);
+			// myParent.println("edge.end="+edge.end);
+			if(edge.end!=null && edge.start!=null){	
+				float edgeStartX=(float)Math.round((edge.start.getX()));
+				float edgeStartY=(float)Math.round((edge.start.getY()));
+
+				float edgeEndX=(float)Math.round((edge.end.getX()));
+				float edgeEndY=(float)Math.round((edge.end.getY()));
+				if(edge.infiniteEdge==1){
+					//myParent.stroke(255);
+				}
+
+				else if(edge.infiniteEdge==2){
+					//myParent.stroke(255,100,0);
+				}
+
+				myParent.stroke(0);
+
+				myParent.strokeWeight(1);
+				if(edge.inner){
+					myParent.stroke(255,0,0);
+				}
+				myParent.line(edgeStartX,edgeStartY,edgeEndX,edgeEndY);
+				myParent.stroke(255,0,0);
+				myParent.strokeWeight(3);
+				// myParent.point((float)edge.start.getX(), (float)edge.start.getY());
+				myParent.stroke(0,255,0);
+				myParent.strokeWeight(5);
+				// myParent.point((float)edge.end.getX(), (float)edge.end.getY());
+
+				myParent.stroke(105,252,204);
+				myParent.strokeWeight(3);
+				// myParent.point((float)(edge.direction.getX()+edge.start.getX()), (float)(edge.direction.getY()+edge.start.getY()));
+
+
+			}
+
+		}
+		myParent.endRaw(); //ends the recording
+		
+	}
+	
+	public void drawDiagram(){
+		myParent.background(100,100,100);
+		myParent.translate(0,0,-300);
+		myParent.noLoop();
+		DoublyConnectedEdgeList [] borders = lamp.drawLamp();
+		this.border = borders[0];
+		this.ribBorder = borders[1];
+		if(drawPoints){
+			myParent.stroke(255,0,0);
+			myParent.strokeWeight(3);
+			for (int i=0;i<currentPoints.size();i++){
+				CompPoint point = currentPoints.get(i); 
+
+				myParent.point((float)point.getX(),(float)point.getY());
+
+			}
+		}
+
+
+
+
+
+		//add noise to points location to prevent issue with same x or y coordinates
+		double focusX = width/2;
+		double focusY = height/2;
+		Vector<CompPoint> rotatedPoints = new Vector<CompPoint>();
+		Random randomGenerator = new Random();
+		for(int i=0;i<currentPoints.size();i++){
+			CompPoint point = currentPoints.get(i);
+			double x = point.getX();
+			double y = point.getY();
+
+			double dx=x-focusX; //direction x
+			double dy=y-focusY; //direction y
+			double pointTheta = Trig.cartToPolar(dx, dy)[1];//degree of edge
+			double pointR = Trig.cartToPolar(dx, dy)[0];//degree of edge
+
+
+			double newTheta = pointTheta + getRandomRanged(-0.01, 0.01, randomGenerator);
+			double xNew = Math.cos(newTheta * Math.PI/ 180.0)*pointR;
+			double yNew = Math.sin(newTheta * Math.PI/ 180.0)*pointR;
+			CompPoint newPoint = new CompPoint(xNew+focusX,yNew+focusY);
+			//myParent.println("x="+x+" y="+y+"dOldx="+dx+" dOldy="+dy+" r="+pointR+" theta="+pointTheta+" new theta="+newTheta+" dnewX="+xNew+" dnewY="+yNew+" newX="+(xNew+focusX)+" newY="+(yNew+focusY));
+
+		/*	myParent.strokeWeight(3);
+		myParent.stroke(0,255,0);
+		 myParent.point((float)newPoint.getX(),(float)newPoint.getY());*/
+			rotatedPoints.addElement(newPoint);
+
+		}
+
+
+		Vector <DCHalfEdge> elist = vorGenerator.getEdges(rotatedPoints,border,myParent.width,myParent.height);
+	
+
+		for(int i=0;i<border.edges.size(); i++){
+			DCHalfEdge edge = border.edges.get(i);
+
+
+			float edgeStartX=(float)(edge.start.getX());
+			float edgeStartY=(float)(edge.start.getY());
+
+			float edgeEndX=(float)(edge.end.getX());
+			float edgeEndY=(float)(edge.end.getY());
+			myParent.stroke(0);
+			myParent.strokeWeight(1);
+
+			myParent.line(edgeStartX,edgeStartY,edgeEndX,edgeEndY);
+			/*myParent.stroke(255,0,0);
+			myParent.strokeWeight(3);
+			  myParent.point((float)edge.start.getX(), (float)edge.start.getY());
+			myParent.stroke(0,255,0);
+			myParent.strokeWeight(5);
+			myParent.point((float)edge.end.getX(), (float)edge.end.getY());*/
+
+		}
+
+		myParent.println("drew border");
+		for (int k=0;k<elist.size();k++) {
+			//myParent.println("look for k");
+			DCHalfEdge edge = elist.get(k);
+			// myParent.println("found k");
+			// myParent.println("edge.start="+edge.start);
+			// myParent.println("edge.end="+edge.end);
+			if(edge.end!=null && edge.start!=null){	
+				float edgeStartX=(float)Math.round((edge.start.getX()));
+				float edgeStartY=(float)Math.round((edge.start.getY()));
+
+				float edgeEndX=(float)Math.round((edge.end.getX()));
+				float edgeEndY=(float)Math.round((edge.end.getY()));
+				if(edge.infiniteEdge==1){
+					//myParent.stroke(255);
+				}
+
+				else if(edge.infiniteEdge==2){
+					//myParent.stroke(255,100,0);
+				}
+
+				myParent.stroke(0);
+
+				myParent.strokeWeight(1);
+				if(edge.inner){
+					myParent.stroke(255,0,0);
+				}
+				myParent.line(edgeStartX,edgeStartY,edgeEndX,edgeEndY);
+				myParent.stroke(255,0,0);
+				myParent.strokeWeight(3);
+				// myParent.point((float)edge.start.getX(), (float)edge.start.getY());
+				myParent.stroke(0,255,0);
+				myParent.strokeWeight(5);
+				// myParent.point((float)edge.end.getX(), (float)edge.end.getY());
+
+				myParent.stroke(105,252,204);
+				myParent.strokeWeight(3);
+				// myParent.point((float)(edge.direction.getX()+edge.start.getX()), (float)(edge.direction.getY()+edge.start.getY()));
+
+
+			}
+
+		}
+	}
+
+
+
+
+}

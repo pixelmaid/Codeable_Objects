@@ -1,0 +1,34 @@
+package com.design;
+import com.design.Notch;
+
+public class Rib extends Part {
+
+	
+	
+	public Rib(double width, double height){
+		super(width,height);
+	}
+	public void addNotches(double notchWidth, double notchHeight, double ribNotchOffset,double topCirclePos,double bottomCirclePos){
+		Notch notch1 = new Notch(notchWidth,notchHeight);
+		Notch notch2 = new Notch(notchWidth,notchHeight);
+		
+		for(int i=0;i<edges.size();i++){
+			if(i==0){
+				if(edges.get(i).end.getY()>=ribNotchOffset){
+					edgeNum=0;
+					break;
+				}
+			}
+			else{
+				
+			}
+			
+		}
+		
+		int edgeNum = 5;
+		notch1.translate(this.edges.get(edgeNum).start.getX()+ribNotchOffset,this.edges.get(edgeNum).start.getY());
+		notch1.merge(this);
+			
+	}
+	
+}

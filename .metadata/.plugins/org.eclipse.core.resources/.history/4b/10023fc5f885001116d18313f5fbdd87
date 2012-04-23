@@ -1,0 +1,5 @@
+package com.datastruct;
+
+public class DCHalfEdge3d extends DCHalfEdge {
+
+}

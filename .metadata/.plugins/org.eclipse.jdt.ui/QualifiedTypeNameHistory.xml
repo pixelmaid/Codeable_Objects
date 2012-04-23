@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.design.Notch"/>
+<fullyQualifiedTypeName name="com.math.CompPoint"/>
+<fullyQualifiedTypeName name="com.math.Trig"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="com.datastruct.DCHalfEdge"/>
+<fullyQualifiedTypeName name="com.math.CompPoint3d"/>
+<fullyQualifiedTypeName name="com.datastruct.DCHalfEdge3d"/>
+</qualifiedTypeNameHistroy>

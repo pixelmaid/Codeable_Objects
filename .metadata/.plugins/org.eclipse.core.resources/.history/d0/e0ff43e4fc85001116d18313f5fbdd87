@@ -1,0 +1,490 @@
+package com.design;
+
+import java.util.Vector;
+
+import processing.core.PApplet;
+
+import com.datastruct.DCHalfEdge;
+import com.datastruct.DCHalfEdge3d;
+import com.datastruct.DoublyConnectedEdgeList;
+import com.math.CompPoint;
+import com.math.CompPoint3d;
+import com.math.Trig;
+
+public class LampShape {
+
+	public double ptMilConversion=2.834654597337315; //converts from points to millimeters
+	
+	public int ribNum = 8; //number of ribs of the lamp
+	
+	private double ribWidth = 11.445*ptMilConversion; //width of each rib
+	
+	public double topCirclePos=60*ptMilConversion; //position for the top circle
+	
+	public double bottomCirclePos=240*ptMilConversion; //position for the bottom circle
+
+	public int curveResolution = 100;//resolution of the curve of the lamp;
+
+	private double[][] radArray; //contains the radiuses of all of the cylinders
+
+	public double maxWidth =100*ptMilConversion; //max width and height of the lamp
+	public double maxHeight= 300*ptMilConversion;
+
+	public double topWidth=20*ptMilConversion; //cutoff range for top and bottom (must be less than half of the cylinder number or will error out)
+	public double bottomWidth=5*ptMilConversion;
+	
+	public double topHoleWidth=10*ptMilConversion;
+	public double bottomHoleWidth=3*ptMilConversion;
+	
+	private double ribNotchOffset = 1*ptMilConversion;
+	
+	
+	
+	private double notchWidth = 8.92*ptMilConversion;
+	private double notchHeight = 5.64*ptMilConversion;
+	
+	private Vector<DCHalfEdge3d> model = new Vector<DCHalfEdge3d>();
+
+	private PApplet myParent;
+
+	private Shade shade;
+	
+	private Rib rib;
+	
+	private Base bottomBase;
+	
+	private Base topBase;
+
+	public LampShape(PApplet myParent){
+		this.myParent = myParent;
+	}
+
+	public DoublyConnectedEdgeList[] drawLamp(){
+		
+		
+		
+		/*need to calc width and height */
+		shade = new Shade(0,0);
+		rib = new Rib(0,0);
+		bottomBase = new Base(0,0,"bottom");
+		topBase = new Base(0,0,"top");
+
+	
+		generateBody(ribNum);
+		
+		
+		
+		shade.translate(myParent.width/2,0);
+		
+		
+		
+		
+		//add notches
+		rib.addNotches(notchWidth,notchHeight,ribNotchOffset,topCirclePos,bottomCirclePos);
+		
+		generateBases(ribNum);
+		bottomBase.addNotches(notchWidth*2, notchHeight, ribNotchOffset,ribNum);
+		topBase.addNotches(notchWidth*2, notchHeight, ribNotchOffset,ribNum);
+		
+		bottomBase.generateHole(bottomHoleWidth);
+		
+		topBase.generateHole(topHoleWidth);
+		
+		rib.translate(myParent.width/2,0);
+		
+	
+		
+		//return all parts
+		
+		Part[] borders = new Part[4];
+		borders[0]=shade;
+		borders[1]=rib;
+		borders[2]=topBase;
+		borders[3]=bottomBase;
+		
+		return borders;
+	}
+
+
+//this generates the bases but duplicates code from generating the body. will need to clean that up
+	private void generateBases(int sides){
+		
+		double angle;
+
+		  DoublyConnectedEdgeList radEdges = new DoublyConnectedEdgeList();
+
+		  CompPoint top = new CompPoint((maxWidth-topWidth)/2, 0);
+		  CompPoint middle = new CompPoint(0, maxHeight/2);
+		  CompPoint bottom = new CompPoint((maxWidth-bottomWidth)/2, maxHeight);
+
+		  double y1= top.getY();
+		  double x1=top.getX();
+		  double y2= middle.getY();
+		  double x2= middle.getX();
+		  double y3= bottom.getY();
+		  double x3=bottom.getX();
+
+
+		  double denom = (y1 - y2)*(y1 - y3)*(y2 - y3);
+		  double a = (y3 * (x2 - x1) + y2 * (x1 - x3) + y1 * (x3 - x2)) / denom;
+		  double b = (Math.pow((float)y3, 2.0) * (x1 - x2) + Math.pow((float)y2, 2.0) * (x3 - x1) + Math.pow((float)y1, 2.0) * (x2 - x3)) / denom;
+		  double c = (y2 * y3 * (y2 - y3) * x1 + y3 * y1 * (y3 - y1) * x2 + y1 * y2 * (y1 - y2) * x3) / denom ;
+
+		  System.out.println("a,b,c="+a+","+b+","+c);
+		  
+		  
+
+		  for (int i=0; i<curveResolution+1; i++) {
+		    double startPointY = (maxHeight/curveResolution)*i;
+
+		    double startPointX = a*startPointY*startPointY+b*startPointY+c;
+
+		    double endPointX = maxWidth/2;
+		    CompPoint start= new CompPoint(startPointX, startPointY);
+		    CompPoint end = new CompPoint(endPointX, startPointY);
+
+		    DCHalfEdge rad = new DCHalfEdge(start, end);
+		    //rad.translate(width/2, height/2, new CompPoint(maxWidth/2, maxHeight/2));
+		    radEdges.addHalfEdge(rad);
+		  }
+
+
+		  int levels = radEdges.edges.size();
+
+		  double[][] xMainTop = new double[levels][];
+		  double[][] zMainTop = new double[levels][];
+		  double[][] xMainBottom = new double[levels][];
+		  double[][] zMainBottom = new double[levels][];
+		  double[] yMainTop = new double[levels];
+		  double[] yMainBottom = new double[levels];
+
+		  //get the x and z position on a circle for all the sides
+		  for (int j =0; j < levels-1; j++) {
+		    double[] xTop = new double[sides+1];
+		    double[] zTop = new double[sides+1];
+		    double[] xBottom = new double[sides+1];
+		    double[] zBottom = new double[sides+1];
+		    double currentTopRad = 0;
+		    double currentBottomRad = 0;
+		    DCHalfEdge edge = radEdges.edges.get(j);
+		    DCHalfEdge edgeAfter = radEdges.edges.get(j+1);
+
+
+		    currentTopRad = Math.abs((float)(edge.start.getX()-edge.end.getX()));
+
+
+		    currentBottomRad = Math.abs((float)(edgeAfter.start.getX()-edgeAfter.end.getX()));
+
+		    yMainTop[j]=edge.start.getY();
+		    yMainBottom[j]=edgeAfter.start.getY();
+
+		    double angleOffset =-0.5;
+
+		    for (double i= angleOffset; i < sides+angleOffset+1; i++) {
+		      angle = (Math.PI*2) / (sides) * i;
+
+
+		      xTop[(int)(i-angleOffset)] = Math.sin(angle) * currentTopRad;
+		      zTop[(int)(i-angleOffset)] = Math.cos(angle) * currentTopRad;
+
+		      xBottom[(int)(i-angleOffset)] = Math.sin(angle) * currentBottomRad;
+		      zBottom[(int)(i-angleOffset)] = Math.cos(angle) * currentBottomRad;
+		    }
+		    xMainTop[j]=xTop;
+		    xMainBottom[j]=xBottom;
+		    zMainTop[j]=zTop;
+		    zMainBottom[j]=zBottom;
+		  }
+
+		
+		
+		myParent.println("starting center");
+		//draw the center of the cylinder
+		
+		for(int j =0; j < levels-1; j++){
+			for(int i=0; i < sides+1; i++){
+				
+				CompPoint3d topVertex = new  CompPoint3d(xMainTop[j][i], yMainTop[j], zMainTop[j][i]);
+				CompPoint3d bottomVertex = new  CompPoint3d(xMainBottom[j][i], yMainBottom[j], zMainBottom[j][i]); //will need to save these to a vector
+				model.addElement(new DCHalfEdge3d(topVertex,bottomVertex));
+				
+				
+			}
+		}
+			
+			for(int i=0; i < sides+1; i++){
+				 int after = i+1;
+			      if(i==sides){
+			        after=0;
+			      }
+			      
+			      
+				DCHalfEdge outerBottomCircle = new DCHalfEdge(new CompPoint(xMainTop[rib.bottomNotchPos][i], zMainTop[rib.bottomNotchPos][i]), new CompPoint(xMainTop[rib.bottomNotchPos][after], zMainTop[rib.bottomNotchPos][after]));
+				//DCHalfEdge innerBottomCircle = new DCHalfEdge(new CompPoint(xMainTop[bottomCutoff-5][i], zMainTop[bottomCutoff-5][i]), new CompPoint(xMainTop[bottomCutoff-5][after], zMainTop[bottomCutoff-5][after]));
+				
+				DCHalfEdge outerTopCircle = new DCHalfEdge(new CompPoint(xMainTop[rib.topNotchPos][i], zMainTop[rib.topNotchPos][i]),new CompPoint(xMainTop[rib.topNotchPos][after], zMainTop[rib.topNotchPos][after]));
+				//DCHalfEdge innerTopCircle = new DCHalfEdge(new CompPoint(xMainTop[topCutoff-5][i], zMainTop[topCutoff-5][i]),new CompPoint(xMainTop[topCutoff-5][after], zMainTop[topCutoff-5][after]));
+				
+				bottomBase.addHalfEdge(outerBottomCircle);
+				//bottomBase.addHalfEdge(innerBottomCircle);
+				
+				topBase.addHalfEdge(outerTopCircle);
+				//topBase.addHalfEdge(innerTopCircle);
+				
+				
+				
+			
+		}
+	}
+
+	private void generateBody(int sides )
+	{
+		double angle;
+
+		  DoublyConnectedEdgeList radEdges = new DoublyConnectedEdgeList();
+
+		  CompPoint top = new CompPoint((maxWidth-topWidth)/2, 0);
+		  CompPoint middle = new CompPoint(0, maxHeight/2);
+		  CompPoint bottom = new CompPoint((maxWidth-bottomWidth)/2, maxHeight);
+
+		  double y1= top.getY();
+		  double x1=top.getX();
+		  double y2= middle.getY();
+		  double x2= middle.getX();
+		  double y3= bottom.getY();
+		  double x3=bottom.getX();
+
+
+		  double denom = (y1 - y2)*(y1 - y3)*(y2 - y3);
+		  double a = (y3 * (x2 - x1) + y2 * (x1 - x3) + y1 * (x3 - x2)) / denom;
+		  double b = (Math.pow((float)y3, 2.0) * (x1 - x2) + Math.pow((float)y2, 2.0) * (x3 - x1) + Math.pow((float)y1, 2.0) * (x2 - x3)) / denom;
+		  double c = (y2 * y3 * (y2 - y3) * x1 + y3 * y1 * (y3 - y1) * x2 + y1 * y2 * (y1 - y2) * x3) / denom ;
+
+		  System.out.println("a,b,c="+a+","+b+","+c);
+		  
+		  
+
+		  for (int i=0; i<curveResolution+1; i++) {
+		    double startPointY = (maxHeight/curveResolution)*i;
+
+		    double startPointX = a*startPointY*startPointY+b*startPointY+c;
+
+		    double endPointX = maxWidth/2;
+		    CompPoint start= new CompPoint(startPointX, startPointY);
+		    CompPoint end = new CompPoint(endPointX, startPointY);
+
+		    DCHalfEdge rad = new DCHalfEdge(start, end);
+		    //rad.translate(width/2, height/2, new CompPoint(maxWidth/2, maxHeight/2));
+		    radEdges.addHalfEdge(rad);
+		  }
+
+
+		  int levels = radEdges.edges.size();
+
+		  double[][] xMainTop = new double[levels][];
+		  double[][] zMainTop = new double[levels][];
+		  double[][] xMainBottom = new double[levels][];
+		  double[][] zMainBottom = new double[levels][];
+		  double[] yMainTop = new double[levels];
+		  double[] yMainBottom = new double[levels];
+
+		  //get the x and z position on a circle for all the sides
+		  for (int j =0; j < levels-1; j++) {
+		    double[] xTop = new double[sides+1];
+		    double[] zTop = new double[sides+1];
+		    double[] xBottom = new double[sides+1];
+		    double[] zBottom = new double[sides+1];
+		    double currentTopRad = 0;
+		    double currentBottomRad = 0;
+		    DCHalfEdge edge = radEdges.edges.get(j);
+		    DCHalfEdge edgeAfter = radEdges.edges.get(j+1);
+
+
+		    currentTopRad = Math.abs((float)(edge.start.getX()-edge.end.getX()));
+
+
+		    currentBottomRad = Math.abs((float)(edgeAfter.start.getX()-edgeAfter.end.getX()));
+
+		    yMainTop[j]=edge.start.getY();
+		    yMainBottom[j]=edgeAfter.start.getY();
+
+		    double angleOffset =-0.5;
+
+		    for (double i= angleOffset; i < sides+angleOffset+1; i++) {
+		      angle = (Math.PI*2) / (sides) * i;
+
+
+		      xTop[(int)(i-angleOffset)] = Math.sin(angle) * currentTopRad;
+		      zTop[(int)(i-angleOffset)] = Math.cos(angle) * currentTopRad;
+
+		      xBottom[(int)(i-angleOffset)] = Math.sin(angle) * currentBottomRad;
+		      zBottom[(int)(i-angleOffset)] = Math.cos(angle) * currentBottomRad;
+		    }
+		    xMainTop[j]=xTop;
+		    xMainBottom[j]=xBottom;
+		    zMainTop[j]=zTop;
+		    zMainBottom[j]=zBottom;
+		  }
+
+		
+		
+		
+			
+		
+		
+		myParent.println("starting edges");
+		
+		//create top of rib
+		DCHalfEdge ribTop = new DCHalfEdge(new CompPoint(zMainTop[0][0]+ribWidth, yMainTop[0]), new CompPoint(zMainTop[0][0], yMainTop[0]));
+		rib.addHalfEdge(ribTop);
+		
+		DCHalfEdge topEdge = new DCHalfEdge(new CompPoint(xMainTop[0][1], yMainTop[0]),new CompPoint(xMainTop[0][0], yMainTop[0]));
+		shade.addHalfEdge(topEdge);
+			
+
+		
+		myParent.println("left edge");
+		for (int j =0; j < levels-1; j++) {
+			
+			DCHalfEdge prevEdge = shade.edges.get(shade.edges.size()-1);
+			double dx = xMainBottom[j][0]-xMainTop[j][0];
+			double dy = yMainBottom[j]-yMainTop[j];
+			double edgeHeight = Math.sqrt(Math.pow(dx,2)+Math.pow(dy,2));
+			
+			double yTop = prevEdge.end.getY();
+			double yBottom = prevEdge.end.getY()+edgeHeight;
+			
+			DCHalfEdge leftSide = new DCHalfEdge(new CompPoint(xMainTop[j][0], yTop),new CompPoint(xMainBottom[j][0], yBottom));
+			shade.addHalfEdge(leftSide);
+			
+			DCHalfEdge leftRibSide = new DCHalfEdge(new CompPoint(zMainTop[j][0], yMainTop[j]), new CompPoint(zMainBottom[j][0], yMainBottom[j]));
+			rib.addHalfEdge(leftRibSide);
+			
+		}
+		
+		DCHalfEdge prevBottomEdge = shade.edges.get(shade.edges.size()-1);
+		DCHalfEdge bottomEdge = new DCHalfEdge(new CompPoint(xMainBottom[levels-2][0], prevBottomEdge.end.getY()),new CompPoint(xMainBottom[levels-2][1], prevBottomEdge.end.getY()));
+		shade.addHalfEdge(bottomEdge);
+		
+		DCHalfEdge ribBottom = new DCHalfEdge( new CompPoint(zMainBottom[levels-2][0], yMainBottom[levels-2]),new CompPoint(zMainBottom[levels-2][0]+ribWidth, yMainBottom[levels-2]));
+		rib.addHalfEdge(ribBottom);
+		
+		
+		myParent.println("right edge");
+		for (int j =levels-2; j >= 0; j--) {
+			
+			DCHalfEdge prevEdge = shade.edges.get(shade.edges.size()-1);
+			double dx = xMainBottom[j][0]-xMainTop[j][0];
+			double dy = yMainTop[j]-yMainBottom[j];
+			double edgeHeight = Math.sqrt(Math.pow(dx,2)+Math.pow(dy,2));
+			
+			double yTop = prevEdge.end.getY();
+			double yBottom = prevEdge.end.getY()-edgeHeight;
+			
+			
+			DCHalfEdge rightSide = new DCHalfEdge(new CompPoint(xMainBottom[j][1], yTop),new CompPoint(xMainTop[j][1], yBottom));
+			shade.addHalfEdge(rightSide);
+			
+			DCHalfEdge rightRibSide = new DCHalfEdge(new CompPoint(zMainBottom[j][0]+ribWidth, yMainBottom[j]),new CompPoint(zMainTop[j][0]+ribWidth, yMainTop[j]));
+			rib.addHalfEdge(rightRibSide);
+		}
+		
+		
+		
+		
+		
+		
+				
+	}
+	
+	public void drawModel(){
+		myParent.background(gray)
+		myParent.translate(myParent.width/2, 0);
+		myParent.rotateY((float)(myParent.frameCount*Math.PI/400));
+		myParent.beginShape(myParent.QUAD_STRIP);
+		myParent.stroke(255);
+		myParent.strokeWeight(1);
+		  for (int j =0; j < model.size(); j++) {
+			  CompPoint3d top = model.get(j).start;
+			  CompPoint3d bottom = model.get(j).end;
+		      myParent.vertex((float)top.getX(),(float)top.getY(),(float)top.getZ());
+		      myParent.vertex((float)bottom.getX(),(float)bottom.getY(),(float)bottom.getZ());
+		     
+		  }
+
+		  myParent.endShape();
+		
+	}
+	
+	public void drawParts(){
+		for (int j=0;j<shade.edges.size();j++) {  
+			DCHalfEdge edge = shade.edges.get(j);
+			float edgeStartX=(float)(edge.start.getX());
+		    float edgeStartY=(float)(edge.start.getY());
+		    
+		    float edgeEndX=(float)(edge.end.getX());
+		    float edgeEndY=(float)(edge.end.getY());
+		    myParent.stroke(0);
+			myParent.strokeWeight(1);
+			
+		   myParent.line(edgeStartX,edgeStartY,edgeEndX,edgeEndY);
+		  
+		 
+			
+		}
+		
+		for (int j=0;j<rib.edges.size();j++) {  
+			DCHalfEdge edge = rib.edges.get(j);
+			float edgeStartX=(float)(edge.start.getX());
+		    float edgeStartY=(float)(edge.start.getY());
+		    
+		    float edgeEndX=(float)(edge.end.getX());
+		    float edgeEndY=(float)(edge.end.getY());
+		    
+		    myParent.stroke(0);
+			myParent.strokeWeight(1);
+			if(edge.inner){
+				 myParent.stroke(255,0,0);
+			}
+		   myParent.line(edgeStartX,edgeStartY,edgeEndX,edgeEndY);
+		  
+			
+		}
+		
+		for (int j=0;j<bottomBase.edges.size();j++) {  
+			DCHalfEdge edge = bottomBase.edges.get(j);
+			float edgeStartX=(float)(edge.start.getX());
+		    float edgeStartY=(float)(edge.start.getY());
+		    
+		    float edgeEndX=(float)(edge.end.getX());
+		    float edgeEndY=(float)(edge.end.getY());
+		    myParent.stroke(0);
+			myParent.strokeWeight(1);
+			if(edge.inner){
+				 myParent.stroke(255,0,0);
+			}
+		   myParent.line(edgeStartX,edgeStartY,edgeEndX,edgeEndY);
+		   myParent.stroke(255,0,0);
+			
+		}
+		
+		for (int j=0;j<topBase.edges.size();j++) {  
+			DCHalfEdge edge = topBase.edges.get(j);
+			float edgeStartX=(float)(edge.start.getX());
+		    float edgeStartY=(float)(edge.start.getY());
+		    
+		    float edgeEndX=(float)(edge.end.getX());
+		    float edgeEndY=(float)(edge.end.getY());
+		    myParent.stroke(0);
+			myParent.strokeWeight(1);
+			if(edge.inner){
+				 myParent.stroke(255,0,0);
+			}
+		   myParent.line(edgeStartX,edgeStartY,edgeEndX,edgeEndY);
+		   myParent.stroke(255,0,0);
+			
+		}
+	}
+
+
+}

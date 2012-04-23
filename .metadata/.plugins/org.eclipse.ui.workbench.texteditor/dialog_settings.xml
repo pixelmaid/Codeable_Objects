@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="243" key="DIALOG_WIDTH"/>
+		<item value="104" key="DIALOG_Y_ORIGIN"/>
+		<item value="379" key="DIALOG_HEIGHT"/>
+		<item value="1033" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="drawParts" key="selection"/>
+		<list key="findhistory">
+			<item value="drawParts"/>
+			<item value="draw"/>
+			<item value="drawDiagram"/>
+			<item value="screen"/>
+			<item value="switch"/>
+			<item value="setTopHoleWidth"/>
+			<item value="myParent.translate"/>
+			<item value="myParent.translate(0,0,-300)"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+</section>

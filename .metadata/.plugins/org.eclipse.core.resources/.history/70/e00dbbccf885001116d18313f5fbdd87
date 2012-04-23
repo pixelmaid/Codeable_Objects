@@ -1,0 +1,17 @@
+package com.datastruct;
+
+import com.math.CompPoint3d;
+
+public class DCHalfEdge3d extends DCHalfEdge {
+	CompPoint3d start;
+	CompPoint3d end;
+	
+	
+	public DCHalfEdge(CompPoint3d start,CompPoint3d end ){//constructor for 3d points (for retrieval only)
+		this.start = start;
+		this.end = end;
+		
+	
+		
+	}
+}

@@ -1,0 +1,51 @@
+package com.design;
+
+import com.math.CompPoint;
+import com.math.Trig;
+
+public class Base extends Part {
+	public String type;
+	public Base(double width, double height, String type){
+		super(width,height);
+		this.type = type;
+	}
+	
+	public void addNotches(double notchWidth, double notchHeight, double ribNotchOffset,int ribNum){
+		
+		for(int i =ribNum-1;i>=0;i--){
+			//double alpha = 0-((Math.PI*2/ribNum)*180/Math.PI)+360/(ribNum*2); // determines the degree position of your current point
+			
+			double startTheta = Trig.cartToPolar(edges.get(0).start.getX(), edges.get(0).start.getY())[1];
+			double alpha = 360/ribNum;
+			double theta = 360-(i)*alpha; //current position on circle for your intended point
+			System.out.println("startTheta="+startTheta);
+			
+			System.out.println("theta="+theta);
+			Notch notch = new Notch(notchWidth,notchHeight);
+			
+				notch.rotate(theta, notch.focus);
+			
+			int after=0;
+			if(i==ribNum-1){
+				after=0;
+			}
+			else{
+				after=i+1;
+			}
+			this.setNotch(notch,i,after);
+		}
+		
+		
+			
+	}
+	
+	
+	private void setNotch(Notch notch, int edgeNum, int edgeNumAfter){
+		
+		
+		notch.translate(this.edges.get(edgeNum).start.getX(),this.edges.get(edgeNum).start.getY());
+		notch.merge(this,edgeNum,edgeNumAfter);
+	}
+	
+	
+}
