@@ -1,11 +1,13 @@
 package com.math;
 
+import com.primitives2d.Disc;
 import com.datastruct.DCHalfEdge;
 import com.datastruct.DoublyConnectedEdgeList;
+import processing.core.PApplet;
 
 import java.util.Vector;
 
-public class Trig {
+public class Geom {
 
 	public static CompPoint polarToCart(double r, double theta){
 		double x = Math.cos(theta * Math.PI/ 180.0)*r;
@@ -79,7 +81,7 @@ public class Trig {
 
 		double[] thetas = border.getBorderPoints(focus); //degrees of all points along the border
 
-		double edgeTheta = Trig.cartToPolar(dx, dy)[1];//degree of edge
+		double edgeTheta = Geom.cartToPolar(dx, dy)[1];//degree of edge
 		double selectedTheta=-1;
 		//myParent.println("\n\n\n edgeTheta="+edgeTheta+"\n\n\n");
 
@@ -156,7 +158,7 @@ public class Trig {
 
 		double[] thetas = border.getBorderPoints(focus); //degrees of all points along the border
 
-		double edgeTheta = Trig.cartToPolar(dx, dy)[1];//degree of edge
+		double edgeTheta = Geom.cartToPolar(dx, dy)[1];//degree of edge
 		double selectedTheta=-1;
 		//myParent.println("\n\n\n edgeTheta="+edgeTheta+"\n\n\n");
 
@@ -376,4 +378,42 @@ public class Trig {
 
 		return intersection;
 	}
+
+
+    public static boolean discEdgeIntersect(Disc disc, DCHalfEdge edge){
+        Vec2d seg_a = new Vec2d(edge.start.getX(),edge.start.getY());
+        Vec2d seg_b = new Vec2d(edge.end.getX(),edge.end.getY());
+        CompPoint closest = closestPoint(seg_a,seg_b,disc.origin);
+        double dist = new DCHalfEdge(closest,disc.origin).length;
+        if(dist>disc.radius){
+            return false;
+        }
+        else{
+            return true;
+        }
+
+    }
+
+    public static double clamp(double X, double Min, double Max)
+    {
+        if( X > Max )
+            X = Max;
+        else if( X < Min )
+            X = Min;
+
+        return X;
+    }
+
+
+    public static CompPoint closestPoint(Vec2d seg_a, Vec2d seg_b, CompPoint circleOrigin){
+    Vec2d v = seg_b.sub(seg_a);
+    Vec2d w = new Vec2d(circleOrigin.getX(),circleOrigin.getY()).sub(seg_a);
+    double vDotW = w.Dot(v);
+    double t = w.Dot(v)/v.Dot(v);
+    t = Geom.clamp(t,0,1);
+    Vec2d newVec =  seg_a.add(v.mul(t));
+    CompPoint closest = new CompPoint(newVec.x,newVec.y);
+    return closest;
+
+    }
 }

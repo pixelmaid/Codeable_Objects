@@ -74,7 +74,22 @@ public class CompPoint extends Point2D implements Comparable<CompPoint> {
 	    }
 	
 	
+    public CompPoint difference(CompPoint p){
+        CompPoint d = new CompPoint(this.getX()-p.getX(),this.getY()-p.getY());
+        return d;
 
+    }
+
+    public CompPoint add(CompPoint p){
+        CompPoint d = new CompPoint(this.getX()+p.getX(),this.getY()+p.getY());
+        return d;
+
+    }
+
+    public CompPoint scale(double scaleVal){
+        CompPoint s = new CompPoint(this.getX()*scaleVal,this.getY()*scaleVal);
+        return s;
+    }
 
 
 	public double angle(CompPoint p){
@@ -82,7 +97,7 @@ public class CompPoint extends Point2D implements Comparable<CompPoint> {
 		double x = p.x-this.x;
 		double y = p.y-this.y;
 
-		return Trig.cartToPolar(x, y)[1];
+		return Geom.cartToPolar(x, y)[1];
 	}
 }
 
