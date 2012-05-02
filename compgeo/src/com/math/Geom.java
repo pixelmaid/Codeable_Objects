@@ -406,14 +406,33 @@ public class Geom {
 
 
     public static CompPoint closestPoint(Vec2d seg_a, Vec2d seg_b, CompPoint circleOrigin){
-    Vec2d v = seg_b.sub(seg_a);
-    Vec2d w = new Vec2d(circleOrigin.getX(),circleOrigin.getY()).sub(seg_a);
-    double vDotW = w.Dot(v);
-    double t = w.Dot(v)/v.Dot(v);
-    t = Geom.clamp(t,0,1);
-    Vec2d newVec =  seg_a.add(v.mul(t));
-    CompPoint closest = new CompPoint(newVec.x,newVec.y);
+
+
+        Vec2d seg_v = seg_b.sub(seg_a);
+        Vec2d pt_v = new Vec2d(circleOrigin.getX(),circleOrigin.getY()).sub(seg_a);
+        Vec2d seg_v_unit = seg_v.div(seg_v.Length());
+        double proj = pt_v.Dot(seg_v_unit);
+        CompPoint closest;
+
+        if (proj <= 0){
+            closest = new CompPoint(seg_a.x,seg_b.x);
+        }
+        else if (proj >= seg_v.Length()){
+           closest = new CompPoint(seg_b.x,seg_b.x);
+        }
+
+        else{Vec2d proj_v = seg_v_unit.mul(proj);
+        Vec2d newVec =  proj_v.add(seg_a);
+        closest = new CompPoint(newVec.x,newVec.y);
+        }
     return closest;
+
+    }
+
+    public static double distance(CompPoint a, CompPoint b){
+
+        double distance = Math.sqrt(Math.pow(a.getX()-b.getX(),2)+Math.pow(a.getY()-b.getY(),2));
+        return distance;
 
     }
 }

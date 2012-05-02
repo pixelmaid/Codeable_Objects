@@ -6,7 +6,7 @@ import com.datastruct.voronoi.Arc;
 import com.datastruct.voronoi.VorEvent;
 import com.datastruct.voronoi.VorEventSorter;
 import com.math.CompPoint;
-import com.math.Trig;
+import com.math.Geom;
 import processing.core.PApplet;
 
 import java.util.Iterator;
@@ -293,18 +293,18 @@ public class VoronoiGenerator {
 
 
 		
-		boolean startInPolygon = Trig.pointInPolygon(edge.start,border);
-		boolean endInPolygon = Trig.pointInPolygon(edge.end,border);
+		boolean startInPolygon = Geom.pointInPolygon(edge.start, border);
+		boolean endInPolygon = Geom.pointInPolygon(edge.end, border);
 
 
 		if(!startInPolygon && !endInPolygon){
 
 			//myParent.println("deleted edge");
-			Vector<DCHalfEdge> intersectedEdges = Trig.lineIntersectsPolygon(edge, border);
+			Vector<DCHalfEdge> intersectedEdges = Geom.lineIntersectsPolygon(edge, border);
 			if(intersectedEdges.size()!=0){
 				
-					CompPoint intersection1 = Trig.findIntersectionPoint(edge,intersectedEdges.get(0));
-					CompPoint intersection2 = Trig.findIntersectionPoint(edge,intersectedEdges.get(1));
+					CompPoint intersection1 = Geom.findIntersectionPoint(edge, intersectedEdges.get(0));
+					CompPoint intersection2 = Geom.findIntersectionPoint(edge, intersectedEdges.get(1));
 					return new DCHalfEdge(intersection1,intersection2);
 					
 				
@@ -319,10 +319,10 @@ public class VoronoiGenerator {
 		}
 		else{
 			if(startInPolygon && !endInPolygon){
-				edge.end = Trig.getIntersectedEdgePoint(edge.start,edge.end,edge,border);
+				edge.end = Geom.getIntersectedEdgePoint(edge.start, edge.end, edge, border);
 			}
 			else if (!startInPolygon && endInPolygon){
-				edge.start = Trig.getIntersectedEdgePoint(edge.end,edge.start,edge,border);
+				edge.start = Geom.getIntersectedEdgePoint(edge.end, edge.start, edge, border);
 				
 			}
 			return edge;

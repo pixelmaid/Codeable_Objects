@@ -12,7 +12,7 @@ import com.algorithm.VoronoiGenerator;
 import com.datastruct.DCHalfEdge;
 import com.datastruct.DoublyConnectedEdgeList;
 import com.math.CompPoint;
-import com.math.Trig;
+import com.math.Geom;
 import processing.core.PApplet;
 
 import java.util.Random;
@@ -61,11 +61,11 @@ public class Pattern {
 
             double dx=x-focusX; //direction x
             double dy=y-focusY; //direction y
-            double pointTheta = Trig.cartToPolar(dx, dy)[1];//degree of edge
-            double pointR = Trig.cartToPolar(dx, dy)[0];//degree of edge
+            double pointTheta = Geom.cartToPolar(dx, dy)[1];//degree of edge
+            double pointR = Geom.cartToPolar(dx, dy)[0];//degree of edge
 
 
-            double newTheta = pointTheta + getRandomRanged(-0.01, 0.01, randomGenerator);
+            double newTheta = pointTheta + getRandomRanged(-0.001, 0.001, randomGenerator);
             double xNew = Math.cos(newTheta * Math.PI/ 180.0)*pointR;
             double yNew = Math.sin(newTheta * Math.PI/ 180.0)*pointR;
             CompPoint newPoint = new CompPoint(xNew+focusX,yNew+focusY);

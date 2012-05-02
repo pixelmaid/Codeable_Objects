@@ -50,6 +50,14 @@ public class Controller {
 		this.lamp.maxHeight=height*this.lamp.ptMilConversion;
 	}
 
+    public void setNotchWidth(float width){
+        this.lamp.notchHeight=width*this.lamp.ptMilConversion;
+    }
+
+    public void setNotchHeight(float height){
+        this.lamp.notchHeight=height*this.lamp.ptMilConversion;
+    }
+
 	public void setTopWidth(float top){
 		
 			this.lamp.topWidth = top*this.lamp.ptMilConversion;

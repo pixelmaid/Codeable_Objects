@@ -7,6 +7,7 @@ import com.math.CompPoint;
 import com.math.CompPoint3d;
 import processing.core.PApplet;
 
+
 import java.util.Vector;
 
 public class LampShape {
@@ -40,8 +41,8 @@ public class LampShape {
 
 
 
-    private double notchWidth = 8.92*ptMilConversion;
-    private double notchHeight = 5.64*ptMilConversion;
+    public double notchWidth = 8.92*ptMilConversion;
+    public double notchHeight = 5.64*ptMilConversion;
 
     //arrays to store calculated lamp dimensions
     private double[][] xMainTop;
@@ -66,6 +67,7 @@ public class LampShape {
     public LampShape(PApplet myParent,Model model){
         this.myParent = myParent;
         this.model=model;
+
     }
 
 

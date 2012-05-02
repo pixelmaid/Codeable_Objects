@@ -19,6 +19,9 @@ public class ScreenManager {
     private Model model;
 
 
+    private Slider notchWidthSlider;
+    private Slider notchHeightSlider;
+
     private Slider middleWidthSlider;
     private Slider heightSlider;
     private Slider bottomWidthSlider;
@@ -92,15 +95,23 @@ public class ScreenManager {
         sliderY += sliderH + 25;
 
         bottomHoleSlider = new Slider(myParent);
-        bottomHoleSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.bottomHoleWidth/lamp.ptMilConversion),20,200,"bottom hole width");
+        bottomHoleSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.bottomHoleWidth/lamp.ptMilConversion),10,50,"bottom hole width");
         sliderY += sliderH + 25;
 
         topHoleSlider = new Slider(myParent);
-        topHoleSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.topHoleWidth/lamp.ptMilConversion),20,200,"top hole width");
+        topHoleSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.topHoleWidth/lamp.ptMilConversion),10,50,"top hole width");
         sliderY += sliderH + 20;
 
         patternSlider = new Slider(myParent);
         patternSlider.init(sliderX,sliderY,sliderW,sliderH,(float)1,1,10,"pattern thickness");
+        sliderY += sliderH + 20;
+
+        notchWidthSlider = new Slider(myParent);
+        notchWidthSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.notchWidth/lamp.ptMilConversion),1,10,"notch width");
+        sliderY += sliderH + 20;
+
+        notchHeightSlider = new Slider(myParent);
+        notchHeightSlider.init(sliderX,sliderY,sliderW,sliderH,(float)(lamp.notchHeight/lamp.ptMilConversion),1,10,"notch height");
         sliderY += sliderH + 20;
 
 
@@ -173,6 +184,8 @@ public class ScreenManager {
         resSlider.draw();
         bottomPosSlider.draw();
        topPosSlider.draw();
+        notchWidthSlider.draw();
+        notchHeightSlider.draw();
         patternViewButton.draw();
         pointsButton.draw();
         saveButton.draw();
@@ -196,6 +209,8 @@ public class ScreenManager {
         if( bottomPosSlider.checkForMousePress(mouseX,mouseY)) actioned = true;
         if( topPosSlider.checkForMousePress(mouseX,mouseY)) actioned = true;
         if( patternSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
+        if( notchWidthSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
+        if( notchHeightSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
 
         if( modelViewButton.checkForMousePress(mouseX,mouseY)){
 
@@ -237,6 +252,8 @@ public class ScreenManager {
         if(topPosSlider.checkForMouseDrag(mouseX,mouseY) ) actioned = true;
         if(resSlider.checkForMouseDrag(mouseX,mouseY) ) actioned = true;
         if(patternSlider.checkForMouseDrag(mouseX,mouseY) ) actioned = true;
+        if(notchWidthSlider.checkForMouseDrag(mouseX,mouseY) ) actioned = true;
+        if(notchHeightSlider.checkForMouseDrag(mouseX,mouseY) ) actioned = true;
 
        /*if( !actioned ){
             patternOriginX = mouseX;
@@ -316,6 +333,8 @@ public class ScreenManager {
         this.lamp.bottomHoleWidth=bottomHoleSlider.getSliderValue()*lamp.ptMilConversion; // sets the width of the top of your lamp.
         this.lamp.ribNum= (int) ribSlider.getSliderValue(); // sets the width of the top of your lamp.
         this.lamp.curveResolution= (int) resSlider.getSliderValue()*2; // sets the width of the top of your lamp.
+        this.lamp.notchWidth=notchWidthSlider.getSliderValue()*lamp.ptMilConversion; // sets the width of the top of your lamp.
+        this.lamp.notchHeight=notchHeightSlider.getSliderValue()*lamp.ptMilConversion; // sets the width of the top of your lamp.
 
 
         this.lamp.bottomCirclePos= bottomPosSlider.getSliderValue()*lamp.ptMilConversion;

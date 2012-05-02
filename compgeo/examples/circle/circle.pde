@@ -1,6 +1,6 @@
 import processing.pdf.*;
 
-import fullscreen.*;
+//import fullscreen.*;
 
 /*This example generates a lamp with no design. Add some points to make it more interesting */
 
@@ -12,13 +12,13 @@ int screenNum = 0; //0 for 3d model, 1 for toolpaths, 2 for pattern
 
 
 void setup() {
-  size(1024, 800, P3D); //size of your screen
+  size(1024, 700, P3D); //size of your screen
   
   // Create the fullscreen object
-  FullScreen fs = new FullScreen(this); 
+ // FullScreen fs = new FullScreen(this); 
   
   // enter fullscreen mode
- fs.enter(); 
+ //fs.enter();   
   
   
   pointController = new Controller(this); //intialize the library
@@ -36,6 +36,11 @@ void setup() {
   pointController.setTopCirclePos(20);//sets the vertical position of your top base
   pointController.setBottomCirclePos(20);//sets the vertical position of your bottom base
 
+
+  pointController.setNotchWidth(8.92);//sets the width of your notches for the press fit
+  pointController.setNotchHeight( 5.64);//sets the height of your notches for the press fit
+  
+  
   pointController.setTopHoleWidth(80);//sets the width of the opening in the top base of your lamp
   pointController.setBottomHoleWidth(24);//sets the width of the opening in the bottom base of your lamp
   //NOTE!! Depending on which side your light fixture will be installed, you must set the hole on bottom or top of your lamp to the diameter of the light fixture

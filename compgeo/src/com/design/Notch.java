@@ -2,7 +2,7 @@ package com.design;
 
 import com.datastruct.DCHalfEdge;
 import com.math.CompPoint;
-import com.math.Trig;
+import com.math.Geom;
 
 import java.util.Vector;
 
@@ -38,8 +38,8 @@ public class Notch extends Part{
 	
 	
 	public void merge(Part border,int topEdgeNum,int bottomEdgeNum){
-		this.top.end = Trig.findIntersectionPoint(this.top, border.edges.get(topEdgeNum));
-		this.bottom.start = Trig.findIntersectionPoint(this.bottom, border.edges.get(bottomEdgeNum));
+		this.top.end = Geom.findIntersectionPoint(this.top, border.edges.get(topEdgeNum));
+		this.bottom.start = Geom.findIntersectionPoint(this.bottom, border.edges.get(bottomEdgeNum));
 		border.addHalfEdge(top);
 		border.addHalfEdge(bottom);
 		border.addHalfEdge(right);
@@ -51,7 +51,7 @@ public class Notch extends Part{
 				Vector <DCHalfEdge> modEdges = new Vector<DCHalfEdge>();
 				Vector <DCHalfEdge> borderIntersects = new Vector<DCHalfEdge>();
 				for(int i = 0; i<edges.size();i++){
-					DCHalfEdge borderEdge = Trig.getIntersectedEdge(edges.get(i).start, edges.get(i).end, edges.get(i), border);
+					DCHalfEdge borderEdge = Geom.getIntersectedEdge(edges.get(i).start, edges.get(i).end, edges.get(i), border);
 					DCHalfEdge newEdge = findMerge(edges.get(i),border);
 					
 					if(newEdge!=null){

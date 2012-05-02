@@ -31,8 +31,7 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
 		b = start.getY() -(m * start.getX()); //calculate the y intercept with y=mx+b
 
 
-        this.length = Math.sqrt(Math.pow(start.getX()-end.getX(),2)+Math.pow(start.getY()-end.getY(),2));
-
+        this.length = Geom.distance(start,end);
     }
 	
 	public DCHalfEdge(CompPoint start, CompPoint left, CompPoint right ){//constructor
@@ -44,7 +43,7 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
 		b = start.getY() -m * start.getX(); //calculate the y intercept with y=mx+b
 		
 		direction = new CompPoint((right.getY()-left.getY()),-(right.getX()-left.getX()));
-        this.length = Math.sqrt(Math.pow(Math.abs(start.getX()-end.getX()),2)+Math.pow(Math.abs(start.getY()-end.getY()),2));
+
 
     }
 	

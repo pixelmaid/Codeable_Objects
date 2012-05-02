@@ -66,7 +66,7 @@ public class Vec2d {
 
   public double Dot( Vec2d b ){
             //Computes the dot product of a and b'
-            return this.x*b.x + this.y+b.y;
+            return (this.x*b.x) + (this.y*b.y);
   }
 
 

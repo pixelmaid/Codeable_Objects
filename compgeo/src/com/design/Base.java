@@ -2,7 +2,7 @@ package com.design;
 
 import com.datastruct.DCHalfEdge;
 import com.math.CompPoint;
-import com.math.Trig;
+import com.math.Geom;
 
 import java.util.Vector;
 
@@ -18,7 +18,7 @@ public class Base extends Part {
 		for(int i =ribNum-1;i>=0;i--){
 			//double alpha = 0-((Math.PI*2/ribNum)*180/Math.PI)+360/(ribNum*2); // determines the degree position of your current point
 			
-			double startTheta = Trig.cartToPolar(edges.get(i).start.getX(), edges.get(i).start.getY())[1];
+			double startTheta = Geom.cartToPolar(edges.get(i).start.getX(), edges.get(i).start.getY())[1];
 			double alpha = 360/ribNum;
 			double theta = startTheta+(i)*alpha; //current position on circle for your intended point
 			//System.out.println("startTheta="+startTheta);
