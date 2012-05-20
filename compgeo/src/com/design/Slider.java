@@ -1,15 +1,25 @@
+/*
+ * This file is part of the Codeable Objects Framework.
+ *
+ *     Codeable Objects is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Codeable Objects is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Codeable Objects.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.design;
 
 import processing.core.PApplet;
 import processing.core.PFont;
 
-/**
- * Created with IntelliJ IDEA.
- * User: jenniferjacobs
- * Date: 4/22/12
- * Time: 12:10 AM
- * To change this template use File | Settings | File Templates.
- */
 public class Slider {
 
     private float x;
