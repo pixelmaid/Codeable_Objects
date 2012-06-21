@@ -245,7 +245,7 @@ public class ScreenManager {
 		patternSlider.draw();
 		modelViewButton.draw();
 		partViewButton.draw();
-		//resSlider.draw();
+		  //resSlider.draw();
 		bottomPosSlider.draw();
 		topPosSlider.draw();
 		notchWidthSlider.draw();
