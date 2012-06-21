@@ -82,18 +82,18 @@ public class Model {
         myParent.rotateY((float) (myParent.frameCount * Math.PI / 400));
         myParent.beginShape(myParent.QUAD_STRIP);
 
-        for (int j = 0; j < 4; j++) {
+        for (int j = 0; j < edges.size(); j++) {
             CompPoint3d top = edges.get(j).start;
             CompPoint3d bottom = edges.get(j).end;
-            if(j%2==0){
+            //if(j%2==0){
             	myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
             	myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
-            }
-            else{
-            	myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
+            //}
+           // else{
+            	//myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
 
-            	myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
-           }
+            	//myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
+          // }
 
         }
 
@@ -104,15 +104,17 @@ public class Model {
         for (int j = 0; j < topEdges.size(); j++) {
             CompPoint3d top = topEdges.get(j).start;
             CompPoint3d bottom = topEdges.get(j).end;
-            if(j%2==0){
+            
+            
+            //if(j%2==0){
             	myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
             	myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
-            }
-            else{
-            	myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
+           // }
+           // else{
+            	//myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
 
-            	myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
-           }
+            	//myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
+           //}
             
 
         }
@@ -124,15 +126,15 @@ public class Model {
         for (int j = 0; j < bottomEdges.size(); j++) {
             CompPoint3d top = bottomEdges.get(j).start;
             CompPoint3d bottom = bottomEdges.get(j).end;
-            if(j%2==0){
+           // if(j%2==0){
             	myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
             	myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
-            }
-            else{
-            	myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
+           // }
+            //else{
+            //	myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
 
-            	myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
-           }
+            //	myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
+           //}
 
         }
 

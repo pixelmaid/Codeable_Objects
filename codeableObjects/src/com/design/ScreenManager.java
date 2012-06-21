@@ -248,8 +248,8 @@ public class ScreenManager {
 		//resSlider.draw();
 		bottomPosSlider.draw();
 		topPosSlider.draw();
-		//notchWidthSlider.draw();
-		//notchHeightSlider.draw();
+		notchWidthSlider.draw();
+		notchHeightSlider.draw();
 		patternViewButton.draw();
 		pointsButton.draw();
 		baseTypeButton.draw();
