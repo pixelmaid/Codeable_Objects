@@ -47,7 +47,7 @@ public class PolyBoolean {
 
 		boolean inPolygon = Geom.rayPointInPolygon(subj.edges.get(0).start,clip);
 		for(int i=0;i<subj.edges.size();i++){
-			Vector<DCHalfEdge> intersectedEdges = Geom.lineIntersectsPolygon(subj.edges.get(i),clip);
+			Vector<DCHalfEdge> intersectedEdges = Geom.edgeIntersectsPolygon(subj.edges.get(i),clip);
 			boolean startInPolygon = Geom.rayPointInPolygon(subj.edges.get(i).start,clip);
 			boolean endInPolygon = Geom.rayPointInPolygon(subj.edges.get(i).end,clip);
 			
@@ -353,7 +353,7 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 
 		boolean startInPolygon = Geom.rayPointInPolygon(edge.start, border);
 		boolean endInPolygon = Geom.rayPointInPolygon(edge.end, border);
-		Vector<DCHalfEdge> intersectedEdges = Geom.lineIntersectsPolygon(edge, border);
+		Vector<DCHalfEdge> intersectedEdges = Geom.edgeIntersectsPolygon(edge, border);
 
 		if (!startInPolygon && !endInPolygon) {
 

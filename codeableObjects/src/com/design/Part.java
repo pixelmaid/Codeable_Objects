@@ -65,7 +65,7 @@ public class Part extends DoublyConnectedEdgeList {
         if (!startInPolygon && !endInPolygon) {
 
 
-            Vector<DCHalfEdge> intersectedEdges = Geom.lineIntersectsPolygon(edge, border);
+            Vector<DCHalfEdge> intersectedEdges = Geom.edgeIntersectsPolygon(edge, border);
 
             if (intersectedEdges.size() > 0) {
 

@@ -93,8 +93,8 @@ public class Tab extends Part {
     	while(!Geom.rayPointInPolygon(top.start,border)){
     		top.start.setX(top.start.getX()+10);
     	}
-        DCHalfEdge topIntersection = Geom.lineIntersectsPolygon(top,border).get(0);
-        DCHalfEdge bottomIntersection = Geom.lineIntersectsPolygon(bottom,border).get(0);
+        DCHalfEdge topIntersection = Geom.edgeIntersectsPolygon(top,border).get(0);
+        DCHalfEdge bottomIntersection = Geom.edgeIntersectsPolygon(bottom,border).get(0);
        
         
         CompPoint topIntersectionPoint = Geom.findIntersectionPoint(top, topIntersection);

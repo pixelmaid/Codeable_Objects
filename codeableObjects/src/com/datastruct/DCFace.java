@@ -82,23 +82,64 @@ public class DCFace extends DoublyConnectedEdgeList {
     	//find case based on verticies
     	
     	if(edges.size()==1){ //only 1 edge
-    		System.out.println("there is only one edge");
+    		//System.out.println("there is only one edge");
+    		//findUnconnectedEdges(dupVerticies, verticies);
     		
     	}
     	else if (verticies.size()-edges.size()==1){ //incomplete shape missing one edge
     		//System.out.println("missing one edge");
     		findUnconnectedEdges(dupVerticies, verticies);
     	}
-    	else if(verticies.size()-edges.size()==0){ //incomplete shape missing one edge
+    	else if(verticies.size()-edges.size()==0){ //complete shape
     		//System.out.println("complete shape");
     		sortEdges(verticies);
     	}
     	
-    	else if(verticies.size()-edges.size()==2){ //incomplete shape missing one edge
+    	else if(verticies.size()-edges.size()==2){ //two distinct segments
     		//System.out.println("two distinct segments");
     	}
     	
     }
+    
+    /*public void makeBox(PApplet parent, DCHalfEdge edge, CompPoint point){ //makes a box shape out of the single edge
+    	CompPoint focalIntersection = Geom.findIntersectionPoint(edge, point, 1.0/edge.m*-1.0);
+    	
+    	CompPoint startIntersection;
+    	CompPoint endIntersection;
+    	//DCHalfEdge perpEdge = new DCHalfEdge(intersection, point);
+    	double edgeTheta = Geom.cartToPolar(point.getX()-focalIntersection.getX(),point.getY()-focalIntersection.getY())[1];
+    	DCHalfEdge borderEdge;
+    	DCHalfEdge topEdge;
+    	DCHalfEdge bottomEdge;
+    	
+    	DCHalfEdge boxTop= new DCHalfEdge(new CompPoint(parent.width,0),new CompPoint(0,0));
+    	DCHalfEdge boxLeft= new DCHalfEdge(new CompPoint(0,0),new CompPoint(0,parent.height));
+    	DCHalfEdge boxBottom= new DCHalfEdge(new CompPoint(0,parent.height),new CompPoint(parent.width,parent.height));
+    	DCHalfEdge boxRight= new DCHalfEdge(new CompPoint(parent.width,parent.height),new CompPoint(parent.width,0));
+    	DoublyConnectedEdgeList box = new DoublyConnectedEdgeList();
+    	box.addHalfEdge(boxTop);
+    	box.addHalfEdge(boxLeft);
+    	box.addHalfEdge(boxBottom);
+    	box.addHalfEdge(boxRight);
+    	
+    	
+    	edgeIntersectsPolygon(DCHalfEdge edge, DoublyConnectedEdgeList border)
+    	this.deleteEdge(edge);
+    	if(edgeTheta<45||edgeTheta>315){
+    		
+    		startIntersection = Geom.findIntersectionPoint(boxTop, point, edge.m);
+    		endIntersection = Geom.findIntersectionPoint(boxBottom, point, edge.m);
+    		endIntersection = Geom.findIntersectionPoint(edge, point, 1.0/edge.m*-1.0);
+    		
+    		borderEdge = boxRight;
+    		topEdge = new DCHalfEdge(boxTop.start,startIntersection);
+    		
+    		bottomEdge = new DCHalfEdge(endIntersection,boxBottom.end);
+    		this.addHalfEdge(borderEdge);
+    		this.addHalfEdge(topEdge);
+    		this.addEdgeAt(bottomEdge,edges.size());
+    	}
+    }*/
     
     public void findUnconnectedEdges(Vector<CompPoint> dupVerticies, Vector<CompPoint> verticies){
     	Vector <CompPoint>unconnectedVerticies = new Vector<CompPoint>(0);

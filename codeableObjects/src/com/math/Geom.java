@@ -228,8 +228,8 @@ public class Geom {
     		DCHalfEdge rEdge = new DCHalfEdge(q,new CompPoint(width,q.getY()));
     		DCHalfEdge lEdge = new DCHalfEdge(q,new CompPoint(0,q.getY()));
 
-    		Rcross = Geom.lineIntersectsPolygon(rEdge, p).size();
-    		Lcross = Geom.lineIntersectsPolygon(lEdge, p).size();
+    		Rcross = Geom.edgeIntersectsPolygon(rEdge, p).size();
+    		Lcross = Geom.edgeIntersectsPolygon(lEdge, p).size();
     		//System.out.println("Rcross = "+Rcross+",Lcross="+Lcross);
     		/*i1=(i+n-1)%n;
     		DCHalfEdge edge1 = p.edges.get(i1);
@@ -306,7 +306,7 @@ public class Geom {
 
 
     //determines if a segment intersects a polygon defined by a doubly connected edge list and returns edges of intersection if they exist
-    public static Vector<DCHalfEdge> lineIntersectsPolygon(DCHalfEdge edge, DoublyConnectedEdgeList border) {
+    public static Vector<DCHalfEdge> edgeIntersectsPolygon(DCHalfEdge edge, DoublyConnectedEdgeList border) {
         Vector<DCHalfEdge> intersectedEdges = new Vector<DCHalfEdge>();
         for (int i = border.edges.size() - 1; i >= 0; i--) {
             DCHalfEdge borderEdge = border.edges.get(i);
@@ -416,6 +416,30 @@ public class Geom {
         return intersection;
     }
 
+    
+    //finds the point of intersection between a line and an edge
+    public static CompPoint findIntersectionPoint(DCHalfEdge borderEdge, CompPoint point, double m) {
+        double mx = 0;
+        double my = 0;
+        double b = m*point.getX()-point.getY();
+        
+        
+        if (Double.isInfinite(borderEdge.m)) {//check to see if slope is undefined (line is vertical)
+            mx = borderEdge.start.getX();
+            my = (mx * m) + b;
+        } else if (Double.isNaN(borderEdge.m)) {//check to see if slope is NaN (line is horizontal)
+            my = borderEdge.start.getY();
+            mx = (my - b) / m;
+
+        } else {
+            mx = (b - borderEdge.b) / (borderEdge.m - m);//line has a slope
+            my = (mx * m) + b;
+        }
+
+        CompPoint intersection = new CompPoint(mx, my);
+
+        return intersection;
+    }
 
     public static boolean discEdgeIntersect(Disc disc, DCHalfEdge edge) {
         Vec2d seg_a = new Vec2d(edge.start.getX(), edge.start.getY());
