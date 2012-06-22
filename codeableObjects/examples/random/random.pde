@@ -53,7 +53,7 @@ void setup() {
   pointController.setTopHoleWidth(80);//sets the width of the opening in the top base of your lamp
   pointController.setBottomHoleWidth(24);//sets the width of the opening in the bottom base of your lamp
  
-   pointController.setPatternWeight(4);//sets the weight of your pattern;
+   pointController.setPatternWeight(0.8);//sets the weight of your pattern;
   //NOTE!! Depending on which side your light fixture will be installed, you must set the hole on bottom or top of your lamp to the diameter of the light fixture
 
   //////////////////////////////////
