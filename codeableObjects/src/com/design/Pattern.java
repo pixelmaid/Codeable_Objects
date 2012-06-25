@@ -146,7 +146,7 @@ public class Pattern{
 				}
 			}
 		}
-		PolyBoolean.contractPoly(shadeBorder,1.1);
+		//PolyBoolean.contractPoly(shadeBorder,1.1);
 
 
 		// this.shadeBorder.edges= newShadeBorder.edges;
