@@ -6,7 +6,8 @@ import com.primitive2d.Line;
 public class Tree extends Pattern{
 	private double limit = 2;//minimum length of a branch before the fractal terminates
 	private double growthRate= 0.66;//fraction by which the branch is decreased each recursion
-	private float theta = 60;//starting angle of the tree
+	private float startAngle = 270;//starting angle of the tree
+	private float angleChange = 2;//starting angle of the tree
 	private float startingHeight = 200;//starting height of the tree
 
 	private Point origin = new Point(0,0);//starting angle of the tree
@@ -15,47 +16,55 @@ public class Tree extends Pattern{
 		
 	}
 	
-	public void setLimit(double limit){
+	public void setLimit(double limit){ //sets the limit
 		this.limit = limit;
 	}
 	
-	public void setGrowthRate(double growthRate){
+	public void setGrowthRate(double growthRate){//sets the growth rate
+		
 		this.growthRate = growthRate;
+		if(this.growthRate>0.75){
+			this.growthRate=0.75;
+		}
 	}
 	
-	public void setTheta(float theta){
-		this.theta = theta;
+	public void setStartAngle(float startAngle){//sets the starting angle
+		this.startAngle = startAngle;
 	}
 	
-	public void setOrigin(double x,double y){
+	public void setAngleChange(float angleChange){//sets the angle change
+		this.angleChange = angleChange;
+	}
+	
+	public void setOrigin(double x,double y){//sets the origin
 		this.origin = new Point(x,y);
 	}
 	
-	public void setStartingHeight(float height){
+	public void setStartingHeight(float height){//sets the starting height
 		this.startingHeight = height;
 	}
 	
 	public void generate(){
-		Line line = new Line(origin.getX(),origin.getY(),startingHeight,theta);
-		this.addLine(line);
-		this.branch(startingHeight,line.end,theta,20);
+		Line line = new Line(origin,startingHeight,startAngle);//create the trunk of the tree
+		this.addLine(line);// store the line
+		this.branch(startingHeight,line.end,startAngle); //begin the branch function
 		
 	}
 	
-	private void branch(float height, Point origin, float startingTheta, float thetaChange){
-		height*= growthRate;
+	private void branch(float height, Point origin, float angle){ //recursive branch function
+		height*= growthRate; //modify the height according to the growth rate
 		
 		//exit function
-		if(height >limit){
-			float rightTheta = startingTheta + thetaChange;
-			Line rightLine = new Line(origin.getX(),origin.getY(),height,rightTheta);
-			this.addLine(rightLine);
-			this.branch(height,rightLine.end,rightTheta,thetaChange);
+		if(height >limit){ //as long as the branches are greater than the limit
+			float rightTheta = angle + angleChange; //increment the angle by the angle change
+			Line rightLine = new Line(origin,height,rightTheta); //create a "right branching" line
+			this.addLine(rightLine);//store the line
+			this.branch(height,rightLine.end,rightTheta); //recurse
 			
-			float leftTheta = startingTheta - thetaChange;
-			Line leftLine = new Line(origin.getX(),origin.getY(),height,leftTheta);
-			this.addLine(leftLine);
-			this.branch(height,leftLine.end,leftTheta,thetaChange);
+			float leftTheta = angle - angleChange;//decrement the angle by the angle change (to branch left)
+			Line leftLine = new Line(origin,height,leftTheta); //create a "left branching line"
+			this.addLine(leftLine);//store the line
+			this.branch(height,leftLine.end,leftTheta); //recurse
 			
 		}
 	}

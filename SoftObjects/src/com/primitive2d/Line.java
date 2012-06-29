@@ -17,8 +17,8 @@ public class Line extends DCHalfEdge implements Drawable {
 		super(new Point(startX,startY),new Point(endX,endY));
 	}
 	
-	public Line(double startX, double startY, float radius, float theta) {
-		super(new Point(startX,startY),radius, theta);
+	public Line(Point origin, float radius, float theta) {
+		super(origin,radius, theta);
 	}
 	
 	public void draw(PApplet parent, float strokeWeight){

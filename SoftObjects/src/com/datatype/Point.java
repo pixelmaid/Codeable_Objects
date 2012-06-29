@@ -167,6 +167,10 @@ public void rotate(double theta, Point _focus) {
  
 
 }
+
+public Point copy() {
+    return new Point(x,y);
+  }
 }
 
 class CmpX implements Comparator<Point2D> {
