@@ -1,0 +1,12 @@
+package com.ui;
+
+//interface implemented by all classes that are drawable or printable by the processing applet
+import processing.core.PApplet;
+
+public interface Drawable {
+	
+	public void draw(PApplet parent);
+	
+	public void print(PApplet parent);
+
+}

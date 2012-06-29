@@ -1,0 +1,11 @@
+package com.primitive2d;
+
+import com.datatype.DCFace;
+
+public class Polygon extends DCFace{
+	
+	Polygon(){
+		
+	}
+
+}

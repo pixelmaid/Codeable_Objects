@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;com.math.PolyBoolean.checkEnd(...)&apos; to &apos;clipInBorder&apos;&#x0A;- Original project: &apos;codeableObjects&apos;&#x0A;- Original element: &apos;com.math.PolyBoolean.checkEnd(...)&apos;&#x0A;- Renamed element: &apos;com.math.PolyBoolean.clipInBorder(...)&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;checkEnd&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;com.math{PolyBoolean.java[PolyBoolean~checkEnd~QDCHalfEdge;~QDoublyConnectedEdgeList;" name="clipInBorder" references="true" stamp="1338843264923" version="1.0"/>
+</session>

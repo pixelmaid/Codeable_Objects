@@ -1,0 +1,16 @@
+package com.primitive2d;
+
+import com.datatype.DCFace;
+
+public class Polygon extends DCFace{
+	
+	public Polygon(){
+		
+	}
+	
+	public addVertex(double x,double y){
+		
+		
+	}
+
+}
