@@ -11,6 +11,7 @@ public class Tree extends Pattern{
 	private float startingHeight = 200;//starting height of the tree
 
 	private Point origin = new Point(0,0);//starting angle of the tree
+	
 	public Tree(){
 		super();
 		

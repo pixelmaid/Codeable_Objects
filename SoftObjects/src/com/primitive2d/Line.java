@@ -27,7 +27,7 @@ public class Line extends DCHalfEdge implements Drawable {
 	}
 	
 	public void print(PApplet parent){
-		
+		//TODO:implement print method
 	}
 	
 	public void moveTo(double x, double y) {

@@ -45,10 +45,27 @@ public class Pattern implements Drawable {
     		
     		
     	}
+		for(int i=0;i<ellipses.size();i++){
+    		//ellipses.get(i).draw(parent, strokeWeight);
+    		
+    		
+    	}
+		
+		for(int i=0;i<points.size();i++){
+    		//points.get(i).draw(parent, strokeWeight);
+    		
+    		
+    	}
+		
+		for(int i=0;i<polygons.size();i++){
+    		polygons.get(i).draw(parent, strokeWeight);
+    		
+    		
+    	}
 	}
 	
 	public void print(PApplet parent){
-	//needs to be implemented
+		//TODO:implement print method
 	}
 
 

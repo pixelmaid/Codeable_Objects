@@ -39,16 +39,19 @@ public class Polygon extends DCFace implements Drawable{
 	public void addLine(double startX, double startY, double endX, double endY) {
 		Line line = new Line(startX,startY,endX,endY);
 		lines.add(line);
+		
+			
 	}
 	//adds a line in polar mode by specifying an origin, radius and angle
-	public void addLine(double startX, double startY, float radius, float theta) {
-		Line line = new Line(startX,startY,radius, theta);
+	public void addLine(Point origin, float radius, float theta) {
+		Line line = new Line(origin,radius, theta);
 		lines.add(line);
 	}
 	
 	//adds a line by passing in a line
 	public void addLine(Line line) {
 		lines.add(line);
+		//also add in points from line
 	}
 
 	public void draw(PApplet parent, float strokeWeight){
@@ -60,7 +63,7 @@ public class Polygon extends DCFace implements Drawable{
 	}
 	
 	public void print(PApplet parent){
-	//needs to be implemented
+		//TODO:implement print method
 	}
 
 }

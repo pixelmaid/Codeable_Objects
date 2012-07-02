@@ -24,6 +24,8 @@ import com.datatype.DCHalfEdge;
 import com.datatype.DoublyConnectedEdgeList;
 import com.datatype.Point;
 import com.math.Geom;
+import com.ui.Drawable;
+
 import processing.core.PApplet;
 
 import java.util.Collections;
@@ -31,7 +33,7 @@ import java.util.Comparator;
 import java.util.Vector;
 
 
-public class Ellipse implements Comparable<Ellipse> {
+public class Ellipse implements Comparable<Ellipse>, Drawable {
 
     public Point origin;
     public double radius;
@@ -65,25 +67,6 @@ public class Ellipse implements Comparable<Ellipse> {
 
     }
 
-    public void draw(PApplet myParent) {
-        myParent.stroke(0, 255, 0);
-        myParent.strokeWeight(1);
-        if (insideGrid && kept) {
-            myParent.fill(0, 0, 255);
-        }
-
-        if (insideGrid && !kept) {
-            myParent.fill(255, 0, 255, 70);
-        }
-
-        if (!insideGrid && !kept) {
-            myParent.fill(255, 255, 255, 50);
-
-        }
-        myParent.ellipse((float) origin.getX(), (float) origin.getY(), (float) radius * 2, (float) radius * 2);
-    }
-
-
     public void resetTouching() {
         this.discsTouching = new Vector<Ellipse>();
         numTouching = 0;
@@ -107,6 +90,8 @@ public class Ellipse implements Comparable<Ellipse> {
 
 
     }
+    
+    
 
     @Override
     public int compareTo(Ellipse disc) {
@@ -119,6 +104,20 @@ public class Ellipse implements Comparable<Ellipse> {
             return -1;
         }
     }
+
+
+	
+    public void draw(PApplet myParent,float strokeWeight) {
+       
+        myParent.strokeWeight(strokeWeight);
+        myParent.ellipse((float) origin.getX(), (float) origin.getY(), (float) radius * 2, (float) radius * 2);
+    }
+
+	@Override
+	public void print(PApplet parent) {
+		//TODO:implement print method
+		
+	}
 
 }
 
