@@ -5,10 +5,10 @@ import java.util.Vector;
 import processing.core.PApplet;
 
 import com.datatype.Point;
+import com.primitive2d.Drawable;
 import com.primitive2d.Ellipse;
 import com.primitive2d.Line;
 import com.primitive2d.Polygon;
-import com.ui.Drawable;
 
 //base class for all patterns
 public class Pattern implements Drawable {

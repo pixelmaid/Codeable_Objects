@@ -36,7 +36,7 @@ import com.datatype.Point;
 public class DCFace extends DoublyConnectedEdgeList {
 
     public Vector<DCHalfEdge> innerComponents;
-    private Point focus;
+    protected Point origin;
     public int color;
     public DCFace() {
     	
@@ -46,12 +46,12 @@ public class DCFace extends DoublyConnectedEdgeList {
     }
 
   
-    public void setFocus(Point point){
-    	this.focus=point;
+    public void setOrigin(Point point){
+    	this.origin=point;
     }
     
-    public Point getFocus(){
-    	return this.focus;
+    public Point getOrigin(){
+    	return this.origin;
     }
    
     public int compareTo(DCFace f) {
@@ -302,7 +302,11 @@ public class DCFace extends DoublyConnectedEdgeList {
     }*/
     
     
-
+    //rotates all edges around the origin by an increment of theta;
+    public void rotate(double theta) {
+       this.rotate(theta,this.origin);
+    }
+    
 
 
 public void drawOffset(PApplet parent, double offset){

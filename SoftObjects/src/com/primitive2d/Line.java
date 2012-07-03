@@ -4,7 +4,6 @@ import processing.core.PApplet;
 
 import com.datatype.Point;
 import com.datatype.DCHalfEdge;
-import com.ui.Drawable;
 
 public class Line extends DCHalfEdge implements Drawable {
 
@@ -17,7 +16,7 @@ public class Line extends DCHalfEdge implements Drawable {
 		super(new Point(startX,startY),new Point(endX,endY));
 	}
 	
-	public Line(Point origin, float radius, float theta) {
+	public Line(Point origin, double radius, double theta) {
 		super(origin,radius, theta);
 	}
 	

@@ -21,7 +21,7 @@
 package com.datatype;
 
 import com.math.Geom;
-import com.ui.Drawable;
+import com.primitive2d.Drawable;
 
 import java.awt.geom.Point2D;
 import java.util.Comparator;
@@ -111,6 +111,8 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 		return Geom.cartToPolar(x, y)[1];
 	}
 
+	
+	
 	//moves a point towards a target point by a specified distance
 	public void moveToPolar(double dist, Point _focus){
 

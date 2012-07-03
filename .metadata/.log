@@ -6734,3 +6734,13 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/jenni
 
 !ENTRY org.eclipse.core.resources 2 10035 2012-06-28 12:46:44.022
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2012-07-02 09:40:46.681 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/jenniferjacobs/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/jenniferjacobs/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-07-02 09:40:48.953
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

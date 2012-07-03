@@ -118,15 +118,18 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
 
 
     public void moveTo(double x, double y, Point focus) {
-        double dx = x - focus.getX();
-        double dy = y - focus.getY();
+        double dStartX = start.getX() - focus.getX();
+        double dStartY = start.getY() - focus.getY();
+        
+        double dEndX = end.getX() - focus.getX();
+        double dEndY = end.getY() - focus.getY();
 
-        start.setX(start.getX() + dx);
-        start.setY(start.getY() + dy);
-        end.setX(end.getX() + dx);
-        end.setY(end.getY() + dy);
+        start.setX(dStartX + x);
+        start.setY(dStartY + y);
+        end.setX(dEndX+x);
+        end.setY(dEndY+y);
 
-        m = (start.getY() - end.getY()) / (start.getX() - end.getX()); //calculate the slope of the line by the inverse of the slope of the line through left and right
+        //m = (start.getY() - end.getY()) / (start.getX() - end.getX()); //calculate the slope of the line by the inverse of the slope of the line through left and right
         b = start.getY() - (m * start.getX()); //calculate the y intercept with y=mx+b
 
     }

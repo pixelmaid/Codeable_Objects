@@ -68,7 +68,7 @@ public class DoublyConnectedEdgeList {
    	 
     	for (int i = 0; i < faces.size(); i++) {
     		DCFace checkFace = faces.get(i);
-    		if(checkFace.getFocus().compareTo(focus)==0){
+    		if(checkFace.getOrigin().compareTo(focus)==0){
     			return checkFace;
     		}
     		
@@ -112,6 +112,7 @@ public class DoublyConnectedEdgeList {
         
     }
 
+  
     //rotates all edges around the focus by an increment of theta;
     public void rotate(double theta, Point _focus) {
         for (int i = 0; i < edges.size(); i++) {

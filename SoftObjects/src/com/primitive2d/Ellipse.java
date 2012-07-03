@@ -24,7 +24,6 @@ import com.datatype.DCHalfEdge;
 import com.datatype.DoublyConnectedEdgeList;
 import com.datatype.Point;
 import com.math.Geom;
-import com.ui.Drawable;
 
 import processing.core.PApplet;
 
