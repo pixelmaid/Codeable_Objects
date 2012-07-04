@@ -25,13 +25,32 @@ public class Line extends DCHalfEdge implements Drawable {
 		parent.line((float)start.getX(),(float)start.getY(), (float)end.getX(), (float)end.getY());
 	}
 	
-	public void print(PApplet parent){
+	public void print(PApplet parent, float strokeWeight, String filename){
 		//TODO:implement print method
 	}
 	
+	
 	public void moveTo(double x, double y) {
-       moveTo(x,y,this.start);
+       this.start.moveTo(x, y, this.start);
+       this.end.moveTo(x, y, this.start);
         
     }
+	
+	@Override
+	public void moveTo(double x, double y, Point focus) {
+	    this.start.moveTo(x, y, focus);
+	    this.end.moveTo(x, y, focus);
+	        
+	 }
+	
+	@Override
+	public void moveBy(double x, double y){
+		 this.start.moveBy(x, y);
+		 this.end.moveBy(x, y);
+	}
+	
+	 public Line copy(){
+	    return new Line(start.copy(),end.copy());
+	  }
 
 }

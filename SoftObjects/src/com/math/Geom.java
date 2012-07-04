@@ -399,16 +399,16 @@ public class Geom {
         double mx = 0;
         double my = 0;
 
-        if (Double.isInfinite(borderEdge.m)) {//check to see if slope is undefined (line is vertical)
+        if (Double.isInfinite(borderEdge.getSlope())) {//check to see if slope is undefined (line is vertical)
             mx = borderEdge.start.getX();
-            my = (mx * edge.m) + edge.b;
-        } else if (Double.isNaN(borderEdge.m)) {//check to see if slope is NaN (line is horizontal)
+            my = (mx * edge.getSlope()) + edge.getYIntercept();
+        } else if (Double.isNaN(borderEdge.getSlope())) {//check to see if slope is NaN (line is horizontal)
             my = borderEdge.start.getY();
-            mx = (my - edge.b) / edge.m;
+            mx = (my - edge.getYIntercept()) / edge.getSlope();
 
         } else {
-            mx = (edge.b - borderEdge.b) / (borderEdge.m - edge.m);//line has a slope
-            my = (mx * edge.m) + edge.b;
+            mx = (edge.getYIntercept() - borderEdge.getYIntercept()) / (borderEdge.getSlope() - edge.getSlope());//line has a slope
+            my = (mx * edge.getSlope()) + edge.getYIntercept();
         }
 
         Point intersection = new Point(mx, my);
@@ -424,15 +424,15 @@ public class Geom {
         double b = m*point.getX()-point.getY();
         
         
-        if (Double.isInfinite(borderEdge.m)) {//check to see if slope is undefined (line is vertical)
+        if (Double.isInfinite(borderEdge.getSlope())) {//check to see if slope is undefined (line is vertical)
             mx = borderEdge.start.getX();
             my = (mx * m) + b;
-        } else if (Double.isNaN(borderEdge.m)) {//check to see if slope is NaN (line is horizontal)
+        } else if (Double.isNaN(borderEdge.getSlope())) {//check to see if slope is NaN (line is horizontal)
             my = borderEdge.start.getY();
             mx = (my - b) / m;
 
         } else {
-            mx = (b - borderEdge.b) / (borderEdge.m - m);//line has a slope
+            mx = (b - borderEdge.getYIntercept()) / (borderEdge.getSlope() - m);//line has a slope
             my = (mx * m) + b;
         }
 
@@ -445,7 +445,7 @@ public class Geom {
         Vec2d seg_a = new Vec2d(edge.start.getX(), edge.start.getY());
         Vec2d seg_b = new Vec2d(edge.end.getX(), edge.end.getY());
         Point closest = closestPoint(seg_a, seg_b, disc.origin);
-        double dist = new DCHalfEdge(closest, disc.origin).length;
+        double dist = new DCHalfEdge(closest, disc.origin).getLength();
         if (dist > disc.radius) {
             return false;
         } else {

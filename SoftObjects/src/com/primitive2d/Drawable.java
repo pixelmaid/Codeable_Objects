@@ -7,7 +7,7 @@ public interface Drawable {
 	
 	public void draw(PApplet parent, float strokeWeight);
 	
-	public void print(PApplet parent);
+	public void print(PApplet parent, float strokeWeight, String filename);
 	
 
 }

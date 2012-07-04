@@ -111,6 +111,22 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 		return Geom.cartToPolar(x, y)[1];
 	}
 
+	public void moveTo(double x, double y, Point focus) {
+        double dX = x - focus.getX();
+        
+        double dY = y - focus.getY();
+
+        this.setX(dX + this.getX());
+        this.setY(dY + this.getY());
+
+    }
+	
+	
+	 public void moveBy(double x, double y) {  
+	        this.setX(this.getX() + x);
+	        this.setY(this.getY() + y);
+	      
+	 }
 	
 	
 	//moves a point towards a target point by a specified distance
@@ -177,7 +193,7 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	}
 
 	@Override
-	public void print(PApplet parent) {
+	public void print(PApplet parent, float strokeWeight, String filename) {
 		
 		//TODO:implement print method
 		

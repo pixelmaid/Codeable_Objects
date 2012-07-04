@@ -50,6 +50,14 @@ public class Ellipse implements Comparable<Ellipse>, Drawable {
 
 
     }
+    
+    public Ellipse(Point origin, double radius) {
+        this.radius = radius;
+        this.origin = origin;
+        this.discsTouching = new Vector<Ellipse>();
+
+
+    }
 
 
     public boolean discOverlap(Ellipse disc) {
@@ -113,9 +121,13 @@ public class Ellipse implements Comparable<Ellipse>, Drawable {
     }
 
 	@Override
-	public void print(PApplet parent) {
+	public void print(PApplet parent, float strokeWeight, String filename) {
 		//TODO:implement print method
 		
+	}
+	
+	public Ellipse copy(){
+		return new Ellipse(this.origin.copy(),this.radius);
 	}
 
 }

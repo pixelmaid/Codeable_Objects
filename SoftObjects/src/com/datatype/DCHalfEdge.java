@@ -33,13 +33,13 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
     public Point left = null;  //pointer to site on the left side of edge
     public Point right = null; //pointer to site on the left side of edge
     public DCHalfEdge intersectedEdge = null; //edge that this edge will be added beneath if a merge takes place
-    public double length; //euclidean length of edge;
+    private double length; //euclidean length of edge;
     public int infiniteEdge = 0;
 
     
     public boolean inner = false; //determines if edge needs to be cut first because it is an inner edge
-    public double m; //directional coefficients satisfying equation y = m*x + b (edge lies on this line)
-    public double b;
+    private double m; //directional coefficients satisfying equation y = m*x + b (edge lies on this line)
+    private double b;
 
     public DCHalfEdge neighbor = null; //twin to edge
     
@@ -96,7 +96,26 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
     public void setright(Point right) {
         this.right = right;
     }
-
+    
+    
+    public double getSlope(){
+    	 this.m = (start.getY() - end.getY()) / (start.getX() - end.getX()); //calculate the slope of the line by the inverse of the slope of the line through left and right
+    	 return this.m;
+    		
+    }
+    
+    
+    public double getYIntercept(){
+    	  this.m = (right.getX() - left.getX()) / (left.getY() - right.getY()); //calculate the slope of the line by the inverse of the slope of the line through left and right
+          this.b = start.getY() - m * start.getX(); //calculate the y intercept with y=mx+b
+          return b;
+   		
+   }
+    
+    public double getLength(){
+    	this.length = Geom.distance(start, end);
+    	return this.length;
+    }
 
     public int compareTo(DCHalfEdge e) {//finds edge with smallest y coordinate
     	Vector<Point> verticies = new Vector<Point>();
@@ -172,11 +191,17 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
         this.rotation= theta;
 
     }
+    
+    
     //calculates the actual angle of the line
     public void normalizeRotation(){
     	
     	
     	
     }
+    
+   
+    
+    
     
 }
