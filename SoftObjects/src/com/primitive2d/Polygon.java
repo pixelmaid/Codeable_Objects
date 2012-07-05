@@ -26,14 +26,34 @@ public class Polygon extends LineCollection{
 		if(numLines>0){
 			Point start = this.getLineAt(numLines-1).end;
 			Line line = new Line(start,point);
-			addLine(line);
+			this.addLine(line);
 		}
 		else if(numPoints>0){
 			Line line = new Line(getPointAt(0),point);
-			addLine(line);
+			this.addLine(line);
 		}
 		
 		this.addPoint(point);
+	}
+	
+	
+	public void closePoly(){
+		int numPoints = this.getAllPoints().size();
+		Line line = new Line(getPointAt(numPoints-1),getPointAt(0));
+		this.addLine(line);
+	}
+	  //=============================DRAW AND PRINT METHODS==================================//
+	
+	@Override
+	public void draw(PApplet parent, float strokeWeight){
+		parent.stroke(0,0,255);	
+		super.draw(parent, strokeWeight);
+	}
+	
+	@Override
+	public void print(PApplet parent, float strokeWeight, String filename){
+		parent.stroke(0,0,255);	
+		super.print(parent, strokeWeight,filename);
 	}
 	
 	@Override

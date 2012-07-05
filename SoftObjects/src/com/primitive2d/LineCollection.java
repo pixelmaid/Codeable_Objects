@@ -252,6 +252,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	
 	 //translates all points;
     public void moveTo(double x, double y) {
+    	this.removeDuplicatePoints();
         for (int i = 0; i < points.size(); i++) {
            Point currentPoint = points.get(i);
            currentPoint.moveTo(x, y,this.origin);
@@ -263,7 +264,8 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     //translates all lines to a new point;
     @Override
     public void moveTo(double x, double y, Point focus) {
-    	 for (int i = 0; i < points.size(); i++) {
+    	this.removeDuplicatePoints();
+    	for (int i = 0; i < points.size(); i++) {
              Point currentPoint = points.get(i);
              currentPoint.moveTo(x, y,focus);
           }
@@ -271,6 +273,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     
 	@Override
     public void moveBy(double x, double y) {
+		this.removeDuplicatePoints();
 		 for (int i = 0; i < points.size(); i++) {
 			  Point currentPoint = points.get(i);
 	            currentPoint.moveBy(x, y);
@@ -286,10 +289,19 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	
 	  //rotates all lines around the focus by an increment of theta;
     public void rotate(double theta, Point _focus) {
+    	this.removeDuplicatePoints();
         for (int i = 0; i < points.size(); i++) {
 			Point currentPoint = points.get(i);
 
             currentPoint.rotate(theta, _focus);
+        }
+    }
+    
+    public void scale(double scaleVal){
+    	this.removeDuplicatePoints();
+        for (int i = 0; i < points.size(); i++) {
+        	Point currentPoint = points.get(i);
+        	currentPoint.scale(scaleVal);
         }
     }
 	
@@ -298,7 +310,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     
     public void draw(PApplet parent, float strokeWeight){
     	for(int i=0;i<points.size();i++){
-    		//points.get(i).draw(parent, strokeWeight);
+    		points.get(i).draw(parent, strokeWeight);
     		
     		
     	}
@@ -317,7 +329,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     	}
 		
 		for(int i=0;i<ellipses.size();i++){
-    		//ellipses.get(i).draw(parent, strokeWeight);
+    		ellipses.get(i).draw(parent, strokeWeight);
     		
     		
     	}

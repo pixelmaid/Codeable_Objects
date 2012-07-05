@@ -97,9 +97,10 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 
 	}
 
-	public Point scale(double scaleVal) {
-		Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
-		return s;
+	public void scale(double scaleVal) {
+		//Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
+		this.x*=scaleVal;
+		this.y*=scaleVal;
 	}
 
 

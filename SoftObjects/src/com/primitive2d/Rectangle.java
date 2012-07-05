@@ -19,15 +19,15 @@ public class Rectangle extends Polygon {
 		Point bottomLeft = new Point(origin.getX(),origin.getY()+height);
 		Point bottomRight = new Point(origin.getX()+width,origin.getY()+height);
 		
-		top = new Line(topRight.copy(),topLeft.copy());
-		left = new Line(topLeft.copy(),bottomLeft.copy());
-		bottom = new Line(bottomLeft.copy(),bottomRight.copy());
-		right = new Line(bottomRight.copy(), topRight.copy());
+		top = new Line(topRight,topLeft);
+		left = new Line(topLeft,bottomLeft);
+		bottom = new Line(bottomLeft,bottomRight);
+		right = new Line(bottomRight, topRight);
 		
-		addLine(top);
-		addLine(left);
-		addLine(bottom);
-		addLine(right);
+		this.addLine(top);
+		this.addLine(left);
+		this.addLine(bottom);
+		this.addLine(right);
 	}
 	
 
