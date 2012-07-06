@@ -19,7 +19,7 @@ public class Polygon extends LineCollection{
 	
 	public Polygon(int sides, double length){
 		super();
-		double angle = 360/sides
+		double angle = 360/sides;
 		for(int i=0;i<sides;i++){
 			  this.forward(length);
 			  this.right(angle);
