@@ -68,7 +68,12 @@ public class Pattern extends LineCollection{
 		
 		//will need to implement ellipse call
 		
-		return new Pattern(newOrigin, points, lines, polygons, ellipses);
+		Pattern newPattern =  new Pattern(newOrigin, points, lines, polygons, ellipses);
+		
+		//newPattern.reLinkLines();
+		
+		return newPattern;
+		
 	}
 
 

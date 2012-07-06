@@ -1,5 +1,6 @@
 package com.primitive2d;
 
+import java.util.Collections;
 import java.util.Set;
 import java.util.Vector;
 
@@ -7,6 +8,7 @@ import processing.core.PApplet;
 import processing.core.PConstants;
 
 import com.datatype.DCFace;
+import com.datatype.DCHalfEdge;
 import com.datatype.Point;
 import com.math.Geom;
 
@@ -70,15 +72,20 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	//adds a line in polar mode by specifying an origin, radius and angle
 	public void addLine(Point origin, float radius, float theta) {
 		Line line = new Line(origin,radius, theta);
-		lines.add(line);
+		this.lines.add(line);
 	}
 	
 	//adds a line by passing in a line
 	public void addLine(Line line) {
-		lines.add(line);
+		this.lines.add(line);
 		this.addPoint(line.start);
 		this.addPoint(line.end);
 	}
+	
+	//adds a line by passing in a line but does not add points to point list
+		public void addLineWithoutPoints(Line line) {
+			this.lines.add(line);
+		}
 	
 	public void addPolygon(Polygon poly){
 		this.polygons.add(poly);
@@ -252,7 +259,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	
 	 //translates all points;
     public void moveTo(double x, double y) {
-    	this.removeDuplicatePoints();
+    	//this.removeDuplicatePoints();
         for (int i = 0; i < points.size(); i++) {
            Point currentPoint = points.get(i);
            currentPoint.moveTo(x, y,this.origin);
@@ -264,7 +271,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     //translates all lines to a new point;
     @Override
     public void moveTo(double x, double y, Point focus) {
-    	this.removeDuplicatePoints();
+    	//this.removeDuplicatePoints();
     	for (int i = 0; i < points.size(); i++) {
              Point currentPoint = points.get(i);
              currentPoint.moveTo(x, y,focus);
@@ -273,7 +280,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     
 	@Override
     public void moveBy(double x, double y) {
-		this.removeDuplicatePoints();
+		//this.removeDuplicatePoints();
 		 for (int i = 0; i < points.size(); i++) {
 			  Point currentPoint = points.get(i);
 	            currentPoint.moveBy(x, y);
@@ -287,9 +294,10 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
         this.rotate(theta,origin);
     }
 	
-	  //rotates all lines around the focus by an increment of theta;
+	
+	//rotates all lines around the focus by an increment of theta;
     public void rotate(double theta, Point _focus) {
-    	this.removeDuplicatePoints();
+    	//this.removeDuplicatePoints();
         for (int i = 0; i < points.size(); i++) {
 			Point currentPoint = points.get(i);
 
@@ -298,14 +306,16 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     }
     
     public void scale(double scaleVal){
-    	this.removeDuplicatePoints();
+    	//this.removeDuplicatePoints();
         for (int i = 0; i < points.size(); i++) {
         	Point currentPoint = points.get(i);
         	currentPoint.scale(scaleVal);
         }
+       
     }
 	
     
+   
   //=============================DRAW AND PRINT METHODS==================================//
     
     public void draw(PApplet parent, float strokeWeight){
@@ -364,8 +374,8 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		for(int i=0;i<this.lines.size();i++){
 			Line line = this.lines.get(i).copy();
 			lines.add(line);
-			points.add(line.start);
-			points.add(line.end);
+			//points.add(line.start);
+			//points.add(line.end);
 		}
 		
 		for(int i=0;i<this.points.size();i++){
@@ -378,10 +388,24 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 			ellipses.add(ellipse);
 		}
 		
+		LineCollection newLineCollection =  new LineCollection(newOrigin, points, lines, polygons, ellipses);
 		
-		return new LineCollection(newOrigin, points, lines, polygons, ellipses);
+		//newLineCollection.reLinkLines();
+		
+		return newLineCollection;
 	}
 
+	
+	public void reLinkLines(){
+		for(int i=0;i<lines.size(); i++){
+			for(int j=0;j<lines.size(); j++){
+				if(lines.get(j).start==lines.get(i).end){
+					lines.get(j).start = lines.get(i).end;
+				}
+			}
+		}
+	}
+	
 	
  //=============================TURTLE METHODS==================================//
 
@@ -405,7 +429,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 
 	@Override
 	public void forward(double dist) {
-		Line newLine = new Line(TurtleStruct.location, dist, TurtleStruct.angle);
+		Line newLine = new Line(TurtleStruct.location.copy(), dist, TurtleStruct.angle);
 		if(TurtleStruct.pen){
 			
 			this.addLine(newLine);
@@ -418,7 +442,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 
 	@Override
 	public void back(double dist) {
-		Line newLine = new Line(TurtleStruct.location, -dist, TurtleStruct.angle);
+		Line newLine = new Line(TurtleStruct.location.copy(), -dist, TurtleStruct.angle);
 		if(TurtleStruct.pen){
 			
 			this.addLine(newLine);
@@ -445,3 +469,5 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 
 	
 }
+
+

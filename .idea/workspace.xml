@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c83156b8-fd5f-4ee6-b880-2324b054c7fd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/data/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/data/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/examples/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/examples/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/examples/.svn/text-base/README.svn-base" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/lib/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/lib/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/.svn/prop-base/ExampleTaglet.class.svn-base" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/.svn/prop-base/ant-contrib-1.0b3.jar.svn-base" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/.svn/text-base/HelloLibrary.java.svn-base" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/web/.svn/all-wcprops" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/web/.svn/entries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/voronoi/VorTree.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Base.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Button.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Controller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/LampShape.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Notch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Part.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Rib.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/ScreenManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/math/CompPoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/math/Geom.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/math/Segment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/math/Vec2d.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/web/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/web/stylesheet.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/compgeo/.indexes/db/properties.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/compgeo/.indexes/e4/81/1/history.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/compgeo/.indexes/e4/81/42/history.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/compgeo/.indexes/e4/81/6f/history.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/compgeo/.indexes/e4/81/8/history.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/compgeo/.markers" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/compgeo/org.eclipse.jdt.core/state.dat" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/stylesheet.css" afterPath="$PROJECT_DIR$/codeableObjects/web/.svn/text-base/stylesheet.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/design/Model.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Model.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/design/Pattern.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Pattern.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/design/Shade.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Shade.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/design/Slider.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/design/Slider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/math/CompPoint3d.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/math/CompPoint3d.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/math/Intersection.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/math/Intersection.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/math/Matrix3x3.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/math/Matrix3x3.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/math/SegmentCmp.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/math/SegmentCmp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/primitives2d/Disc.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/primitives2d/Disc.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/primitives2d/Grid.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/primitives2d/Grid.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/primitives2d/GridSquare.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/primitives2d/GridSquare.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/web/index.html" afterPath="$PROJECT_DIR$/codeableObjects/web/.svn/text-base/index.html.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/web/stylesheet.css" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.metadata/.log" afterPath="$PROJECT_DIR$/.metadata/.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" />
+    </list>
+    <list id="a5f8f652-310c-4303-8b51-dd506733e282" name="Rejected commit: Default" comment="draw and mouse event listeners registered. save methods modified.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/download/compgeo-1.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/download/compgeo.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/examples/random/random.pde" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/examples/spiral/data/din_bold.vlw" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/lib/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/ExampleTaglet.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/ant-contrib-1.0b3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/ChangeLog.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/build.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/build.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/ExampleTaglet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/doc.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/install_instructions.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/library.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/resources/stylesheet.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/algorithm/SegmentIntersect.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/algorithm/VoronoiGenerator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/BinarySearchTree.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCHalfEdge.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/DoublyConnectedEdgeList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/Node.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/SegmentTree.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/voronoi/Arc.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/voronoi/VorNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/.classpath" afterPath="$PROJECT_DIR$/codeableObjects/.classpath" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/.project" afterPath="$PROJECT_DIR$/codeableObjects/.project" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/codeableObjects/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/compgeo.iml" afterPath="$PROJECT_DIR$/codeableObjects/codeableObjects.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/data/README" afterPath="$PROJECT_DIR$/codeableObjects/data/.svn/text-base/README.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/INSTALL.txt" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/INSTALL.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/download/compgeo-1.txt" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/download/compgeo-1.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/download/compgeo.txt" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/download/compgeo.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/circle/circle.pde" afterPath="$PROJECT_DIR$/codeableObjects/examples/circle/circle.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/circle/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/polar_rose/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/circle/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/polar_rose/polar_rose.pde" afterPath="$PROJECT_DIR$/codeableObjects/examples/polar_rose/polar_rose.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/random/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/polar_rose/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/sine/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/random/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/sine/sine.pde" afterPath="$PROJECT_DIR$/codeableObjects/examples/sine/sine.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/spiral/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/sine/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/examples/spiral/spiral.pde" afterPath="$PROJECT_DIR$/codeableObjects/examples/spiral/spiral.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/index.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/allclasses-frame.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/allclasses-frame.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/allclasses-noframe.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/allclasses-noframe.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/algorithm/SegmentIntersect.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/algorithm/SegmentIntersect.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/algorithm/VoronoiGenerator.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/algorithm/VoronoiGenerator.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/algorithm/package-frame.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/algorithm/package-frame.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/algorithm/package-summary.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/algorithm/package-summary.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/algorithm/package-tree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/algorithm/package-tree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/BinarySearchTree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/BinarySearchTree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/DCFace.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/DCFace.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/DCHalfEdge.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/DCHalfEdge.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/DCHalfEdge3d.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/DCHalfEdge3d.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/DCVertex.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/DCVertex.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/DoublyConnectedEdgeList.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/DoublyConnectedEdgeList.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/Node.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/Node.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/SegmentTree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/SegmentTree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/package-frame.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/package-frame.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/package-summary.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/package-summary.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/package-tree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/package-tree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/voronoi/Arc.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/voronoi/Arc.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/voronoi/VorEvent.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/voronoi/VorEvent.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/voronoi/VorEventSorter.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/voronoi/VorEventSorter.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/voronoi/VorNode.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/voronoi/VorNode.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/voronoi/VorTree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/voronoi/VorTree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/voronoi/package-frame.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/voronoi/package-frame.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/voronoi/package-summary.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/voronoi/package-summary.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/datastruct/voronoi/package-tree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/datastruct/voronoi/package-tree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Base.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Base.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Button.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Button.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Controller.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Controller.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/LampShape.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/LampShape.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Model.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Model.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Notch.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Notch.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Part.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Part.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Pattern.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Pattern.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Rib.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Rib.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/ScreenManager.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/ScreenManager.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Shade.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Shade.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/Slider.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/Slider.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/package-frame.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/package-frame.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/package-summary.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/package-summary.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/design/package-tree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/design/package-tree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/CompPoint.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/CompPoint.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/CompPoint3d.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/CompPoint3d.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/Intersection.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/Intersection.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/Matrix3x3.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/Matrix3x3.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/Segment.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/Segment.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/SegmentCmp.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/SegmentCmp.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/package-frame.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/package-frame.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/package-summary.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/package-summary.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/com/math/package-tree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/com/math/package-tree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/constant-values.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/constant-values.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/deprecated-list.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/deprecated-list.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/help-doc.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/help-doc.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/index-all.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/index-all.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/index.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/overview-frame.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/overview-frame.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/overview-summary.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/overview-summary.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/overview-tree.html" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/overview-tree.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/package-list" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/package-list" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/resources/inherit.gif" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/resources/inherit.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/compgeo-1/reference/stylesheet.css" afterPath="$PROJECT_DIR$/codeableObjects/resources/.svn/text-base/stylesheet.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/distribution/gpl.txt" afterPath="$PROJECT_DIR$/codeableObjects/distribution/gpl.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/README" afterPath="$PROJECT_DIR$/codeableObjects/examples/README" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/circle/circle.pde" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/circle/circle.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/circle/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/spiral/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/polar_rose/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/examples/circle/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/polar_rose/polar_rose.pde" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/polar_rose/polar_rose.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/random/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/examples/polar_rose/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/random/random.pde" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/random/random.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/sine/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/examples/random/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/sine/sine.pde" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/sine/sine.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/spiral/data/din_bold.vlw" afterPath="$PROJECT_DIR$/codeableObjects/examples/sine/data/din_bold.vlw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/examples/spiral/spiral.pde" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/examples/spiral/spiral.pde" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/lib/README" afterPath="$PROJECT_DIR$/codeableObjects/lib/.svn/text-base/README.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/license.txt" afterPath="$PROJECT_DIR$/codeableObjects/license.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/readme.html" afterPath="$PROJECT_DIR$/codeableObjects/readme.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/ChangeLog.txt" afterPath="$PROJECT_DIR$/codeableObjects/resources/.svn/text-base/ChangeLog.txt.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/build.properties" afterPath="$PROJECT_DIR$/codeableObjects/resources/.svn/text-base/build.properties.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/build.xml" afterPath="$PROJECT_DIR$/codeableObjects/resources/.svn/text-base/build.xml.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/code/ExampleTaglet.class" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/.svn/text-base/ExampleTaglet.class.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/code/ExampleTaglet.java" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/.svn/text-base/ExampleTaglet.java.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/code/ant-contrib-1.0b3.jar" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/.svn/text-base/ant-contrib-1.0b3.jar.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/code/doc.sh" afterPath="$PROJECT_DIR$/codeableObjects/resources/code/.svn/text-base/doc.sh.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/install_instructions.txt" afterPath="$PROJECT_DIR$/codeableObjects/resources/.svn/text-base/install_instructions.txt.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/library.properties" afterPath="$PROJECT_DIR$/codeableObjects/resources/.svn/text-base/library.properties.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/resources/stylesheet.css" afterPath="$PROJECT_DIR$/codeableObjects/distribution/compgeo-1/reference/stylesheet.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/algorithm/KdCluster.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/algorithm/KdCluster.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/datastruct/DCFace.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCFace.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/datastruct/DCHalfEdge3d.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCHalfEdge3d.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/datastruct/DCVertex.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCVertex.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/datastruct/voronoi/VorEvent.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/voronoi/VorEvent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/compgeo/src/com/datastruct/voronoi/VorEventSorter.java" afterPath="$PROJECT_DIR$/codeableObjects/src/com/datastruct/voronoi/VorEventSorter.java" />
+    </list>
+    <ignored path="workspace.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCHalfEdge.java" changelist="c83156b8-fd5f-4ee6-b880-2324b054c7fd" time="1338317437052" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="workspace" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Pattern.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Pattern.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="132" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Part.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Part.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="51" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DCHalfEdge3d.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCHalfEdge3d.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="13" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DCHalfEdge.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCHalfEdge.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="51" selection-start="3211" selection-end="3211" vertical-scroll-proportion="0.12352941">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompPoint.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/math/CompPoint.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="111" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DoublyConnectedEdgeList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/datastruct/DoublyConnectedEdgeList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="37" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="13" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Base.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Base.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="13" selection-start="1101" selection-end="1101" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Geom.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/math/Geom.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="127" selection-start="1920" selection-end="1920" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LampShape.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/LampShape.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="442" column="9" selection-start="16158" selection-end="16158" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/compgeo/examples/random/random.pde" />
+        <option value="$PROJECT_DIR$/compgeo/examples/sine/sine.pde" />
+        <option value="$PROJECT_DIR$/compgeo/examples/spiral/spiral.pde" />
+        <option value="$PROJECT_DIR$/compgeo/src/com/primitives2d/Disc.java" />
+        <option value="$PROJECT_DIR$/compgeo/src/com/primitives2d/Grid.java" />
+        <option value="$PROJECT_DIR$/compgeo/src/com/primitives2d/GridSquare.java" />
+        <option value="$PROJECT_DIR$/codeableObjects/resources/build.properties" />
+        <option value="$PROJECT_DIR$/codeableObjects/src/com/math/Geom.java" />
+        <option value="$PROJECT_DIR$/codeableObjects/examples/spiral/spiral.pde" />
+        <option value="$PROJECT_DIR$/codeableObjects/examples/circle/circle.pde" />
+        <option value="$PROJECT_DIR$/codeableObjects/examples/polar_rose/polar_rose.pde" />
+        <option value="$PROJECT_DIR$/codeableObjects/src/com/design/Controller.java" />
+        <option value="$PROJECT_DIR$/codeableObjects/src/com/design/LampShape.java" />
+        <option value="$PROJECT_DIR$/codeableObjects/src/com/design/ScreenManager.java" />
+        <option value="$PROJECT_DIR$/codeableObjects/src/com/design/Part.java" />
+        <option value="$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCHalfEdge.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="22" />
+    <option name="width" value="1916" />
+    <option name="height" value="1058" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="PackagesPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="compgeo">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codeableObjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codeableObjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codeableObjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="math" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codeableObjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="math" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CompPoint.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codeableObjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="design" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codeableObjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datastruct" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="options.lastSelected" value="copyright.profiles" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.design" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/codeableObjects/data" />
+      <recent name="$PROJECT_DIR$/compgeo/examples" />
+      <recent name="$PROJECT_DIR$/compgeo/src/com/primitives2d" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/compgeo/distribution" />
+      <recent name="$PROJECT_DIR$/compgeo/data" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <list size="0" />
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="StructuralSearchPlugin">
+    <replaceConfiguration name="user defined" text="/*&#10; * This file is part of the Codeable Objects Framework.&#10; *&#10; *     Codeable Objects is free software: you can redistribute it and/or modify&#10; *     it under the terms of the GNU General Public License as published by&#10; *     the Free Software Foundation, either version 3 of the License, or&#10; *     (at your option) any later version.&#10; *&#10; *     Codeable Objects is distributed in the hope that it will be useful,&#10; *     but WITHOUT ANY WARRANTY; without even the implied warranty of&#10; *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10; *     GNU General Public License for more details.&#10; *&#10; *     You should have received a copy of the GNU General Public License&#10; *     along with Codeable Objects.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10; */" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="" history="1" />
+    <searchConfiguration name="user defined" text="/*&#10; * This file is part of the Codeable Objects Framework.&#10; *&#10; *     Codeable Objects is free software: you can redistribute it and/or modify&#10; *     it under the terms of the GNU General Public License as published by&#10; *     the Free Software Foundation, either version 3 of the License, or&#10; *     (at your option) any later version.&#10; *&#10; *     Codeable Objects is distributed in the hope that it will be useful,&#10; *     but WITHOUT ANY WARRANTY; without even the implied warranty of&#10; *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10; *     GNU General Public License for more details.&#10; *&#10; *     You should have received a copy of the GNU General Public License&#10; *     along with Codeable Objects.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10; */" recursive="true" caseInsensitive="true" type="JAVA" history="1" />
+    <replaceConfiguration name="user defined" text="/*&#10; * Codeable Objects by Jennifer Jacobs is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.&#10; * Based on a work at hero-worship.com/portfolio/codeable-objects.&#10; *&#10; * This file is part of the Codeable Objects Framework.&#10; *&#10; *     Codeable Objects is free software: you can redistribute it and/or modify&#10; *     it under the terms of the GNU General Public License as published by&#10; *     the Free Software Foundation, either version 3 of the License, or&#10; *     (at your option) any later version.&#10; *&#10; *     Codeable Objects is distributed in the hope that it will be useful,&#10; *     but WITHOUT ANY WARRANTY; without even the implied warranty of&#10; *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10; *     GNU General Public License for more details.&#10; *&#10; *     You should have received a copy of the GNU General Public License&#10; *     along with Codeable Objects.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10; */&#10;&#10;/*&#10; * This file is part of the Codeable Objects Framework.&#10; *&#10; *     Codeable Objects is free software: you can redistribute it and/or modify&#10; *     it under the terms of the GNU General Public License as published by&#10; *     the Free Software Foundation, either version 3 of the License, or&#10; *     (at your option) any later version.&#10; *&#10; *     Codeable Objects is distributed in the hope that it will be useful,&#10; *     but WITHOUT ANY WARRANTY; without even the implied warranty of&#10; *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10; *     GNU General Public License for more details.&#10; *&#10; *     You should have received a copy of the GNU General Public License&#10; *     along with Codeable Objects.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10; */" recursive="false" caseInsensitive="false" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement=" " history="1" />
+    <replaceConfiguration name="user defined" text="/*&#10; * Codeable Objects by Jennifer Jacobs is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.&#10; * Based on a work at hero-worship.com/portfolio/codeable-objects.&#10; *&#10; * This file is part of the Codeable Objects Framework.&#10; *&#10; *     Codeable Objects is free software: you can redistribute it and/or modify&#10; *     it under the terms of the GNU General Public License as published by&#10; *     the Free Software Foundation, either version 3 of the License, or&#10; *     (at your option) any later version.&#10; *&#10; *     Codeable Objects is distributed in the hope that it will be useful,&#10; *     but WITHOUT ANY WARRANTY; without even the implied warranty of&#10; *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10; *     GNU General Public License for more details.&#10; *&#10; *     You should have received a copy of the GNU General Public License&#10; *     along with Codeable Objects.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10; */&#10;&#10;/*&#10; * This file is part of the Codeable Objects Framework.&#10; *&#10; *     Codeable Objects is free software: you can redistribute it and/or modify&#10; *     it under the terms of the GNU General Public License as published by&#10; *     the Free Software Foundation, either version 3 of the License, or&#10; *     (at your option) any later version.&#10; *&#10; *     Codeable Objects is distributed in the hope that it will be useful,&#10; *     but WITHOUT ANY WARRANTY; without even the implied warranty of&#10; *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10; *     GNU General Public License for more details.&#10; *&#10; *     You should have received a copy of the GNU General Public License&#10; *     along with Codeable Objects.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10; */" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement=" " history="1" />
+    <replaceConfiguration name="user defined" text="/*&#10; * Codeable Objects by Jennifer Jacobs is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.&#10; * Based on a work at hero-worship.com/portfolio/codeable-objects.&#10; *&#10; * This file is part of the Codeable Objects Framework.&#10; *&#10; *     Codeable Objects is free software: you can redistribute it and/or modify&#10; *     it under the terms of the GNU General Public License as published by&#10; *     the Free Software Foundation, either version 3 of the License, or&#10; *     (at your option) any later version.&#10; *&#10; *     Codeable Objects is distributed in the hope that it will be useful,&#10; *     but WITHOUT ANY WARRANTY; without even the implied warranty of&#10; *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10; *     GNU General Public License for more details.&#10; *&#10; *     You should have received a copy of the GNU General Public License&#10; *     along with Codeable Objects.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10; */&#10;&#10;/*&#10; * This file is part of the Codeable Objects Framework.&#10; *&#10; *     Codeable Objects is free software: you can redistribute it and/or modify&#10; *     it under the terms of the GNU General Public License as published by&#10; *     the Free Software Foundation, either version 3 of the License, or&#10; *     (at your option) any later version.&#10; *&#10; *     Codeable Objects is distributed in the hope that it will be useful,&#10; *     but WITHOUT ANY WARRANTY; without even the implied warranty of&#10; *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10; *     GNU General Public License for more details.&#10; *&#10; *     You should have received a copy of the GNU General Public License&#10; *     along with Codeable Objects.  If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10; */" recursive="false" caseInsensitive="true" type="JAVA" reformatAccordingToStyle="true" shortenFQN="true" replacement="" history="1" />
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <configuration useDefault="false">$USER_HOME$/.subversion_IDEA</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c83156b8-fd5f-4ee6-b880-2324b054c7fd" name="Default" comment="" />
+      <changelist id="a5f8f652-310c-4303-8b51-dd506733e282" name="Rejected commit: Default" comment="draw and mouse event listeners registered. save methods modified." />
+      <created>1335136284815</created>
+      <updated>1335136284815</updated>
+    </task>
+    <task id="LOCAL-00001" summary="constraints to hole widths">
+      <created>1335203683987</created>
+      <updated>1335203683987</updated>
+    </task>
+    <task id="LOCAL-00002" summary="constraints to hole widths">
+      <created>1335651985584</created>
+      <updated>1335651985584</updated>
+    </task>
+    <task id="LOCAL-00003" summary="constraints to hole widths">
+      <created>1335652031904</created>
+      <updated>1335652031906</updated>
+    </task>
+    <task id="LOCAL-00004" summary="constraints to hole widths">
+      <created>1335991425598</created>
+      <updated>1335991425598</updated>
+    </task>
+    <task id="LOCAL-00005" summary="gpl licensing added">
+      <created>1337537571840</created>
+      <updated>1337537571840</updated>
+    </task>
+    <task id="LOCAL-00006" summary="draw and mouse event listeners registered. save methods modified.">
+      <created>1337831997145</created>
+      <updated>1337831997145</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="22" width="1916" height="1058" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21344717" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16167024" sideWeight="0.7769477" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4076841" sideWeight="0.5106838" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993016" sideWeight="0.7476526" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.8420491" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32922912" sideWeight="0.7769477" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3425827" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2230523" sideWeight="0.926183" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3991462" sideWeight="0.49500623" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="draw and mouse event listeners registered. save methods modified." />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="constraints to hole widths" />
+    <MESSAGE value="gpl licensing added" />
+    <MESSAGE value="draw and mouse event listeners registered. save methods modified." />
+  </component>
+  <component name="VssConfiguration">
+    <option name="CLIENT_PATH" value="" />
+    <option name="SRCSAFEINI_PATH" value="" />
+    <option name="USER_NAME" value="" />
+    <option name="PWD" value="" />
+    <CheckoutOptions>
+      <option name="COMMENT" value="" />
+      <option name="DO_NOT_GET_LATEST_VERSION" value="false" />
+      <option name="REPLACE_WRITABLE" value="false" />
+      <option name="RECURSIVE" value="false" />
+    </CheckoutOptions>
+    <CheckinOptions>
+      <option name="COMMENT" value="" />
+      <option name="KEEP_CHECKED_OUT" value="false" />
+      <option name="RECURSIVE" value="false" />
+    </CheckinOptions>
+    <AddOptions>
+      <option name="STORE_ONLY_LATEST_VERSION" value="false" />
+      <option name="CHECK_OUT_IMMEDIATELY" value="false" />
+    </AddOptions>
+    <UndocheckoutOptions>
+      <option name="MAKE_WRITABLE" value="false" />
+      <option name="REPLACE_LOCAL_COPY" value="2" />
+      <option name="RECURSIVE" value="false" />
+    </UndocheckoutOptions>
+    <GetOptions>
+      <option name="REPLACE_WRITABLE" value="0" />
+      <option name="MAKE_WRITABLE" value="false" />
+      <option name="ANSWER_NEGATIVELY" value="false" />
+      <option name="ANSWER_POSITIVELY" value="false" />
+      <option name="RECURSIVE" value="false" />
+      <option name="VERSION" />
+    </GetOptions>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/codeableObjects/resources/build.xml">
+      <antCommandLine value="" />
+      <runInBackground value="true" />
+      <targetFilters />
+      <treeView value="true" />
+      <verbose value="true" />
+      <viewClosedWhenNoErrors value="false" />
+      <expanded value="true" />
+    </buildFile>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/datastruct/BinarySearchTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="13" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.016483517" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/resources/build.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="60" selection-start="3932" selection-end="3932" vertical-scroll-proportion="0.016483517" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/math/CompPoint3d.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="988" selection-end="988" vertical-scroll-proportion="0.36263737" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Shade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="990" selection-end="990" vertical-scroll-proportion="0.36263737" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="86" selection-start="4724" selection-end="4724" vertical-scroll-proportion="0.019633507" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/ScreenManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="277" column="94" selection-start="10809" selection-end="10809" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="132" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCHalfEdge3d.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/math/CompPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="111" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/datastruct/DoublyConnectedEdgeList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="37" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="13" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="13" selection-start="1101" selection-end="1101" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/math/Geom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="127" selection-start="1920" selection-end="1920" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/LampShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="442" column="9" selection-start="16158" selection-end="16158" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/design/Part.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="51" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeableObjects/src/com/datastruct/DCHalfEdge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="51" selection-start="3211" selection-end="3211" vertical-scroll-proportion="0.12352941">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <last-edited>GNU</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>compgeo</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

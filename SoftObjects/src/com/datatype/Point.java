@@ -202,15 +202,3 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	
 }
 
-class CmpX implements Comparator<Point2D> {
-	public int compare(Point2D a, Point2D b) {
-		return (a.getX() < b.getX()) ? -1 : (a.getX() > b.getX()) ? 1 : 0;
-	}
-}
-
-//compares y values of two points
-class CmpY implements Comparator<Point2D> {
-	public int compare(Point2D a, Point2D b) {
-		return (a.getY() < b.getY()) ? -1 : (a.getY() > b.getY()) ? 1 : 0;
-	}
-}

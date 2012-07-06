@@ -205,8 +205,8 @@ public class DCFace extends DoublyConnectedEdgeList {
     	*/
     	
     	
-    	double angle1 = getHighestAngle(highestEdge1,verticies.get(0));
-    	double angle2 = getHighestAngle(highestEdge2,verticies.get(0));
+    	double angle1 = Geom.getHighestAngle(highestEdge1,verticies.get(0));
+    	double angle2 = Geom.getHighestAngle(highestEdge2,verticies.get(0));
     	DCHalfEdge selectedEdge;
     	if(angle1>=angle2){
     		selectedEdge = highestEdge1;
@@ -280,22 +280,7 @@ public class DCFace extends DoublyConnectedEdgeList {
     
    
     
-    private double getHighestAngle(DCHalfEdge edge, Point focus){
-    	Point target;
-    	
-    	if(edge.start.compareTo(focus)==0){
-    		
-    		target = edge.end;
-    	}
-    	else{
-    		
-    		target = edge.start;
-    	}
-    	//reset edge with higher point as start;
-    	
-    	//return angle of edge from start to end
-    	return Geom.cartToPolar(target.getX()-focus.getX(), target.getY()-focus.getY())[1];
-    }
+   
     
   /*  private void sortEdges(DCHalfEdge highestEdge,,sortedEdges){
     	

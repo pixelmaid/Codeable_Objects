@@ -1,7 +1,11 @@
 package com.ornament;
 
+import java.util.Vector;
+
 import com.datatype.Point;
+import com.primitive2d.Ellipse;
 import com.primitive2d.Line;
+import com.primitive2d.Polygon;
 
 public class Tree extends Pattern{
 	private double limit = 2;//minimum length of a branch before the fractal terminates
@@ -15,6 +19,11 @@ public class Tree extends Pattern{
 	public Tree(){
 		super();
 		
+	}
+	
+	public Tree(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
+		super(origin, points, lines, polygons, ellipses);
+
 	}
 	
 	public void setLimit(double limit){ //sets the limit
@@ -68,5 +77,35 @@ public class Tree extends Pattern{
 			this.branch(height,leftLine.end,leftTheta); //recurse
 			
 		}
+	}
+	
+	
+	public Tree copy(){
+		Vector<Line>lines = new Vector<Line>();
+		Vector<Point>points = new Vector<Point>(); 
+		Vector<Polygon>polygons = new Vector<Polygon>();
+		Vector<Ellipse>ellipses = new Vector<Ellipse>();
+		Point newOrigin = this.origin.copy();
+		
+		
+		for(int i=0;i<this.getAllLines().size();i++){
+			Line line = this.getAllLines().get(i).copy();
+			lines.add(line);
+			points.add(line.start);
+			points.add(line.end);
+		}
+		
+		for(int i=0;i<this.getAllPoints().size();i++){
+			Point point = points.get(i).copy();
+			points.add(point);
+		}
+		
+		
+		
+		Tree newTree =  new Tree(newOrigin, points, lines,polygons,ellipses);
+		
+		
+		return newTree;
+		
 	}
 }

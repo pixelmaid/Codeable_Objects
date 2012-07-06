@@ -1,0 +1,9 @@
+package com.primitive2d;
+
+public class Rectangle extends Polygon {
+	
+	public Rectangle(double startX, double startY, double width, double height){
+
+	}
+
+}
