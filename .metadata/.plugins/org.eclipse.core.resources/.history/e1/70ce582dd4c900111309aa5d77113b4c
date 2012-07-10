@@ -1,0 +1,23 @@
+package com.primitive2d;
+
+import java.util.Vector;
+
+import com.datatype.Point;
+
+public class Curve extends Line {
+	Vector<HalfCurve> halfCurves = new Vector<HalfCurve>();
+	
+	public Curve(Point start, Point end){
+		super(start,end);
+	}
+	
+
+}
+class HalfCurve extends Line{
+	
+	public HalfCurve(Point start, Point end, Point control){
+		super(start,end);
+	}
+
+	
+}

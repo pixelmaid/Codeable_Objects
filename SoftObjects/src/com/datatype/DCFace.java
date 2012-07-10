@@ -47,7 +47,7 @@ public class DCFace extends DoublyConnectedEdgeList {
 
   
     public void setOrigin(Point point){
-    	this.origin=point;
+    	this.origin=point.copy();
     }
     
     public Point getOrigin(){

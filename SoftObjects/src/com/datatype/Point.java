@@ -31,10 +31,20 @@ import processing.core.PApplet;
 public class Point extends Point2D implements Comparable<Point>, Drawable{
 	private double x;
 	private double y;
+	public boolean selected = false; // used for mouse events
 
 	public Point(double _x, double _y) {
 		x = _x;
 		y = _y;
+	}
+	
+	public boolean withinRange(double range, double x, double y){
+		if((Math.abs(this.getX()-x)<=range)&&(Math.abs(this.getY()-y)<=range)){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	public double getX() {
@@ -103,7 +113,19 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 		this.y*=scaleVal;
 	}
 
+	
+	public void scaleX(double scaleVal) {
+		//Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
+		this.x*=scaleVal;
+		
+	}
 
+	
+	public void scaleY(double scaleVal) {
+		//Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
+		this.y*=scaleVal;
+		
+	}
 	public double angle(Point p) {
 
 		double x = p.x - this.x;

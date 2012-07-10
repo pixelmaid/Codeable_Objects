@@ -57,13 +57,14 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
 
         this.length = Geom.distance(start, end);
         this.focus=start;
+        //System.out.println("slope="+m+"length="+this.length);
     }
     
     
     public DCHalfEdge(Point origin, double rad, double theta) {//constructor for end that is predetermined
         this.start = origin;
         
-        this.end = Geom.polarToCart(rad, theta);
+        this.end = Geom.polarToCart(rad, theta).copy();
         this.end.setX(this.end.getX()+this.start.getX());
         this.end.setY(this.end.getY()+this.start.getY());
 
@@ -73,6 +74,7 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
 
         this.length = Geom.distance(start, end);
         this.focus=start;
+       // System.out.println("slope="+m+"length="+this.length);
     }
 
     public DCHalfEdge(Point start, Point left, Point right) {//constructor
@@ -99,14 +101,25 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
     
     
     public double getSlope(){
-    	 this.m = (start.getY() - end.getY()) / (start.getX() - end.getX()); //calculate the slope of the line by the inverse of the slope of the line through left and right
-    	 return this.m;
+    	/*System.out.println("start X="+this.start.getX());
+    	System.out.println("start Y="+this.start.getY());
+    	System.out.println("end X="+this.end.getX());
+    	System.out.println("end Y="+this.end.getY());
+    	*/
+    	 this.m = (this.start.getY() - this.end.getY()) / (this.start.getX() - this.end.getX()); //calculate the slope of the line by the inverse of the slope of the line through left and right
+    	 
+    	 if(this.m>1e+15){
+    		 return Double.POSITIVE_INFINITY;
+    	 }
+    	 else{
+    		 return this.m;
+    	 }
     		
     }
     
     
     public double getYIntercept(){
-    	  this.m = (right.getX() - left.getX()) / (left.getY() - right.getY()); //calculate the slope of the line by the inverse of the slope of the line through left and right
+   	 		this.m = (start.getY() - end.getY()) / (start.getX() - end.getX()); //calculate the slope of the line by the inverse of the slope of the line through left and right
           this.b = start.getY() - m * start.getX(); //calculate the y intercept with y=mx+b
           return b;
    		

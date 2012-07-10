@@ -1,0 +1,24 @@
+package com.primitive2d;
+
+import com.datatype.Point;
+
+import com.math.Geom;
+
+public class Spiral extends LineCollection {
+
+	public Spiral(double a, double b, double increment, int resolution){
+		super();
+		
+		double theta = 0;
+		
+		for (int i=0;i<resolution;i++){
+			
+			b+=increment;
+			double r = a + b*theta;
+			Point point = Geom.polarToCart(r, theta);
+			this.addPoint(point);
+			
+		}
+		
+	}
+}

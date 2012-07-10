@@ -21,6 +21,9 @@
 package com.math;
 
 import com.primitive2d.Ellipse;
+import com.primitive2d.Line;
+import com.primitive2d.LineCollection;
+import com.primitive2d.Polygon;
 import com.datatype.DCHalfEdge;
 import com.datatype.DoublyConnectedEdgeList;
 import com.datatype.Point;
@@ -34,8 +37,8 @@ import java.util.Vector;
 public class Geom {
 
     public static Point polarToCart(double r, double theta) {
-        double x = Math.cos(theta * Math.PI / 180.0) * r;
-        double y = Math.sin(theta * Math.PI / 180.0) * r;
+        double x = Math.cos(theta * (Math.PI / 180.0)) * r;
+        double y = Math.sin(theta * (Math.PI / 180.0)) * r;
 
         /*double[] xY = new double[2];
           xY[0]=x;
@@ -92,6 +95,13 @@ public class Geom {
         return rTheta;
     }
 
+   public static Point getMidpoint(Point p1, Point p2){
+	   double x = (p1.getX()+p2.getX())/2;
+	   double y = (p1.getY()+p2.getY())/2;
+	   
+	   return new Point(x,y);
+   }
+    
     
    public static double getHighestAngle(DCHalfEdge edge, Point focus){
     	Point target;
@@ -201,6 +211,33 @@ public class Geom {
         return intersection;
     }
 
+  //ray determined point in polygon (returns bool)
+    
+    public static DoublyConnectedEdgeList linesToDCEdgeList(LineCollection lc){
+    	DoublyConnectedEdgeList p = new DoublyConnectedEdgeList();
+    	Vector<Line> l = lc.getAllLines();
+    	for(int i=0;i<l.size();i++){
+    		p.addHalfEdge(new DCHalfEdge(l.get(i).start.copy(),l.get(i).end.copy()));
+    	}
+    	return p;
+    	
+    }
+    
+    public static boolean rayPointInPolygon(Point q, LineCollection lc){
+    	
+    	DoublyConnectedEdgeList p = linesToDCEdgeList(lc);
+    
+    	
+    	char type = rayTypePointInPolygon(q, p);
+    	if(type !='o'){
+    			return true;
+    	}
+    	else{
+    		return false;
+    	}
+    } 
+    
+    
   //ray determined point in polygon (returns bool)
     public static boolean rayPointInPolygon(Point q, DoublyConnectedEdgeList p){
     	
@@ -321,6 +358,19 @@ public class Geom {
         return true;
     }
 
+    
+    //determines if a segment intersects a polygon defined by a doubly connected edge list and returns edges of intersection if they exist
+    public static Vector<Line> edgeIntersectsPolygon(Line edge, Vector<Line> border) {
+        Vector<Line> intersectedEdges = new Vector<Line>();
+        for (int i = border.size() - 1; i >= 0; i--) {
+            Line borderEdge = border.get(i);
+            if (lineIntersect(borderEdge.start, borderEdge.end, edge.start, edge.end)) {
+                intersectedEdges.add(borderEdge);
+            }
+        }
+        return intersectedEdges;
+    }
+    
 
     //determines if a segment intersects a polygon defined by a doubly connected edge list and returns edges of intersection if they exist
     public static Vector<DCHalfEdge> edgeIntersectsPolygon(DCHalfEdge edge, DoublyConnectedEdgeList border) {
@@ -411,21 +461,42 @@ public class Geom {
     }
 
 
+    
+ 
+    
     //finds the point of intersection between two edges that are known to intersect
     public static Point findIntersectionPoint(DCHalfEdge edge, DCHalfEdge borderEdge) {
         double mx = 0;
         double my = 0;
-
+  
+        System.out.println("slope of edge="+edge.getSlope());
+        
         if (Double.isInfinite(borderEdge.getSlope())) {//check to see if slope is undefined (line is vertical)
+        	  
             mx = borderEdge.start.getX();
             my = (mx * edge.getSlope()) + edge.getYIntercept();
         } else if (Double.isNaN(borderEdge.getSlope())) {//check to see if slope is NaN (line is horizontal)
             my = borderEdge.start.getY();
+           if(Double.isInfinite(edge.getSlope())){
+        	   System.out.println("slope in in horz line");
+        	   mx = edge.start.getX();
+           }
+           else{
             mx = (my - edge.getYIntercept()) / edge.getSlope();
+           }
 
-        } else {
-            mx = (edge.getYIntercept() - borderEdge.getYIntercept()) / (borderEdge.getSlope() - edge.getSlope());//line has a slope
-            my = (mx * edge.getSlope()) + edge.getYIntercept();
+        }
+        
+        else {
+        	if(Double.isInfinite(edge.getSlope())){
+        		System.out.println("slope inifinite in normal line");
+         	   mx = edge.start.getX();
+         	   my = (mx * borderEdge.getSlope()) + borderEdge.getYIntercept();
+            }
+        	else{
+        		mx = (edge.getYIntercept() - borderEdge.getYIntercept()) / (borderEdge.getSlope() - edge.getSlope());//line has a slope
+        		my = (mx * edge.getSlope()) + edge.getYIntercept();
+        	}
         }
 
         Point intersection = new Point(mx, my);
@@ -530,7 +601,12 @@ public class Geom {
  
  
 //find centroid of a polygon
-
+public static Point findCentroid(Polygon polygon){
+	DoublyConnectedEdgeList dc = Geom.linesToDCEdgeList(polygon);
+	return Geom.findCentroid(dc);
+}
+    
+    
 public static Point findCentroid(DoublyConnectedEdgeList polygon)
 {
 	double cx=0,cy=0;

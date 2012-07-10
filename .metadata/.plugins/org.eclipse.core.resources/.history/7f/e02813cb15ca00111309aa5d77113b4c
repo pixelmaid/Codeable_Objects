@@ -1,0 +1,8 @@
+package com.primitive2d;
+
+public class Spiral extends LineCollection {
+
+	public Spiral(resolution, radius){
+		
+	}
+}

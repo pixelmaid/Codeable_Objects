@@ -3,6 +3,7 @@ package com.math;
 import com.datastruct.DCHalfEdge;
 import com.datastruct.DoublyConnectedEdgeList;
 
+
 import java.awt.geom.Point2D;
 import java.util.Collections;
 import java.util.Comparator;
@@ -395,6 +396,8 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 
 		}
 	}
+	
+	
 	
 	
 	public static void contractPoly (DoublyConnectedEdgeList poly, double dist){

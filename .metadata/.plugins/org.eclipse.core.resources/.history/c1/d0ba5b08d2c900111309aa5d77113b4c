@@ -1,0 +1,11 @@
+package com.primitive2d;
+
+import com.datatype.Point;
+
+public class Curve extends Line {
+ //TODO: create curve class
+	
+	public Curve(Point start, Point end){
+		super(start,end);
+	}
+}

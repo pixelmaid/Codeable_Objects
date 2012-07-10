@@ -28,8 +28,17 @@ public class Rectangle extends Polygon {
 		this.addLine(left);
 		this.addLine(bottom);
 		this.addLine(right);
+		this.width= width;
+		this.height= height;
 	}
 	
-
+	public double getWidth(){
+		return this.height;
+	}
+	
+	public double getHeight(){
+		return this.width;
+		
+	}
 
 }

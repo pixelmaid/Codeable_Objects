@@ -1,0 +1,5 @@
+package com.primitive2d;
+
+public class Curve extends Line {
+ //TODO: create curve class
+}

@@ -2,4 +2,5 @@ com.datatype
 com.math
 com.ornament
 com.primitive2d
+com.primitive2d.connector
 com.ui

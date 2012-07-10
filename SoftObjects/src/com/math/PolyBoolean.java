@@ -9,6 +9,8 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Vector;
 import com.datatype.Point;
+import com.primitive2d.Line;
+import com.primitive2d.LineCollection;
 
 //boolean operations for all polygons
 
@@ -382,6 +384,56 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 
 			} else if (!startInPolygon && endInPolygon) {
 
+				edge.start = Geom.findIntersectionPoint(edge, borderEdge);
+
+
+
+			}
+			return edge;
+
+		}
+	}
+	
+	
+	public static Line clipInBorder(Line edge, LineCollection border) { //clips the end of a path so it is within the border
+		//System.out.println("begin clip");
+		boolean startInPolygon = Geom.rayPointInPolygon(edge.start, border);
+		boolean endInPolygon = Geom.rayPointInPolygon(edge.end, border);
+		//System.out.println("start in polygon ="+ startInPolygon);
+		//System.out.println("end in polygon ="+ endInPolygon);
+		Vector<Line> intersectedEdges = Geom.edgeIntersectsPolygon(edge, border.getAllLines());
+		//System.out.println("intersectedEdges size="+intersectedEdges.size());
+		if  (!startInPolygon && !endInPolygon) {
+
+			//myParent.println("deleted edge");
+
+			if (intersectedEdges.size() != 0) {
+
+				Point intersection1 = Geom.findIntersectionPoint(edge, intersectedEdges.get(0));
+				Point intersection2 = Geom.findIntersectionPoint(edge, intersectedEdges.get(1));
+				Line newEdge = new Line(intersection1, intersection2);
+				
+
+				return newEdge;
+
+
+			} else {
+				return null;
+			}
+		} else if (startInPolygon && endInPolygon) {
+			return edge;
+
+		} else {
+			Line borderEdge = new Line(intersectedEdges.get(0).start,intersectedEdges.get(0).end);
+			//System.out.println("intersected edge is at ="+intersectedEdges.get(0).start.getX()+","+intersectedEdges.get(0).start.getY()+","+intersectedEdges.get(0).end.getX()+","+intersectedEdges.get(0).end.getY());
+			if (startInPolygon && !endInPolygon) {
+
+				edge.end = Geom.findIntersectionPoint(edge, borderEdge);
+				//System.out.println("intersection point ="+edge.end.getX()+","+edge.end.getY());
+
+
+			} else if (!startInPolygon && endInPolygon) {
+				
 				edge.start = Geom.findIntersectionPoint(edge, borderEdge);
 
 

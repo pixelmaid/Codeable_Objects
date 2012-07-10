@@ -9,6 +9,9 @@ import com.datatype.CmpY;
 import com.datatype.DCFace;
 import com.datatype.Point;
 import com.math.Geom;
+import com.math.PolyBoolean;
+import com.ornament.Pattern;
+import com.ornament.Tree;
 
 public class Polygon extends LineCollection{
 
@@ -19,14 +22,18 @@ public class Polygon extends LineCollection{
 	
 	public Polygon(int sides, double length){
 		super();
-		double angle = 360/sides;
+		double angle = 360.0/(double)sides;
 		for(int i=0;i<sides;i++){
 			  this.forward(length);
 			  this.right(angle);
 			}
 		
+	
+		this.moveTo(0, 0);
+		
 	}
 	
+
 	//polygon add point method that automatically links up points into lines
 	@Override
 	public void addPoint(double x,double y){
@@ -59,6 +66,30 @@ public class Polygon extends LineCollection{
 		this.addLine(line);
 	}
 	
+	
+	public void clipPattern(Pattern pattern){
+		this.orderEdges();
+		Vector<Line> patternEdges = pattern.getAllLines();
+		Vector<Line> patternNewEdges = new Vector<Line>();
+		pattern.removeAllPoints();
+		
+		for(int i=0;i<patternEdges.size();i++){
+			Line newEdge = PolyBoolean.clipInBorder(patternEdges.get(i),this);
+			if(newEdge!=null){
+				patternNewEdges.add(newEdge);
+				pattern.addPoint(newEdge.start);
+				pattern.addPoint(newEdge.end);
+			}
+		}
+		
+		pattern.setAllLines(patternNewEdges);
+	}
+	
+	
+	 public void centerOrigin(){
+	    	this.orderEdges();
+	    	this.origin = Geom.findCentroid(this).copy();
+	    }
 	
 	 public void orderEdges(){
 	    	
