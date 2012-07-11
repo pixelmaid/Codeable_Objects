@@ -1,0 +1,25 @@
+package com.ui;
+
+import com.primitive2d.LineCollection;
+
+import processing.core.PApplet;
+
+public class ParamSlider extends Slider{
+	
+	private LineCollection target;
+	private String prop;
+
+	public ParamSlider(PApplet myParent, LineCollection target, String prop) {
+		super(myParent);
+		// TODO Auto-generated constructor stub
+		this.target=target;
+		this.prop = prop;
+	}
+	
+	private void adjustProp(){
+		switch (this.prop){
+		
+		}
+	}
+
+}

@@ -25,13 +25,13 @@ import processing.core.PFont;
 
 public class Slider {
 
-    private float x;
-    private float y;
-    private float width;
-    private float height;
-    private float value;
-    private float minTarget;
-    private float maxTarget;
+    private double x;
+    private double y;
+    private double width;
+    private double height;
+    private double value;
+    private double minTarget;
+    private double maxTarget;
     private boolean selected;
     private String name;
     private PApplet myParent;
@@ -52,35 +52,39 @@ public class Slider {
         myParent.textFont(font, 14);
     }
 
-    public void init(float x, float y, float width, float height, float v, float minT, float maxT, String name) {
-        this.x = x;
-        this.y = y;
+    public void init(double width, double height, double v, double minT, double maxT, String name) {
+        
         this.width = width;
         this.height = height;
-        this.value = myParent.map(v, minT, maxT, 0, 1);
+        this.value = myParent.map((float)v, (float)minT, (float)maxT, 0, 1);
         this.minTarget = minT;
         this.maxTarget = maxT;
         this.name = name;
     }
 
+    public void setPos(double x, double y){
+    	this.x =x;
+        this.y = y;
+    }
+    
     public void draw() {
         myParent.noFill();
         myParent.strokeWeight(2);
         myParent.stroke(255, 255, 255);
-        myParent.rect(x, y, width, height);
+        myParent.rect((float)x, (float)y, (float)width, (float)height);
         if (selected) {
 
 
             myParent.fill(255, 255, 0);
         } else myParent.fill(255, 0, 0);
         myParent.noStroke();
-        float sliderWidth = myParent.map(value, 0, 1, 0, width - 2);
+        float sliderWidth = myParent.map((float)value, 0, 1, 0, (float)width - 2);
 
-        myParent.rect(x + 1, y + 1, sliderWidth, height - 2);
+        myParent.rect((float)x + 1, (float)y + 1, sliderWidth, (float)height - 2);
 
         myParent.fill(255);
 
-        myParent.text(name, x, y + height + 15);
+        myParent.text(name, (float)x, (float)y + (float)height + 15);
 
     }
 
@@ -93,18 +97,18 @@ public class Slider {
 
     public boolean checkForMouseDrag(float mouseX, float mouseY) {
         if (selected && mouseX >= x && mouseX < x + width) {
-            value = myParent.map(mouseX, x, x + width, 0, 1);
+            value = myParent.map((float)mouseX, (float)x, (float)x + (float)width, 0, 1);
             return true;
         }
         return false;
     }
 
     public float getSliderValue() {
-        return myParent.map(value, 0, 1, minTarget, maxTarget);
+        return myParent.map((float)value, 0, 1,(float) minTarget, (float)maxTarget);
     }
 
     public void setSliderValue(float val) {
-        value = myParent.map(val, minTarget, maxTarget, 0, 1);
+        value = myParent.map((float)val, (float)minTarget, (float)maxTarget, 0, 1);
     }
 
 

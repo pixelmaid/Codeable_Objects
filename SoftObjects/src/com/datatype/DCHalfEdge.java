@@ -108,7 +108,7 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
     	*/
     	 this.m = (this.start.getY() - this.end.getY()) / (this.start.getX() - this.end.getX()); //calculate the slope of the line by the inverse of the slope of the line through left and right
     	 
-    	 if(this.m>1e+15){
+    	 if(this.m>Geom.BIG){
     		 return Double.POSITIVE_INFINITY;
     	 }
     	 else{

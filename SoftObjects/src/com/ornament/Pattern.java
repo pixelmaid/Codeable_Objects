@@ -10,18 +10,24 @@ import com.primitive2d.Ellipse;
 import com.primitive2d.Line;
 import com.primitive2d.LineCollection;
 import com.primitive2d.Polygon;
+import com.ui.ScreenManager;
 
 //base class for all patterns
 public class Pattern extends LineCollection{
 	
 	
-	public Pattern(){
-		super();
+	public Pattern(boolean addToScreen){
+		super(addToScreen);
 	}
 	
-	public Pattern(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
-		super(origin, points, lines, polygons, ellipses);
+	public Pattern(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses, boolean addToScreen){
+		super(origin, points, lines, polygons, ellipses, addToScreen);
 
+	}
+	
+	@Override
+	public void addPolygon(Polygon poly){
+		this.addAllLines(poly.copyAllLines());
 	}
 	
 	@Override
@@ -37,7 +43,7 @@ public class Pattern extends LineCollection{
 	}
 	
 	@Override
-	public Pattern copy(){
+	public Pattern copy(boolean addToScreen){
 		Vector<Line>lines = new Vector<Line>();
 		Vector<Point>points = new Vector<Point>(); 
 		Vector<Polygon>polygons = new Vector<Polygon>();
@@ -46,7 +52,7 @@ public class Pattern extends LineCollection{
 		
 		for(int i=0;i<this.getAllPolygons().size();i++){
 			Vector<Line> oldPolygonLines = getPolygonAt(i).getAllLines();
-			Polygon polygon = new Polygon();
+			Polygon polygon = new Polygon(false);
 			
 			for(int j=0;j<oldPolygonLines.size();j++){
 				polygon.addLine(oldPolygonLines.get(j).copy());
@@ -68,7 +74,7 @@ public class Pattern extends LineCollection{
 		
 		//will need to implement ellipse call
 		
-		Pattern newPattern =  new Pattern(newOrigin, points, lines, polygons, ellipses);
+		Pattern newPattern =  new Pattern(newOrigin, points, lines, polygons, ellipses,addToScreen);
 		
 		//newPattern.reLinkLines();
 		

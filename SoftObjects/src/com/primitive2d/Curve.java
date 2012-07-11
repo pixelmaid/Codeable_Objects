@@ -12,17 +12,26 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 	private int resolution = 100; // resolution of each curve
 	
 	
-	
-	public Curve(Point start, Point end, Point control){
-		super();
-		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
+	public Curve(Point start, Point end, Point control,boolean addToScreen){
+		super(addToScreen);
+		HalfCurve hCurve = new HalfCurve(start,end,control,resolution, addToScreen);
 		this.halfCurves.add(hCurve);
+		//this.addAllPoints(hCurve.getAllPoints());
+		this.addPoint(start);
+		this.addPoint(end);
+		this.addPoint(control);
+		this.addAllLinesWithoutPoints(hCurve.getAllLines());
 	}
 
 	
 	public void addCurve(Point end, Point control){
 		Point start = halfCurves.get(halfCurves.size()-1).end.copy();
-		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
+		HalfCurve hCurve = new HalfCurve(start,end,control,resolution, addToScreen);
+		//this.addAllPoints(hCurve.getAllPoints());
+		this.addPoint(start);
+		this.addPoint(end);
+		this.addPoint(control);
+		this.addAllLinesWithoutPoints(hCurve.getAllLines());
 		this.halfCurves.add(hCurve);
 	}
 	
@@ -104,23 +113,26 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 	
 	
 	public void recCalc(double x, double y){
+		
 		for(int i =0;i<halfCurves.size();i++){
 			HalfCurve hC = this.halfCurves.get(i);
+			
 			if(hC.start.selected){
 				hC.start.setX(x);
 				hC.start.setY(y);
-				hC.calcCurve(hC.start,hC.end, hC.control);
+				//hC.calcCurve(hC.start,hC.end, hC.control);
 			}
 			if(hC.end.selected){
 				hC.end.setX(x);
 				hC.end.setY(y);
-				hC.calcCurve(hC.start,hC.end, hC.control);
+				//hC.calcCurve(hC.start,hC.end, hC.control);
 			}
 			if(hC.control.selected){
 				hC.control.setX(x);
 				hC.control.setY(y);
-				hC.calcCurve(hC.start,hC.end, hC.control);
+				//hC.calcCurve(hC.start,hC.end, hC.control);
 			}
+			hC.calcCurve(hC.start,hC.end, hC.control);
 			
 		}
 	}
@@ -134,8 +146,8 @@ class HalfCurve extends LineCollection{
 	public Point start;
 	public Point end;
 	
-	public HalfCurve(Point start, Point end, Point control, int resolution){
-		super();
+	public HalfCurve(Point start, Point end, Point control, int resolution, boolean addToScreen){
+		super(addToScreen);
 		
 		
 		

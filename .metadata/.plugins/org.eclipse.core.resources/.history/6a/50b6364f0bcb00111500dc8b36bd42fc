@@ -1,0 +1,70 @@
+package com.ui;
+//imports in svgs and converts them to polygons
+import java.awt.geom.Point2D;
+import java.io.*;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
+import java.util.LinkedList;
+import java.util.List;
+
+
+import javax.xml.parsers.*;
+import javax.xml.xpath.*;
+
+import java.lang.Exception;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
+
+import com.datatype.Point;
+
+public class FileImport {
+
+	public static String readFile(String path) throws IOException {
+		  FileInputStream stream = new FileInputStream(new File(path));
+		  try {
+		    FileChannel fc = stream.getChannel();
+		    MappedByteBuffer bb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+		    /* Instead of using default, pass in a decoder. */
+		    return Charset.defaultCharset().decode(bb).toString();
+		  }
+		  finally {
+		    stream.close();
+		  }
+		}
+	
+	
+	public static Point[] getPoints(String filename) throws Exception {
+		try{
+		String xml=FileImport.readFile(filename);
+	    DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+	    Document doc = db.parse(new InputSource(new StringReader(xml)));
+	    XPath xpath = XPathFactory.newInstance().newXPath();
+	    XPathExpression expr = xpath.compile("//polygon[@id='collide']/@points");
+	    String[] pointsAttr = ((String) expr.evaluate(doc, XPathConstants.STRING)).split("\\p{Space}");
+	    Point[] points = new Point[pointsAttr.length];
+	    for (int i = 0; i < pointsAttr.length; ++i) {
+	        String[] coordinates = pointsAttr[i].split(",");
+	        points[i] = new Point(Double.valueOf(coordinates[0]), Double.valueOf(coordinates[1]));
+	    }
+	    return points;
+		}
+		catch (Exception e){
+			System.out.println("file import fail");
+		}
+	}
+   /* public static List extractPoints(String filename) throws ParseException, IOException {
+        String s = FileImport.readFile(filename);
+    	final LinkedList points = new LinkedList();
+        PointsParser pp = new PointsParser();
+        PointsHandler ph = new DefaultPointsHandler() {
+            public void point(float x, float y) throws ParseException {
+                Point2D p = new Point2D.Float(x, y);
+                points.add(p);
+            }
+        };
+        pp.setPointsHandler(ph);
+        pp.parse(s);
+        return points;
+    }*/
+}

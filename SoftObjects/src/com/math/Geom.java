@@ -35,7 +35,10 @@ import java.util.Set;
 import java.util.Vector;
 
 public class Geom {
+	public static final double BIG = 1e+15;
+	public static final double SMALL = 1e-15;
 
+	
     public static Point polarToCart(double r, double theta) {
         double x = Math.cos(theta * (Math.PI / 180.0)) * r;
         double y = Math.sin(theta * (Math.PI / 180.0)) * r;

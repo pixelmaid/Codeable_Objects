@@ -34,17 +34,30 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	public boolean selected = false; // used for mouse events
 
 	public Point(double _x, double _y) {
+		
 		x = _x;
 		y = _y;
+		
 	}
 	
 	public boolean withinRange(double range, double x, double y){
-		if((Math.abs(this.getX()-x)<=range)&&(Math.abs(this.getY()-y)<=range)){
+		
+		/*if(this.getX()==0 && this.getY()==0){
+			System.out.println("comparing p1="+this.getX()+","+this.getY()+" and p2="+x+","+y+" distance ="+Geom.distance(this, new Point(x,y)));
+		}*/
+		
+		if(Geom.distance(this, new Point(x,y))<range){
 			return true;
 		}
 		else{
 			return false;
 		}
+		/*if((Math.abs(this.getX()-x)<=range)&&(Math.abs(this.getY()-y)<=range)){
+			return true;
+		}
+		else{
+			return false;
+		}*/
 	}
 
 	public double getX() {
@@ -75,9 +88,16 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	}
 
 	public int compareTo(Point o) {
-		if ((this.getX() == o.getX()) && (this.getY() == o.getY())) {
+		/*if ((this.getX() == o.getX()) && (this.getY() == o.getY())) {
 			return 0;
-		} else if (this.getY() < o.getY()) {
+		}*/
+		//System.out.println("comparing");
+		if(this.withinRange(0.1,o.getX(), o.getY())){
+			//System.out.println("within range");
+
+			return 0;
+		}
+		else if (this.getY() < o.getY()) {
 			return -1;
 		}
 		//if y coords are same, check x

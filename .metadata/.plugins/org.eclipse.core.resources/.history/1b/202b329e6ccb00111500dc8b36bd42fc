@@ -1,0 +1,68 @@
+package com.primitive2d;
+
+import com.datatype.*;
+import com.ui.ScreenManager;
+
+public class Rectangle extends Polygon {
+	private double width;
+	private double height;
+	private Line top;
+	private Line left;
+	private Line bottom;
+	private Line right;
+
+	
+	public Rectangle(double startX, double startY, double width, double height, boolean addToScreen){
+		super(addToScreen);
+		this.origin = new Point(startX,startY);
+		
+		Point topLeft = origin.copy();
+		Point topRight = new Point(origin.getX()+width,origin.getY());
+		Point bottomLeft = new Point(origin.getX(),origin.getY()+height);
+		Point bottomRight = new Point(origin.getX()+width,origin.getY()+height);
+		
+		top = new Line(topRight.copy(),topLeft.copy());
+		left = new Line(topLeft.copy(),bottomLeft.copy());
+		bottom = new Line(bottomLeft.copy(),bottomRight.copy());
+		right = new Line(bottomRight.copy(), topRight.copy());
+		
+		this.addLine(top);
+		this.addLine(left);
+		this.addLine(bottom);
+		this.addLine(right);
+		this.width= width;
+		this.height= height;
+	}
+	
+	public Rectangle(double startX, double startY, double width, double height, boolean add){
+		this.origin = new Point(startX,startY);
+		
+		Point topLeft = origin.copy();
+		Point topRight = new Point(origin.getX()+width,origin.getY());
+		Point bottomLeft = new Point(origin.getX(),origin.getY()+height);
+		Point bottomRight = new Point(origin.getX()+width,origin.getY()+height);
+		
+		top = new Line(topRight.copy(),topLeft.copy());
+		left = new Line(topLeft.copy(),bottomLeft.copy());
+		bottom = new Line(bottomLeft.copy(),bottomRight.copy());
+		right = new Line(bottomRight.copy(), topRight.copy());
+		
+		this.addLine(top);
+		this.addLine(left);
+		this.addLine(bottom);
+		this.addLine(right);
+		this.width= width;
+		this.height= height;
+		ScreenManager.removeFromScreen(this);
+	}
+	
+	public double getWidth(){
+		return this.height;
+	}
+	
+	public double getHeight(){
+		return this.width;
+		
+	}
+
+}

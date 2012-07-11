@@ -6744,3 +6744,95 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/jenni
 
 !ENTRY org.eclipse.core.resources 2 10035 2012-07-02 09:40:48.953
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2012-07-10 09:20:18.246 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/jenniferjacobs/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/jenniferjacobs/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-07-10 09:20:21.584
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.resources 4 1 2012-07-10 23:12:47.091
+!MESSAGE Internal Error
+!STACK 0
+java.lang.IllegalArgumentException: Element not found: /.org.eclipse.jdt.core.external.folders/.link5/org.
+	at org.eclipse.core.internal.watson.ElementTree.elementNotFound(ElementTree.java:256)
+	at org.eclipse.core.internal.watson.ElementTree.createElement(ElementTree.java:184)
+	at org.eclipse.core.internal.resources.Workspace.createResource(Workspace.java:1369)
+	at org.eclipse.core.internal.resources.Workspace.createResource(Workspace.java:1322)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.createResource(RefreshLocalVisitor.java:80)
+	at org.eclipse.core.internal.localstore.RefreshLocalAliasVisitor.createResource(RefreshLocalAliasVisitor.java:38)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.synchronizeExistence(RefreshLocalVisitor.java:219)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:293)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:110)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:920)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:904)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1663)
+	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:687)
+	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:623)
+	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createLinkFolder(ExternalFoldersManager.java:153)
+	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createLinkFolder(ExternalFoldersManager.java:145)
+	at org.eclipse.jdt.internal.core.ExternalFolderChange.updateExternalFoldersIfNecessary(ExternalFolderChange.java:48)
+	at org.eclipse.jdt.internal.core.ChangeClasspathOperation.classpathChanged(ChangeClasspathOperation.java:62)
+	at org.eclipse.jdt.internal.core.SetClasspathOperation.executeOperation(SetClasspathOperation.java:74)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:793)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3093)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3055)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3067)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.flush(BuildPathsBlock.java:911)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.configureJavaProject(BuildPathsBlock.java:736)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.configureJavaProject(BuildPathsBlock.java:732)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage$1.run(BuildPathsPropertyPage.java:219)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:4887)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:106)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter$1.run(WorkbenchRunnableAdapter.java:122)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2012-07-10 23:12:47.164
+!MESSAGE An internal error occurred during: "Setting build path".
+!STACK 0
+java.lang.IllegalArgumentException: Element not found: /.org.eclipse.jdt.core.external.folders/.link5/org.
+	at org.eclipse.core.internal.watson.ElementTree.elementNotFound(ElementTree.java:256)
+	at org.eclipse.core.internal.watson.ElementTree.createElement(ElementTree.java:184)
+	at org.eclipse.core.internal.resources.Workspace.createResource(Workspace.java:1369)
+	at org.eclipse.core.internal.resources.Workspace.createResource(Workspace.java:1322)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.createResource(RefreshLocalVisitor.java:80)
+	at org.eclipse.core.internal.localstore.RefreshLocalAliasVisitor.createResource(RefreshLocalAliasVisitor.java:38)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.synchronizeExistence(RefreshLocalVisitor.java:219)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:293)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:110)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:920)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:904)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1663)
+	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:687)
+	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:623)
+	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createLinkFolder(ExternalFoldersManager.java:153)
+	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createLinkFolder(ExternalFoldersManager.java:145)
+	at org.eclipse.jdt.internal.core.ExternalFolderChange.updateExternalFoldersIfNecessary(ExternalFolderChange.java:48)
+	at org.eclipse.jdt.internal.core.ChangeClasspathOperation.classpathChanged(ChangeClasspathOperation.java:62)
+	at org.eclipse.jdt.internal.core.SetClasspathOperation.executeOperation(SetClasspathOperation.java:74)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:793)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3093)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3055)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3067)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.flush(BuildPathsBlock.java:911)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.configureJavaProject(BuildPathsBlock.java:736)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.configureJavaProject(BuildPathsBlock.java:732)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage$1.run(BuildPathsPropertyPage.java:219)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:4887)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:106)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter$1.run(WorkbenchRunnableAdapter.java:122)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

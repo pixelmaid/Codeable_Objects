@@ -1,0 +1,12 @@
+package com.ui;
+
+import processing.core.PApplet;
+
+public class ParamSlider extends Slider{
+
+	public ParamSlider(PApplet myParent, LineCollection target, String prop) {
+		super(myParent);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,57 @@
+package com.ui;
+
+import com.primitive2d.LineCollection;
+
+import processing.core.PApplet;
+
+public class ParamSlider extends Slider{
+	
+	private LineCollection target;
+	private String prop;
+	private PApplet myParent;
+
+
+	public ParamSlider(PApplet myParent, LineCollection target, String prop) {
+		super(myParent);
+		this.myParent = myParent;
+		// TODO Auto-generated constructor stub
+		this.target=target;
+		this.prop = prop;
+	}
+	
+	private void adjustProp(){
+		/* available properties are:
+		 * scale
+		 * scaleX
+		 * scaleY
+		 * rotation
+		 * xPosition
+		 * yPosition
+		 * 
+		 */
+		int propCase =0;
+		if(prop=="scale"){
+			propCase =1;
+			this.target.scale= myParent.map(value, 0, 1, minTarget, maxTarget);
+		}
+		else if(prop =="scaleX"){
+			propCase =2;
+		}
+		else if(prop =="scaleY"){
+			propCase =3;
+		}
+		else if(prop =="rotation"){
+			propCase =4;
+		}
+		else if(prop =="xPosition"){
+			propCase =5;
+		}
+		else if(prop =="yPosition"){
+			propCase =6;
+		}
+		
+		
+		
+	}
+
+}
