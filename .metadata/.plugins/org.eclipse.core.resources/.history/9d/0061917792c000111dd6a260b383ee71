@@ -1,5 +1,0 @@
-package com.primitive2d;
-
-public class Line extends DCHalfEdge implements Drawable {
-
-}

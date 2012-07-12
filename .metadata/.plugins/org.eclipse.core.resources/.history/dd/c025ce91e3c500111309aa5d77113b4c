@@ -1,7 +1,0 @@
-package com.primitive2d;
-
-import com.datatype.DCFace;
-
-public class LineCollection extends DCFace implements Drawable, Turtle{
-
-}

@@ -1,8 +1,0 @@
-package com.pattern;
-
-public class Tree extends Pattern{
-	
-	public Tree(){
-		super();
-	}
-}

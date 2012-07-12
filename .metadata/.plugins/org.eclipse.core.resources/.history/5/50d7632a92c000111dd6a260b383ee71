@@ -1,8 +1,0 @@
-package com.ui;
-
-public interface Drawable {
-	
-	void draw(PApplet parent);
-	
-
-}
