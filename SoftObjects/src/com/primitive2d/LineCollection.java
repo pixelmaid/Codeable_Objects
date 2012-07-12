@@ -72,6 +72,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	    	this.setOrigin(new Point(x,y));
 	    }
 	
+	
 	public void setOriginUpperLeft(){
 		this.setOrigin(this.findBoundingBox().origin);
 	}
@@ -139,7 +140,12 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		
 		//adds a line by passing in a line but does not add points to point list
 		public void addAllLines(Vector<Line>lines) {
-						this.lines.addAll(lines);
+			this.lines.addAll(lines);		
+			for(int i=0;i<lines.size();i++){
+				this.addPoint(lines.get(i).start);
+				this.addPoint(lines.get(i).end);
+					}
+						
 				}
 
 	
@@ -495,7 +501,34 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	  return new Rectangle(leftX,leftY,rightX-leftX,rightY-leftY,false);
 	  
    }
+   
+   public Point getExtremeLeftPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpX());
+		  return copyPoints.get(0);
+		
+	   }
     
+   public Point getExtremeRightPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpX());
+		  return copyPoints.get(copyPoints.size()-1);
+		
+	   }
+   
+   public Point getExtremeTopPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpY());
+		  return copyPoints.get(0);
+		
+	   }
+   
+   public Point getExtremeBottomPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpY());
+		  return copyPoints.get(copyPoints.size()-1);
+		
+	   }
    
 
    
@@ -668,6 +701,21 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		
 	}
 	
+	public void resetTurtle(){
+		TurtleStruct.angle = 0;
+		TurtleStruct.pen = true;
+		TurtleStruct.location = new Point(0,0);
+	}
+	
+	public void moveTurtleTo(double x, double y){
+		
+		TurtleStruct.location = new Point(x,y);
+	}
+	
+	public void rotateTurtleTo(double theta){
+		
+		TurtleStruct.angle = theta;
+	}
 	
 
 	

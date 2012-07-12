@@ -20,6 +20,7 @@
 
 package com.ui;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Vector;
 
@@ -31,12 +32,17 @@ public class ScreenManager {
 	public static Vector<LineCollection> drawables = new Vector<LineCollection>();
 	public static boolean drawBounding= false;
 	public static PApplet parent;
-	
+	private static boolean pan=false;
+	private static double posX = 0;
+	private static double posY = 0;
+	private static double lastMouseX=0;
+	private static double lastMouseY=0;
 	
 	public ScreenManager(PApplet parent){
 		this.parent = parent;
 		this.parent.registerDraw(this);
 	     this.parent.registerMouseEvent(this);
+	     this.parent.registerKeyEvent(this);
 	}
 	
 	public static void addtoScreen(LineCollection lc){
@@ -48,17 +54,36 @@ public class ScreenManager {
 	}
 	
 	public void draw() {
-	
+		parent.background(255);
+		
+		parent.translate((float)posX,(float)posY);
+		
 		for(int i=0;i<drawables.size();i++){
 			drawables.get(i).draw(parent, 1);
 			drawables.get(i).drawOrigin(parent);
-			drawables.get(i).drawBoundingBox(parent);
+			//drawables.get(i).drawBoundingBox(parent);
 			if(drawables.get(i).selected){
 				drawables.get(i).drawSliders();
 			}
 		}
 				
 	}
+	
+	public void keyEvent(KeyEvent event){
+		
+		int keyCode = event.getKeyCode();
+		switch(event.getID()){
+			case KeyEvent.KEY_PRESSED:
+				this.keyPressed(keyCode);
+				break;
+			case KeyEvent.KEY_RELEASED:
+				this.keyReleased(keyCode);
+				break;
+		
+		}
+	}
+	
+	
 	
 	public void mouseEvent(MouseEvent event) {
 
@@ -80,7 +105,7 @@ public class ScreenManager {
 
 	                break;
 	            case MouseEvent.MOUSE_MOVED:
-	                // umm... forgot
+	                this.mouseMoved();
 	                break;
 	        }
 		
@@ -105,7 +130,30 @@ public class ScreenManager {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	private void mouseMoved(){
+		if(pan){
+			posX+= parent.mouseX-lastMouseX;
+			posY+= parent.mouseY-lastMouseY;
+		}
+		lastMouseX= parent.mouseX;
+		lastMouseY = parent.mouseY;
+		
+	}
 
+	private void keyPressed(int keyCode){
+		
+		if(keyCode==KeyEvent.VK_SPACE){
+			pan=true;
+		}
+	}
+	
+	private void keyReleased(int keyCode){
+		if(keyCode==KeyEvent.VK_SPACE){
+			pan=false;
+		}
+	}
+	
 	public void print() {
 		// TODO Auto-generated method stub
 		

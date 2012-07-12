@@ -20,7 +20,7 @@ public class Polygon extends LineCollection{
 		
 	}
 	
-	public Polygon(int sides, double length, boolean addToScreen){
+	public Polygon(int sides, double length, double x, double y, boolean addToScreen){
 		super(addToScreen);
 		double angle = 360.0/(double)sides;
 		for(int i=0;i<sides-1;i++){
@@ -29,9 +29,12 @@ public class Polygon extends LineCollection{
 			}
 		this.closePoly();
 		this.setOriginUpperLeft();
-		this.moveTo(0, 0);
+		this.moveTo(x, y);
+		this.resetTurtle();
 		
 	}
+	
+	
 	
 
 	//polygon add point method that automatically links up points into lines
@@ -68,17 +71,24 @@ public class Polygon extends LineCollection{
 	
 	
 	public void clipPattern(Pattern pattern){
+		System.out.println("clipping to shape with "+this.getAllPoints().size()+" verticies");
 		this.orderEdges();
 		Vector<Line> patternEdges = pattern.getAllLines();
 		Vector<Line> patternNewEdges = new Vector<Line>();
 		pattern.removeAllPoints();
 		
 		for(int i=0;i<patternEdges.size();i++){
-			Line newEdge = PolyBoolean.clipInBorder(patternEdges.get(i),this);
+			try{
+				Line newEdge = PolyBoolean.clipInBorder(patternEdges.get(i),this);
+			
 			if(newEdge!=null){
 				patternNewEdges.add(newEdge);
 				pattern.addPoint(newEdge.start);
 				pattern.addPoint(newEdge.end);
+			}
+			}
+			catch (Exception e){
+				System.out.println("missed edge at:"+i);
 			}
 			
 		}
@@ -87,10 +97,10 @@ public class Polygon extends LineCollection{
 	}
 	
 	
-	 public void centerOrigin(){
+	/* public void centerOrigin(){
 	    	this.orderEdges();
 	    	this.origin = Geom.findCentroid(this).copy();
-	    }
+	    }*/
 	
 	 public void orderEdges(){
 	    	

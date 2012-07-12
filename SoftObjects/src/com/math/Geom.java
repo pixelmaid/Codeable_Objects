@@ -472,7 +472,7 @@ public class Geom {
         double mx = 0;
         double my = 0;
   
-        System.out.println("slope of edge="+edge.getSlope());
+       //System.out.println("slope of edge="+edge.getSlope());
         
         if (Double.isInfinite(borderEdge.getSlope())) {//check to see if slope is undefined (line is vertical)
         	  
