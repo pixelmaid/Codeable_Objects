@@ -9,13 +9,13 @@ import com.math.Geom;
 
 public class Curve extends LineCollection implements Drawable{ //series of symmetrical curved lines grouped together in a single line
 	private Vector<HalfCurve> halfCurves = new Vector<HalfCurve>(); //stores all of the individual parabolas
-	private int resolution = 100; // resolution of each curve
+	private int resolution = 20; // resolution of each curve
 	
 	
-	public Curve(Point start, Point end, Point control, double x, double y,boolean addToScreen){
+	public Curve(Point start, Point end, Point control, double x, double y){
 
-		super(addToScreen);
-		HalfCurve hCurve = new HalfCurve(start,end,control,resolution, addToScreen);
+		super();
+		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
 		this.halfCurves.add(hCurve);
 		//this.addAllPoints(hCurve.getAllPoints());
 		this.addPoint(start);
@@ -31,7 +31,7 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 	
 	public void addCurve(Point end, Point control){
 		Point start = halfCurves.get(halfCurves.size()-1).end.copy();
-		HalfCurve hCurve = new HalfCurve(start,end,control,resolution, addToScreen);
+		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
 		//this.addAllPoints(hCurve.getAllPoints());
 		this.addPoint(start);
 		this.addPoint(end);
@@ -151,8 +151,8 @@ class HalfCurve extends LineCollection{
 	public Point start;
 	public Point end;
 	
-	public HalfCurve(Point start, Point end, Point control, int resolution, boolean addToScreen){
-		super(addToScreen);
+	public HalfCurve(Point start, Point end, Point control, int resolution){
+		super();
 		
 		
 		

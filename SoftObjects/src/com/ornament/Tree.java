@@ -17,12 +17,12 @@ public class Tree extends Pattern{
 	private Point origin = new Point(0,0);//starting angle of the tree
 	
 	public Tree(boolean addToScreen){
-		super(addToScreen);
+		super();
 		
 	}
 	
-	public Tree(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses, boolean addToScreen){
-		super(origin, points, lines, polygons, ellipses, addToScreen);
+	public Tree(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
+		super(origin, points, lines, polygons, ellipses);
 
 	}
 	
@@ -99,7 +99,7 @@ public class Tree extends Pattern{
 		
 		
 		
-		Tree newTree =  new Tree(newOrigin, points, lines,polygons,ellipses, addToScreen);
+		Tree newTree =  new Tree(newOrigin, points, lines,polygons,ellipses);
 		
 		
 		return newTree;

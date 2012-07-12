@@ -8,7 +8,7 @@ import com.ornament.Pattern;
 public class Spiral extends Pattern {
 
 	public Spiral(double incrementTheta, double finalRadius, double startRadius, int resolution, boolean addToScreen){
-		super(addToScreen);
+		super();
 		
 		double theta = 0;
 		double r=startRadius;

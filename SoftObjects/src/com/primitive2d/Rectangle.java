@@ -13,7 +13,7 @@ public class Rectangle extends Polygon {
 
 	
 	public Rectangle(double startX, double startY, double width, double height, boolean addToScreen){
-		super(addToScreen);
+		super();
 		this.origin = new Point(startX,startY);
 		
 		Point topLeft = origin.copy();

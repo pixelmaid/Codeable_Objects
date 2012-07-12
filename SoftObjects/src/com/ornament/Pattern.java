@@ -16,15 +16,15 @@ import com.ui.ScreenManager;
 public class Pattern extends LineCollection{
 	
 	
-	public Pattern(boolean addToScreen){
-		super(addToScreen);
+	public Pattern(){
+		super();
 		this.r=255;
 		this.g=0;
 		this.b=255;
 	}
 	
-	public Pattern(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses, boolean addToScreen){
-		super(origin, points, lines, polygons, ellipses, addToScreen);
+	public Pattern(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
+		super(origin, points, lines, polygons, ellipses);
 		this.r=255;
 		this.g=0;
 		this.b=255;
@@ -37,7 +37,7 @@ public class Pattern extends LineCollection{
 	}
 	
 	@Override
-	public Pattern copy(boolean addToScreen){
+	public Pattern copy(){
 		Vector<Line>lines = new Vector<Line>();
 		Vector<Point>points = new Vector<Point>(); 
 		Vector<Polygon>polygons = new Vector<Polygon>();
@@ -46,7 +46,7 @@ public class Pattern extends LineCollection{
 		
 		for(int i=0;i<this.getAllPolygons().size();i++){
 			Vector<Line> oldPolygonLines = getPolygonAt(i).getAllLines();
-			Polygon polygon = new Polygon(false);
+			Polygon polygon = new Polygon();
 			
 			for(int j=0;j<oldPolygonLines.size();j++){
 				polygon.addLine(oldPolygonLines.get(j).copy());
@@ -68,7 +68,7 @@ public class Pattern extends LineCollection{
 		
 		//will need to implement ellipse call
 		
-		Pattern newPattern =  new Pattern(newOrigin, points, lines, polygons, ellipses,addToScreen);
+		Pattern newPattern =  new Pattern(newOrigin, points, lines, polygons, ellipses);
 		
 		//newPattern.reLinkLines();
 		

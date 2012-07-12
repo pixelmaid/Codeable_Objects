@@ -22,6 +22,8 @@ package com.ui;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Vector;
 
 import processing.core.PApplet;
@@ -37,11 +39,13 @@ public class ScreenManager {
 	
 	private static int zoomKey = 90;
 	private static int normalizeKey = 78;
+	private static int printKey = 80;
 	private static double posX = 0;
 	private static double posY = 0;
 	private static double posZ = 0;
 	private static double lastMouseX=0;
 	private static double lastMouseY=0;
+	private String filename = "foo";
 	
 	public ScreenManager(PApplet parent){
 		this.parent = parent;
@@ -74,6 +78,21 @@ public class ScreenManager {
 			}
 		}
 				
+	}
+	
+	public void print() {
+		parent.translate(0,0,0);
+		parent.beginRaw(PApplet.PDF, this.filename + new Date().getTime()+".pdf");
+		
+		
+		for(int i=0;i<drawables.size();i++){
+			parent.stroke(drawables.get(i).r,drawables.get(i).g,drawables.get(i).b);
+			drawables.get(i).draw(parent, drawables.get(i).strokeWeight);
+		}
+		 
+		
+		parent.endRaw();
+		
 	}
 	
 	public void keyEvent(KeyEvent event){
@@ -166,6 +185,9 @@ public class ScreenManager {
 			posY=0;
 			posZ=0;
 		}
+		if(keyCode==printKey){
+			this.print();
+		}
 	}
 	
 	private void keyReleased(int keyCode){
@@ -175,12 +197,10 @@ public class ScreenManager {
 		if(keyCode==zoomKey){
 			zoom=false;
 		}
+	
 	}
 	
-	public void print() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	
 

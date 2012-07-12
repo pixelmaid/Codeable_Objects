@@ -94,7 +94,7 @@ public class SVGReader {
 					double w = stringToDouble(wValue);
 					double h = stringToDouble(hValue);
 							
-					Polygon p = new Polygon( true );
+					Polygon p = new Polygon();
 					p.addPoint(x, y);
 					p.addPoint(x+w, y);
 					p.addPoint(x+w, y+h);
@@ -125,7 +125,7 @@ public class SVGReader {
 				//Get the points
 				String points = map.getNamedItem( "points" ).getNodeValue();
 				
-				Polygon p = new Polygon( true );
+				Polygon p = new Polygon();
 				
 				//Get a list of the point pairs
 				List<String> pointsPairsList = Arrays.asList( points.split(" "));

@@ -22,15 +22,15 @@ public class Fractal extends Pattern{
 	private double width = 500;
 	private double height = 500;
 
-	public Fractal (Point start, Point end, boolean addToScreen){
-		super(addToScreen);
+	public Fractal (Point start, Point end){
+		super();
 		a = start.copy();
 		b=end.copy();
 	
 	}
 	
-	public Fractal (double startX, double startY, double endX, double endY , boolean addToScreen){
-		super(addToScreen);
+	public Fractal (double startX, double startY, double endX, double endY ){
+		super();
 		a = new Point (startX, startY);
 		b=new Point (endX, endY);
 	

@@ -38,7 +38,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	public int b=0;
 	
 	
-	public LineCollection(boolean addToScreen){
+	public LineCollection(){
 		this.lines = new Vector<Line>();
 		this.points = new Vector<Point>(); 
 		this.polygons = new Vector<Polygon>();
@@ -58,18 +58,23 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	}
 	
 	
-	public LineCollection(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses,boolean addToScreen){
+	public LineCollection(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
 		this.lines = lines;
 		this.points = points; 
 		this.polygons = polygons;
 		this.ellipses = ellipses;
 		this.origin = origin;
-		this.addToScreen = addToScreen;
-		if(this.addToScreen){
-			ScreenManager.addtoScreen(this);
-		}
-
-
+		
+	}
+	
+	
+	
+	public void addToScreen(){
+		ScreenManager.addtoScreen(this);
+	}
+	
+	public void removeFromScreen(){
+		ScreenManager.removeFromScreen(this);
 	}
 	
 	//sets a new origin for translations and rotations
@@ -600,7 +605,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	}
 	
 	//returns a duplicate but separate copy of the line collection
-	public LineCollection copy(boolean addToScreen){
+	public LineCollection copy(){
 		Vector<Line>lines = new Vector<Line>();
 		Vector<Point>points = new Vector<Point>(); 
 		Vector<Polygon>polygons = new Vector<Polygon>();
@@ -609,7 +614,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		
 		for(int i=0;i<this.polygons.size();i++){
 			Vector<Line> oldPolygonLines = getPolygonAt(i).getAllLines();
-			Polygon polygon = new Polygon(false);
+			Polygon polygon = new Polygon();
 			
 			for(int j=0;j<oldPolygonLines.size();j++){
 				polygon.addLine(oldPolygonLines.get(j).copy());
@@ -634,7 +639,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 			ellipses.add(ellipse);
 		}
 		
-		LineCollection newLineCollection =  new LineCollection(newOrigin, points, lines, polygons, ellipses,addToScreen);
+		LineCollection newLineCollection =  new LineCollection(newOrigin, points, lines, polygons, ellipses);
 		
 		//newLineCollection.reLinkLines();
 		

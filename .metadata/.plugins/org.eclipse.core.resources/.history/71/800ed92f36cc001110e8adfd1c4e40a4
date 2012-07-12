@@ -1,0 +1,88 @@
+package com.ornament;
+
+import java.util.Vector;
+
+import processing.core.PApplet;
+
+import com.datatype.Point;
+import com.primitive2d.Drawable;
+import com.primitive2d.Ellipse;
+import com.primitive2d.Line;
+import com.primitive2d.LineCollection;
+import com.primitive2d.Polygon;
+import com.ui.ScreenManager;
+
+//base class for all patterns
+public class Pattern extends LineCollection{
+	
+	
+	public Pattern(boolean addToScreen){
+		super();
+		this.r=255;
+		this.g=0;
+		this.b=255;
+	}
+	
+	public Pattern(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
+		super(origin, points, lines, polygons, ellipses);
+		this.r=255;
+		this.g=0;
+		this.b=255;
+
+	}
+	
+	@Override
+	public void addPolygon(Polygon poly){
+		this.addAllLines(poly.copyAllLines());
+	}
+	
+	@Override
+	public Pattern copy(boolean addToScreen){
+		Vector<Line>lines = new Vector<Line>();
+		Vector<Point>points = new Vector<Point>(); 
+		Vector<Polygon>polygons = new Vector<Polygon>();
+		Vector<Ellipse>ellipses = new Vector<Ellipse>();
+		Point newOrigin = this.origin.copy();
+		
+		for(int i=0;i<this.getAllPolygons().size();i++){
+			Vector<Line> oldPolygonLines = getPolygonAt(i).getAllLines();
+			Polygon polygon = new Polygon();
+			
+			for(int j=0;j<oldPolygonLines.size();j++){
+				polygon.addLine(oldPolygonLines.get(j).copy());
+			}
+			polygons.add(polygon);
+		}
+		
+		for(int i=0;i<this.getAllLines().size();i++){
+			Line line = this.getAllLines().get(i).copy();
+			lines.add(line);
+			points.add(line.start);
+			points.add(line.end);
+		}
+		
+		for(int i=0;i<this.getAllPoints().size();i++){
+			Point point = points.get(i).copy();
+			points.add(point);
+		}
+		
+		//will need to implement ellipse call
+		
+		Pattern newPattern =  new Pattern(newOrigin, points, lines, polygons, ellipses);
+		
+		//newPattern.reLinkLines();
+		
+		return newPattern;
+		
+	}
+	
+	public void copyInto(LineCollection lc){
+		this.addAllLines(lc.getAllLines());
+	}
+	
+	public void clipTo(Polygon poly){
+		poly.clipPattern(this);
+	}
+
+
+}

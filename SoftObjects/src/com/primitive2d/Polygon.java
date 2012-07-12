@@ -17,16 +17,16 @@ public class Polygon extends LineCollection{
 
 
 	
-	public Polygon(boolean addToScreen){
-		super(addToScreen);
+	public Polygon(){
+		super();
 		this.r=0;
 		this.g=0;
 		this.b=255;
 		
 	}
 	
-	public Polygon(int sides, double length, double x, double y, boolean addToScreen){
-		super(addToScreen);
+	public Polygon(int sides, double length, double x, double y){
+		super();
 		double angle = 360.0/(double)sides;
 		for(int i=0;i<sides-1;i++){
 			  this.forward(length);
@@ -253,8 +253,8 @@ public class Polygon extends LineCollection{
 	
 	
 	@Override
-	public Polygon copy(boolean addToScreen){
-		Polygon poly = new Polygon(addToScreen);
+	public Polygon copy(){
+		Polygon poly = new Polygon();
 		
 		Vector<Line> lines = this.getAllLines();
 		for(int i=0;i<lines.size();i++){

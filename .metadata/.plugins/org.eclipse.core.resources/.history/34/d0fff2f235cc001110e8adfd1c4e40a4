@@ -1,0 +1,753 @@
+package com.primitive2d;
+
+import java.util.Collections;
+import java.util.Set;
+import java.util.Vector;
+
+import processing.core.PApplet;
+import processing.core.PConstants;
+
+import com.datatype.CmpX;
+import com.datatype.CmpY;
+import com.datatype.DCFace;
+import com.datatype.DCHalfEdge;
+import com.datatype.Point;
+import com.math.Geom;
+import com.ui.ParamSlider;
+import com.ui.ScreenManager;
+
+//base class for patterns and primitives
+public class LineCollection extends DCFace implements Drawable, Turtle{
+	
+	private Vector<Line> lines;
+	private Vector<Point> points; 
+	private Vector<Polygon> polygons;
+	private Vector<Ellipse> ellipses;
+	private Vector<ParamSlider> sliders;
+	public boolean selected;
+	private double width;
+	private double height;
+	private double rotation;
+	private double scaleX;
+	private double scaleY;
+	public boolean addToScreen;
+	
+	public float strokeWeight=1;
+	public int r=0;
+	public int g=0;
+	public int b=0;
+	
+	
+	public LineCollection(){
+		this.lines = new Vector<Line>();
+		this.points = new Vector<Point>(); 
+		this.polygons = new Vector<Polygon>();
+		this.ellipses = new Vector<Ellipse>();
+		
+		this.origin = new Point(0,0);
+		this.selected = false;
+		this.sliders = new Vector<ParamSlider>();
+		this.rotation =0;
+		this.scaleX=1;
+		this.scaleY=1;
+		this.addToScreen = addToScreen;
+		if(this.addToScreen){
+			ScreenManager.addtoScreen(this);
+		}
+
+	}
+	
+	
+	public LineCollection(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
+		this.lines = lines;
+		this.points = points; 
+		this.polygons = polygons;
+		this.ellipses = ellipses;
+		this.origin = origin;
+		
+	}
+	
+	
+	
+	public void addToScreen(){
+		ScreenManager.addtoScreen(this);
+	}
+	
+	public void removeFromScreen(){
+		ScreenManager.removeFromScreen(this);
+	}
+	
+	//sets a new origin for translations and rotations
+	public void setOrigin(double x, double y){
+	    	this.setOrigin(new Point(x,y));
+	    }
+	
+	
+	public void setOriginUpperLeft(){
+		this.setOrigin(this.findBoundingBox().origin);
+	}
+	
+	public void centerOrigin(){
+		Rectangle boundingBox = this.findBoundingBox();
+		this.setOrigin(this.getWidth()/2+boundingBox.getOrigin().getX(),this.getHeight()/2+boundingBox.getOrigin().getY());
+	}
+	
+	//=============================PRIMITIVE ADD METHODS==================================//
+	
+	//adds in a new point and automatically creates a new line if 1 or more points exist already
+	public void addPoint(double x,double y){
+		Point point = new Point(x,y);	
+		this.addPoint(point);
+	}
+	
+	public void addPoint(Point point){	
+		points.add(point);
+		//ensures there is never duplicate points in the list
+		
+	}
+	//adds a line by passing in a line but does not add points to point list
+	public void addAllPoints(Vector<Point>points) {
+					this.points.addAll(points);
+			}
+	//adds a line in cart mode by specifying 4 coordinates
+	public void addLine(double startX, double startY, double endX, double endY) {
+		Line line = new Line(startX,startY,endX,endY);
+		lines.add(line);
+			
+	}
+	
+	//adds a line in polar mode by specifying an origin, radius and angle
+	public void addLine(Point origin, float radius, float theta) {
+		Line line = new Line(origin,radius, theta);
+		this.lines.add(line);
+	}
+	
+	//adds a line by passing in a line
+	public void addLine(Line line) {
+		this.lines.add(line);
+		this.addPoint(line.start);
+		this.addPoint(line.end);
+	}
+	
+	//adds a line by passing in a line
+		public void addLine(Point p1, Point p2) {
+			Line line = new Line(p1.copy(),p2.copy());
+			this.lines.add(line);
+			this.addPoint(line.start);
+			this.addPoint(line.end);
+		}
+		
+	
+	//adds a line by passing in a line but does not add points to point list
+		public void addLineWithoutPoints(Line line) {
+			this.lines.add(line);
+		}
+		
+		//adds a line by passing in a line but does not add points to point list
+		public void addAllLinesWithoutPoints(Vector<Line>lines) {
+				this.lines.addAll(lines);
+		}
+		
+		//adds a line by passing in a line but does not add points to point list
+		public void addAllLines(Vector<Line>lines) {
+			this.lines.addAll(lines);		
+			for(int i=0;i<lines.size();i++){
+				this.addPoint(lines.get(i).start);
+				this.addPoint(lines.get(i).end);
+					}
+						
+				}
+
+	
+	public void addPolygon(Polygon poly){
+		this.polygons.add(poly);
+		lines.addAll(poly.getAllLines());
+		points.addAll(poly.getAllPoints());
+
+	}
+	
+	public void addEllipse(Ellipse ellipse){
+		this.ellipses.add(ellipse);
+	}
+	
+	//add in a gui slider to modify a specific property
+	public void addSlider(String prop){
+		ParamSlider slider= new ParamSlider(this, prop);
+		this.sliders.add(slider);
+	}
+	
+	//=============================PRIMITIVE REMOVE METHODS==================================//
+	
+	public void removeDuplicatePoints(){
+		points = Geom.removeDuplicateVerts(points);
+	}
+	
+	public void removePoint(double x,double y){
+		Point point = new Point(x,y);	
+		this.removePoint(point);
+	}
+	
+	public void removePoint(int index){	
+		points.remove(index);
+	}
+	
+	public void removePoint(Point point){	
+		points.remove(point);
+	}
+	
+	public void removeAllPoints(){		
+		this.points = new Vector<Point>(); 
+	}
+	
+	public void removeLine(Line line) {
+		lines.remove(line);	
+		resetAllPoints();
+		
+	}
+	
+	public void removeLine(int index) {
+		Line line = this.lines.get(index);
+		this.removeLine(line);
+	}
+	
+	public void removeAllLines(){
+		this.lines = new Vector<Line>();
+	}
+	
+	
+	public void removePolygon(Polygon poly){
+		this.polygons.remove(poly);
+		lines.removeAll(poly.getAllLines());
+		points.removeAll(poly.getAllPoints());
+		
+	}
+	
+	public void removePolygon(int index){
+		Polygon poly = polygons.get(index);
+		this.removePolygon(poly);
+		
+	}
+	
+	public void removeAllPolygons(){
+		this.polygons = new Vector<Polygon>();
+	}
+	
+	public void removeEllipse(Ellipse ellipse){
+		this.ellipses.remove(ellipse);
+	}
+	
+	public void removeEllipse(int index){
+		Ellipse ellipse = ellipses.get(index);
+		this.removeEllipse(ellipse);
+		
+	}
+	
+	public void removeAllEllipses(){
+		this.ellipses = new Vector<Ellipse>();
+	}
+	
+	
+	
+	//=============================PRIMITIVE SET METHODS==================================//
+	
+	public void setAllPoints(Vector<Point> newPoints){
+		this.points = newPoints ;
+	}
+	
+	public void setPointAt(int index, Point newPoint){
+		this.points.set(index, newPoint);
+	}
+
+
+	public void setAllLines(Vector<Line> newLines){
+		
+		
+		for(int i=0;i<lines.size();i++){
+			points.remove(lines.get(i).start);
+			points.remove(lines.get(i).end);
+
+		}
+		this.lines = newLines ;
+		
+		for(int i=0;i<lines.size();i++){
+			this.addPoint(lines.get(i).start);
+			this.addPoint(lines.get(i).end);
+		}
+	}
+	
+	public void setLineAt(int index, Line newLine){
+		points.remove(lines.get(index).start);
+		points.remove(lines.get(index).end);
+		
+		this.lines.set(index, newLine);
+		
+		this.addPoint(lines.get(index).start);
+		this.addPoint(lines.get(index).end);
+	}
+	
+	public void setAllPolygons(Vector<Polygon> newPolygons){
+		for(int i=0;i<polygons.size();i++){
+			lines.removeAll(polygons.get(i).getAllLines());
+			points.removeAll(polygons.get(i).getAllPoints());
+		}
+		this.polygons = newPolygons ;
+		
+		for(int i=0;i<polygons.size();i++){
+			lines.addAll(polygons.get(i).getAllLines());
+			points.addAll(polygons.get(i).getAllPoints());
+		}
+		
+
+	}
+	
+	public void setPolygonAt(int index, Polygon newPolygon){
+		
+		lines.removeAll(polygons.get(index).getAllLines());
+		points.removeAll(polygons.get(index).getAllPoints());
+		
+		this.polygons.set(index, newPolygon);
+		
+		lines.addAll(polygons.get(index).getAllLines());
+		points.addAll(polygons.get(index).getAllPoints());
+		
+		
+	}
+	
+	
+
+	
+	//=============================PRIMITIVE GET METHODS==================================//
+	
+	public Vector<Point> getAllPoints(){
+		return this.points;
+	}
+
+	public Point getPointAt(int index){
+		return this.points.get(index);
+	}
+	
+	public void resetAllPoints(){
+		this.removeAllPoints();
+		   
+		   for(int i=0;i<this.lines.size();i++){
+			   points.add(this.lines.get(i).start);
+			   points.add(this.lines.get(i).end);
+		   }
+		   
+		   
+		}
+	
+	public Vector<Point> copyAllPoints(){
+	 Vector<Point> copyPoints = new Vector<Point>();
+	   
+	   for(int i=0;i<this.points.size();i++){
+		   copyPoints.add(this.points.get(i).copy());
+		   
+	   }
+	   
+	   return copyPoints;
+	}
+	public Vector<Line> copyAllLines(){
+		 Vector<Line> copyLines = new Vector<Line>();
+		   
+		   for(int i=0;i<this.lines.size();i++){
+			   copyLines.add(this.lines.get(i).copy());
+			   
+		   }
+		   
+		   return copyLines;
+		}
+	
+	public Vector<Line> getAllLines(){
+		return this.lines;
+	}
+
+	public Line getLineAt(int index){
+		return this.lines.get(index);
+	}
+	
+	public Vector<Polygon> getAllPolygons(){
+		return this.polygons;
+	}
+
+	public Polygon getPolygonAt(int index){
+		return this.polygons.get(index);
+	}
+	
+	public Vector<Ellipse> getAllEllipses(){
+		return this.ellipses;
+	}
+
+	public Ellipse getEllipseAt(int index){
+		return this.ellipses.get(index);
+	}
+	
+	
+	 public double getWidth(){
+		 Rectangle bb = this.findBoundingBox();
+		   this.width= Math.abs(bb.getLineAt(0).start.getX()-bb.getLineAt(0).end.getX());
+		   return this.width;
+		   
+	 }
+	   
+	 public double getHeight(){
+		 Rectangle bb = this.findBoundingBox();
+		   this.height= Math.abs(bb.getLineAt(1).start.getY()-bb.getLineAt(1).end.getY());
+		   return this.height;
+	 }
+	   
+	 public double getRotation(){
+		 
+		   return this.rotation;
+	   }
+
+	   
+	   public double getScaleX(){
+			 
+		   return this.scaleX;
+	   }
+	   
+	   public double getScaleY(){
+			 
+		   return this.scaleY;
+	   }
+	   
+	   public double getX(){
+		   return this.getOrigin().getX();
+		   
+	   }
+	   
+	   public double getY(){
+		   return this.getOrigin().getY();
+		   
+	   }
+
+	
+	//=============================TRANFORM METHODS==================================//
+	
+	 //translates all points;
+    public void moveTo(double x, double y) {
+    	//this.removeDuplicatePoints();
+        for (int i = 0; i < points.size(); i++) {
+           Point currentPoint = points.get(i);
+           currentPoint.moveTo(x, y,this.origin);
+        }
+        this.origin = new Point(x,y);
+        
+    }
+    
+    public void moveTo(Point point) {
+    	//this.removeDuplicatePoints();
+        for (int i = 0; i < points.size(); i++) {
+           Point currentPoint = points.get(i);
+           currentPoint.moveTo(point.getX(),point.getY(),this.origin);
+        }
+        this.origin = point.copy();
+        
+    }
+    
+    //translates all lines to a new point;
+    @Override
+    public void moveTo(double x, double y, Point focus) {
+    	//this.removeDuplicatePoints();
+    	for (int i = 0; i < points.size(); i++) {
+             Point currentPoint = points.get(i);
+             currentPoint.moveTo(x, y,focus);
+          }
+    }
+    
+	@Override
+    public void moveBy(double x, double y) {
+		//this.removeDuplicatePoints();
+		 for (int i = 0; i < points.size(); i++) {
+			  Point currentPoint = points.get(i);
+	            currentPoint.moveBy(x, y);
+	        }
+        
+    }
+	
+	@Override
+	  //rotates all lines around the origin by an increment of theta;
+    public void rotate(double theta) {
+        this.rotate(theta,origin);
+        this.rotation+=theta;
+    }
+	
+	
+	//rotates all lines around the focus by an increment of theta;
+    public void rotate(double theta, Point _focus) {
+    	//this.removeDuplicatePoints();
+    	this.rotation+=theta;
+        for (int i = 0; i < points.size(); i++) {
+			Point currentPoint = points.get(i);
+
+            currentPoint.rotate(theta, _focus);
+        }
+    }
+    
+    
+    public void scaleX(double scaleVal){
+    	//this.removeDuplicatePoints();
+        for (int i = 0; i < points.size(); i++) {
+        	Point currentPoint = points.get(i);
+        	currentPoint.scaleX(scaleVal);
+        }
+        this.scaleX*=scaleVal;
+       
+    }
+    
+    public void scaleY(double scaleVal){
+    	//this.removeDuplicatePoints();
+        for (int i = 0; i < points.size(); i++) {
+        	Point currentPoint = points.get(i);
+        	currentPoint.scaleY(scaleVal);
+        }
+        this.scaleY*=scaleVal;
+       
+    }
+	
+	
+   public Rectangle findBoundingBox(){
+	  Vector<Point> copyPoints = this.copyAllPoints();
+	  Collections.sort(copyPoints, new CmpX());
+	  double leftX = copyPoints.get(0).getX();
+	  double rightX = copyPoints.get(copyPoints.size()-1).getX();
+	  
+	  Collections.sort(copyPoints, new CmpY());
+	  
+	  double leftY = copyPoints.get(0).getY();
+	  double rightY = copyPoints.get(copyPoints.size()-1).getY();
+	  
+	  return new Rectangle(leftX,leftY,rightX-leftX,rightY-leftY,false);
+	  
+   }
+   
+   public Point getExtremeLeftPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpX());
+		  return copyPoints.get(0);
+		
+	   }
+    
+   public Point getExtremeRightPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpX());
+		  return copyPoints.get(copyPoints.size()-1);
+		
+	   }
+   
+   public Point getExtremeTopPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpY());
+		  return copyPoints.get(0);
+		
+	   }
+   
+   public Point getExtremeBottomPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpY());
+		  return copyPoints.get(copyPoints.size()-1);
+		
+	   }
+   
+
+   
+  //=============================DRAW AND PRINT METHODS==================================//
+    
+    public void draw(PApplet parent, float strokeWeight){
+    	for(int i=0;i<points.size();i++){
+    		points.get(i).draw(parent, this.strokeWeight);
+    		
+    		
+    	}
+    	
+    	for(int i=0;i<lines.size();i++){
+    		lines.get(i).draw(parent, this.strokeWeight);
+    		
+    		
+    	}
+		
+		
+		for(int i=0;i<polygons.size();i++){
+    		polygons.get(i).draw(parent, this.strokeWeight);
+    		
+    		
+    	}
+		
+		for(int i=0;i<ellipses.size();i++){
+    		ellipses.get(i).draw(parent, this.strokeWeight);
+    		
+    		
+    	}
+	}
+    
+    public void setStrokeColor(int r, int g, int b){
+    	this.r=r;
+    	this.g=g;
+    	this.b=b;
+    }
+    
+    public void setStrokeWeight(float strokeWeight){
+    	this.strokeWeight=strokeWeight;
+    }
+    
+    public void drawSliders(){
+    	for(int i=0;i<sliders.size();i++){
+    		sliders.get(i).draw();
+    		
+    	}
+    }
+	public void print(PApplet parent, float strokeWeight){
+		
+		this.draw(parent, strokeWeight);
+		//TODO:implement print method
+
+	}
+	
+	//returns a duplicate but separate copy of the line collection
+	public LineCollection copy(boolean addToScreen){
+		Vector<Line>lines = new Vector<Line>();
+		Vector<Point>points = new Vector<Point>(); 
+		Vector<Polygon>polygons = new Vector<Polygon>();
+		Vector<Ellipse>ellipses = new Vector<Ellipse>();
+		Point newOrigin = this.origin.copy();
+		
+		for(int i=0;i<this.polygons.size();i++){
+			Vector<Line> oldPolygonLines = getPolygonAt(i).getAllLines();
+			Polygon polygon = new Polygon(false);
+			
+			for(int j=0;j<oldPolygonLines.size();j++){
+				polygon.addLine(oldPolygonLines.get(j).copy());
+			}
+			polygons.add(polygon);
+		}
+		
+		for(int i=0;i<this.lines.size();i++){
+			Line line = this.lines.get(i).copy();
+			lines.add(line);
+			//points.add(line.start);
+			//points.add(line.end);
+		}
+		
+		for(int i=0;i<this.points.size();i++){
+			Point point = points.get(i).copy();
+			points.add(point);
+		}
+		
+		for(int i=0;i<this.ellipses.size();i++){
+			Ellipse ellipse = this.ellipses.get(i).copy();
+			ellipses.add(ellipse);
+		}
+		
+		LineCollection newLineCollection =  new LineCollection(newOrigin, points, lines, polygons, ellipses);
+		
+		//newLineCollection.reLinkLines();
+		
+		return newLineCollection;
+	}
+
+	
+	public void reLinkLines(){
+		for(int i=0;i<lines.size(); i++){
+			for(int j=0;j<lines.size(); j++){
+				if(lines.get(j).start==lines.get(i).end){
+					lines.get(j).start = lines.get(i).end;
+				}
+			}
+		}
+	}
+	
+	
+	public void drawOrigin(PApplet parent){
+		 parent.stroke(255,165,0);
+		 parent.strokeWeight(4);
+		 parent.point((float)this.origin.getX(), (float)this.origin.getY());
+		 
+	 }
+	
+	public void drawBoundingBox(PApplet parent){
+		 parent.stroke(255,165,0);
+		 parent.strokeWeight(1);
+		 this.findBoundingBox().draw(parent,1);
+		 
+	 }
+	
+ //=============================TURTLE METHODS==================================//
+
+	@Override
+	public void left(double angle) {
+		TurtleStruct.angle-=angle;
+		/*if(TurtleStruct.angle<0){
+			TurtleStruct.angle = 360;
+		}*/
+		
+	}
+
+	@Override
+	public void right(double angle) {
+		// TODO Auto-generated method stub
+		TurtleStruct.angle+=angle;
+		/*if(TurtleStruct.angle>360){
+			TurtleStruct.angle = 0;
+		}*/
+	}
+
+	@Override
+	public void forward(double dist) {
+		Line newLine = new Line(TurtleStruct.location.copy(), dist, TurtleStruct.angle);
+		if(TurtleStruct.pen){
+			
+			this.addLine(newLine);
+		}
+		TurtleStruct.location = newLine.end;
+		
+	}
+	
+	
+
+	@Override
+	public void back(double dist) {
+		Line newLine = new Line(TurtleStruct.location.copy(), -dist, TurtleStruct.angle);
+		if(TurtleStruct.pen){
+			
+			this.addLine(newLine);
+		}
+		TurtleStruct.location = newLine.end;
+		
+	}
+
+	@Override
+	public void penUp() {
+		TurtleStruct.pen=false;
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void penDown() {
+		TurtleStruct.pen=true;
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void resetTurtle(){
+		TurtleStruct.angle = 0;
+		TurtleStruct.pen = true;
+		TurtleStruct.location = new Point(0,0);
+	}
+	
+	public void moveTurtleTo(double x, double y){
+		
+		TurtleStruct.location = new Point(x,y);
+	}
+	
+	public void rotateTurtleTo(double theta){
+		
+		TurtleStruct.angle = theta;
+	}
+	
+
+	
+}
+
+
