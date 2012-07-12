@@ -76,8 +76,8 @@ public class Pattern extends LineCollection{
 		
 	}
 	
-	public void copyInto(LineCollection lc){
-		this.addAllLines(lc.getAllLines());
+	public void addCopy(LineCollection lc){
+		this.addAllLines(lc.copyAllLines());
 	}
 	
 	public void clipTo(Polygon poly){

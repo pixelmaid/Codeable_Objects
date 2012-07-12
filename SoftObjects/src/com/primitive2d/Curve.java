@@ -10,9 +10,54 @@ import com.math.Geom;
 public class Curve extends LineCollection implements Drawable{ //series of symmetrical curved lines grouped together in a single line
 	private Vector<HalfCurve> halfCurves = new Vector<HalfCurve>(); //stores all of the individual parabolas
 	private int resolution = 20; // resolution of each curve
+	private boolean showPoints = false;
 	
 	
-	public Curve(Point start, Point end, Point control, double x, double y){
+	public Curve(double startX, double startY,double endX, double endY, double controlX, double controlY){
+		super();
+		Point start = new Point(startX,startY);
+		Point end = new Point(endX,endY);
+		Point control = new Point(controlX,controlY);
+		
+		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
+		this.halfCurves.add(hCurve);
+		//this.addAllPoints(hCurve.getAllPoints());
+		this.addPoint(start);
+		this.addPoint(end);
+		this.addPoint(control);
+		this.addAllLinesWithoutPoints(hCurve.getAllLines());
+		this.r=0;
+		this.b=255;
+		this.g = 255;
+		this.setOrigin(start);
+	
+	}
+
+	
+	public Curve(double startX, double startY,double endX, double endY, double controlX, double controlY, int resolution){
+
+		super();
+		Point start = new Point(startX,startY);
+		Point end = new Point(endX,endY);
+		Point control = new Point(controlX,controlY);
+		
+		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
+		this.halfCurves.add(hCurve);
+		//this.addAllPoints(hCurve.getAllPoints());
+		this.addPoint(start);
+		this.addPoint(end);
+		this.addPoint(control);
+		this.addAllLinesWithoutPoints(hCurve.getAllLines());
+		this.r=0;
+		this.b=255;
+		this.g = 255;
+		this.setOrigin(start);
+		this.resolution = resolution;
+		
+	}
+	
+	
+	public Curve(Point start, Point end, Point control,int resolution){
 
 		super();
 		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
@@ -25,9 +70,41 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 		this.r=0;
 		this.b=255;
 		this.g = 255;
-		this.moveTo(x,y);
+		this.setOrigin(start);
+		this.resolution = resolution;
+	}
+	
+	public Curve(Point start, Point end, Point control){
+
+		super();
+		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
+		this.halfCurves.add(hCurve);
+		//this.addAllPoints(hCurve.getAllPoints());
+		this.addPoint(start);
+		this.addPoint(end);
+		this.addPoint(control);
+		this.addAllLinesWithoutPoints(hCurve.getAllLines());
+		this.r=0;
+		this.b=255;
+		this.g = 255;
+		this.setOrigin(start);
+		
 	}
 
+	
+	public void addCurve(double endX, double endY, double controlX, double controlY){
+		Point start = halfCurves.get(halfCurves.size()-1).end.copy();
+		Point end = new Point(endX,endY);
+		Point control = new Point(controlX,controlY);
+
+		HalfCurve hCurve = new HalfCurve(start,end,control,resolution);
+		//this.addAllPoints(hCurve.getAllPoints());
+		this.addPoint(start);
+		this.addPoint(end);
+		this.addPoint(control);
+		this.addAllLinesWithoutPoints(hCurve.getAllLines());
+		this.halfCurves.add(hCurve);
+	}
 	
 	public void addCurve(Point end, Point control){
 		Point start = halfCurves.get(halfCurves.size()-1).end.copy();
@@ -40,15 +117,21 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 		this.halfCurves.add(hCurve);
 	}
 	
+	public void drawPoints(){
+		this.showPoints=true;
+	}
+	
 	//=============================DRAW AND PRINT METHODS==================================//
 
 
 	 public void draw(PApplet parent, float strokeWeight){
 		for(int i =0;i<halfCurves.size();i++){
 			this.halfCurves.get(i).calcCurve(this.halfCurves.get(i).start,this.halfCurves.get(i).end, this.halfCurves.get(i).control);
-			this.halfCurves.get(i).draw(parent, strokeWeight);
+			this.halfCurves.get(i).draw(parent, this.strokeWeight);
 		}
-		//this.drawPoints(parent);
+		if(this.showPoints){
+			this.drawPoints(parent);
+		}
 		
 	 }
 	
@@ -296,6 +379,8 @@ private void calculateHorzCurve(Point p1, Point p2, Point control){
 		
 		
 	}
+	
+	
 
 	
 }

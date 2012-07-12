@@ -481,7 +481,7 @@ public class Geom {
         } else if (Double.isNaN(borderEdge.getSlope())) {//check to see if slope is NaN (line is horizontal)
             my = borderEdge.start.getY();
            if(Double.isInfinite(edge.getSlope())){
-        	   System.out.println("slope in in horz line");
+        	  // System.out.println("slope in in horz line");
         	   mx = edge.start.getX();
            }
            else{
@@ -492,7 +492,7 @@ public class Geom {
         
         else {
         	if(Double.isInfinite(edge.getSlope())){
-        		System.out.println("slope inifinite in normal line");
+        		//System.out.println("slope inifinite in normal line");
          	   mx = edge.start.getX();
          	   my = (mx * borderEdge.getSlope()) + borderEdge.getYIntercept();
             }

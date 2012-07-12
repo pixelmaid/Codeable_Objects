@@ -62,6 +62,10 @@ public class ScreenManager {
 		drawables.remove(lc);
 	}
 	
+	public void setFilename(String filename){
+		this.filename=filename;
+	}
+	
 	public void draw() {
 		parent.background(255);
 		
@@ -171,7 +175,7 @@ public class ScreenManager {
 	}
 
 	private void keyPressed(int keyCode){
-		System.out.println(keyCode);
+		//System.out.println(keyCode);
 		if(keyCode==KeyEvent.VK_SPACE){
 			pan=true;
 			zoom=false;

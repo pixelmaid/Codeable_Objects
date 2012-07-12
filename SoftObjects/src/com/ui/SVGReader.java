@@ -9,6 +9,9 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+
+import processing.core.PApplet;
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -34,7 +37,8 @@ public class SVGReader {
 		
 		try{
 			//Open the SVG file
-			File fXmlFile = new File( path );
+			
+			File fXmlFile = new File( ScreenManager.parent.sketchPath+"/"+path );
 			
 			//Setup the XML parser
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

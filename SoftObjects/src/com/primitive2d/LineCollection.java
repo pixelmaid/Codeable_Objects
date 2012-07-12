@@ -358,8 +358,15 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		   return copyLines;
 		}
 	
+	public int numberOfPoints(){
+		return this.points.size();
+	}
 	public Vector<Line> getAllLines(){
 		return this.lines;
+	}
+	
+	public int numberOfLines(){
+		return this.lines.size();
 	}
 
 	public Line getLineAt(int index){
@@ -556,26 +563,26 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     
     public void draw(PApplet parent, float strokeWeight){
     	for(int i=0;i<points.size();i++){
-    		points.get(i).draw(parent, this.strokeWeight);
+    		points.get(i).draw(parent, strokeWeight);
     		
     		
     	}
     	
     	for(int i=0;i<lines.size();i++){
-    		lines.get(i).draw(parent, this.strokeWeight);
+    		lines.get(i).draw(parent, strokeWeight);
     		
     		
     	}
 		
 		
 		for(int i=0;i<polygons.size();i++){
-    		polygons.get(i).draw(parent, this.strokeWeight);
+    		polygons.get(i).draw(parent, strokeWeight);
     		
     		
     	}
 		
 		for(int i=0;i<ellipses.size();i++){
-    		ellipses.get(i).draw(parent, this.strokeWeight);
+    		ellipses.get(i).draw(parent, strokeWeight);
     		
     		
     	}
