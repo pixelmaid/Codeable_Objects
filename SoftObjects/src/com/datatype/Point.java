@@ -236,8 +236,9 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	}
 
 	@Override
-	public void print(PApplet parent, float strokeWeight, String filename) {
-		
+	public void print(PApplet parent, float strokeWeight) {
+		parent.strokeWeight(strokeWeight);
+		parent.point((float)this.x, (float)this.y);
 		//TODO:implement print method
 		
 	}

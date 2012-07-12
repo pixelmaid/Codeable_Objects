@@ -12,7 +12,8 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 	private int resolution = 100; // resolution of each curve
 	
 	
-	public Curve(Point start, Point end, Point control,boolean addToScreen){
+	public Curve(Point start, Point end, Point control, double x, double y,boolean addToScreen){
+
 		super(addToScreen);
 		HalfCurve hCurve = new HalfCurve(start,end,control,resolution, addToScreen);
 		this.halfCurves.add(hCurve);
@@ -21,6 +22,10 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 		this.addPoint(end);
 		this.addPoint(control);
 		this.addAllLinesWithoutPoints(hCurve.getAllLines());
+		this.r=0;
+		this.b=255;
+		this.g = 255;
+		this.moveTo(x,y);
 	}
 
 	
@@ -37,13 +42,13 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 	
 	//=============================DRAW AND PRINT METHODS==================================//
 
-	@Override
+
 	 public void draw(PApplet parent, float strokeWeight){
 		for(int i =0;i<halfCurves.size();i++){
-			
+			this.halfCurves.get(i).calcCurve(this.halfCurves.get(i).start,this.halfCurves.get(i).end, this.halfCurves.get(i).control);
 			this.halfCurves.get(i).draw(parent, strokeWeight);
 		}
-		this.drawPoints(parent);
+		//this.drawPoints(parent);
 		
 	 }
 	
@@ -65,9 +70,9 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 	 }
 	
 	@Override
-	 public void print(PApplet parent, float strokeWeight, String filename){
+	 public void print(PApplet parent, float strokeWeight){
 		for(int i =0;i<halfCurves.size();i++){
-			this.halfCurves.get(i).print(parent, strokeWeight, filename);
+			this.halfCurves.get(i).print(parent, strokeWeight);
 		}
 		
 	 }
@@ -81,15 +86,15 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 			HalfCurve hC = this.halfCurves.get(i);
 			if(hC.start.withinRange(range,x,y)){
 				hC.start.selected=true;
-				System.out.println("selected");
+				//System.out.println("selected");
 			}
 			if(hC.end.withinRange(range,x,y)){
 				hC.end.selected=true;
-				System.out.println("selected");
+				//System.out.println("selected");
 			}
 			if(hC.control.withinRange(range,x,y)){
 				hC.control.selected=true;
-				System.out.println("selected");
+				//System.out.println("selected");
 			}
 			
 		}
@@ -166,7 +171,7 @@ class HalfCurve extends LineCollection{
 		this.removeAllPoints();
 		Point centerPoint = Geom.getMidpoint(p1, p2);
 		double theta = Geom.cartToPolar(control.getX()-centerPoint.getX(), control.getY()-centerPoint.getY())[1];
-		System.out.println("theta="+theta);
+		//System.out.println("theta="+theta);
 		if((theta>225 && theta<=315) || (theta >45 && theta<=135)){
 			calculateHorzCurve(p1,p2,control);
 		}
@@ -176,7 +181,7 @@ class HalfCurve extends LineCollection{
 	}
 	
 	private void calculateVertCurve(Point p1, Point p2, Point control){
-		System.out.println("calc vert");
+		//System.out.println("calc vert");
 		this.control= control;
 		Point dStart;
 		Point dEnd;
@@ -222,7 +227,7 @@ class HalfCurve extends LineCollection{
 	}
 	
 private void calculateHorzCurve(Point p1, Point p2, Point control){
-	System.out.println("calc horz");
+	//System.out.println("calc horz");
 	Point dStart;
 	Point dEnd;
 	this.control= control;

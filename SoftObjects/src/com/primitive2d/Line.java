@@ -25,7 +25,7 @@ public class Line extends DCHalfEdge implements Drawable {
 		parent.line((float)start.getX(),(float)start.getY(), (float)end.getX(), (float)end.getY());
 	}
 	
-	public void print(PApplet parent, float strokeWeight, String filename){
+	public void print(PApplet parent, float strokeWeight){
 		//TODO:implement print method
 	}
 	

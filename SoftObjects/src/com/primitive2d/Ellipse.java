@@ -114,15 +114,16 @@ public class Ellipse implements Comparable<Ellipse>, Drawable {
 
 
 	
-    public void draw(PApplet myParent,float strokeWeight) {
+    public void draw(PApplet parent,float strokeWeight) {
        
-        myParent.strokeWeight(strokeWeight);
-        myParent.ellipse((float) origin.getX(), (float) origin.getY(), (float) radius * 2, (float) radius * 2);
+        parent.strokeWeight(strokeWeight);
+        parent.ellipse((float) origin.getX(), (float) origin.getY(), (float) radius * 2, (float) radius * 2);
     }
 
 	@Override
-	public void print(PApplet parent, float strokeWeight, String filename) {
-		//TODO:implement print method
+	public void print(PApplet parent, float strokeWeight) {
+		parent.strokeWeight(strokeWeight);
+		parent.ellipse((float) origin.getX(), (float) origin.getY(), (float) radius * 2, (float) radius * 2);
 		
 	}
 	

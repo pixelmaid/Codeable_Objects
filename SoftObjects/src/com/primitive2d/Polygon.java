@@ -15,8 +15,13 @@ import com.ornament.Tree;
 
 public class Polygon extends LineCollection{
 
+
+	
 	public Polygon(boolean addToScreen){
 		super(addToScreen);
+		this.r=0;
+		this.g=0;
+		this.b=255;
 		
 	}
 	
@@ -31,6 +36,9 @@ public class Polygon extends LineCollection{
 		this.setOriginUpperLeft();
 		this.moveTo(x, y);
 		this.resetTurtle();
+		this.r=0;
+		this.g=0;
+		this.b=255;
 		
 	}
 	
@@ -243,17 +251,6 @@ public class Polygon extends LineCollection{
 	
 	  //=============================DRAW AND PRINT METHODS==================================//
 	
-	@Override
-	public void draw(PApplet parent, float strokeWeight){
-		parent.stroke(0,0,255);	
-		super.draw(parent, strokeWeight);
-	}
-	
-	@Override
-	public void print(PApplet parent, float strokeWeight, String filename){
-		parent.stroke(0,0,255);	
-		super.print(parent, strokeWeight,filename);
-	}
 	
 	@Override
 	public Polygon copy(boolean addToScreen){

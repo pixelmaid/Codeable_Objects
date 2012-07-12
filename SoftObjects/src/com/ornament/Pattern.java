@@ -18,28 +18,22 @@ public class Pattern extends LineCollection{
 	
 	public Pattern(boolean addToScreen){
 		super(addToScreen);
+		this.r=255;
+		this.g=0;
+		this.b=255;
 	}
 	
 	public Pattern(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses, boolean addToScreen){
 		super(origin, points, lines, polygons, ellipses, addToScreen);
+		this.r=255;
+		this.g=0;
+		this.b=255;
 
 	}
 	
 	@Override
 	public void addPolygon(Polygon poly){
 		this.addAllLines(poly.copyAllLines());
-	}
-	
-	@Override
-	public void draw(PApplet parent, float strokeWeight){
-		parent.stroke(255,0,255);	
-		super.draw(parent, strokeWeight);
-	}
-	
-	@Override
-	public void print(PApplet parent, float strokeWeight, String filename){
-		parent.stroke(255,0,255);	
-		super.print(parent, strokeWeight,filename);
 	}
 	
 	@Override
