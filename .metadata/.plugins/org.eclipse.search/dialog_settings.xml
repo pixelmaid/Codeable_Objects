@@ -14,8 +14,8 @@
 	<section name="DialogBounds_SearchDialog">
 		<item value="563" key="DIALOG_WIDTH"/>
 		<item value="235" key="DIALOG_Y_ORIGIN"/>
-		<item value="677" key="DIALOG_X_ORIGIN"/>
 		<item value="442" key="DIALOG_HEIGHT"/>
+		<item value="677" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="Search">
@@ -42,9 +42,6 @@
 		<item value="false" key="REG_EX_SEARCH"/>
 		<item value="false" key="SEARCH_DERIVED"/>
 		<item value="3" key="HISTORY_SIZE"/>
-		<section name="EXTENSIONS">
-			<item value="*" key="0"/>
-		</section>
 		<section name="HISTORY2">
 			<item value="false" key="isRegExSearch"/>
 			<item value="0xfffff" key="textPattern"/>
@@ -55,6 +52,9 @@
 			</list>
 			<list key="workingSets">
 			</list>
+		</section>
+		<section name="EXTENSIONS">
+			<item value="*" key="0"/>
 		</section>
 		<section name="HISTORY0">
 			<item value="false" key="isRegExSearch"/>

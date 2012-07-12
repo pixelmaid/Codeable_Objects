@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="243" key="DIALOG_WIDTH"/>
 		<item value="103" key="DIALOG_Y_ORIGIN"/>
+		<item value="982" key="DIALOG_X_ORIGIN"/>
 		<item value="379" key="DIALOG_HEIGHT"/>
-		<item value="1333" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="draw" key="selection"/>
+		<item value="findBoundingBox" key="selection"/>
 		<list key="findhistory">
-			<item value="draw"/>
-			<item value="intersectedEdges"/>
-			<item value="getIntersectedEdges"/>
-			<item value="findIntersectionPoint"/>
-			<item value="intersection"/>
-			<item value="th"/>
-			<item value="there is only"/>
-			<item value="baseTypeButton"/>
+			<item value="findBoundingBox"/>
+			<item value="getWidth"/>
+			<item value="setOrigin"/>
+			<item value="slope of edge"/>
+			<item value="slope"/>
+			<item value="clipInBorder"/>
+			<item value="slopedfEdge"/>
+			<item value="slopeOfEdge"/>
 		</list>
 		<list key="replacehistory">
 			<item value="//System.out.println"/>
