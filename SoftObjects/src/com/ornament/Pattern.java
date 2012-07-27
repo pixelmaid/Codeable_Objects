@@ -5,6 +5,7 @@ import java.util.Vector;
 import processing.core.PApplet;
 
 import com.datatype.Point;
+import com.primitive2d.Curve;
 import com.primitive2d.Drawable;
 import com.primitive2d.Ellipse;
 import com.primitive2d.Line;
@@ -31,9 +32,10 @@ public class Pattern extends LineCollection{
 
 	}
 	
-	@Override
-	public void addPolygon(Polygon poly){
-		this.addAllLines(poly.copyAllLines());
+	
+	public void copyPolygon(Polygon poly){
+		//this.addAllLines(poly.getAllLines());
+		this.addPolygon(poly);
 	}
 	
 	@Override
@@ -76,9 +78,7 @@ public class Pattern extends LineCollection{
 		
 	}
 	
-	public void addCopy(LineCollection lc){
-		this.addAllLines(lc.copyAllLines());
-	}
+	
 	
 	public void clipTo(Polygon poly){
 		poly.clipPattern(this);

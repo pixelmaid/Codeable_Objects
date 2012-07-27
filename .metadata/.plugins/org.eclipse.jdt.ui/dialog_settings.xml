@@ -59,9 +59,9 @@
 			<item value="0" key="scope"/>
 			<item value="System.out.println" key="pattern"/>
 			<item value="" key="javaElement"/>
-			<item value="0" key="searchFor"/>
+			<item value="1" key="searchFor"/>
 			<item value="0" key="matchLocations"/>
-			<item value="true" key="isCaseSensitive"/>
+			<item value="false" key="isCaseSensitive"/>
 			<list key="workingSets">
 			</list>
 		</section>

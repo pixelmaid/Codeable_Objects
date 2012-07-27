@@ -121,6 +121,18 @@ public class Curve extends LineCollection implements Drawable{ //series of symme
 		this.showPoints=true;
 	}
 	
+	@Override
+	public Vector<Line> copyAllLines(){
+		System.out.println("adding in CURVE TO PATTERN");
+		 Vector<Line> copyLines = new Vector<Line>();
+		 for(int i =0;i<halfCurves.size();i++){
+				this.halfCurves.get(i).calcCurve(this.halfCurves.get(i).start,this.halfCurves.get(i).end, this.halfCurves.get(i).control);
+				copyLines.addAll(halfCurves.get(i).copyAllLines());
+			}
+		   
+		   return copyLines;
+		}
+	
 	//=============================DRAW AND PRINT METHODS==================================//
 
 
@@ -268,6 +280,7 @@ class HalfCurve extends LineCollection{
 		this.control= control;
 		Point dStart;
 		Point dEnd;
+		boolean reverse = false;
 		if(p1.getY()<=p2.getY()){
 			dStart=p1;
 			dEnd = p2;
@@ -275,6 +288,7 @@ class HalfCurve extends LineCollection{
 		else{
 			dStart = p2;
 			dEnd=p1;
+			reverse = true;
 		}
 
 		/*if(control.getY()<=start.getY()){
@@ -300,6 +314,19 @@ class HalfCurve extends LineCollection{
 		double c = (y2 * y3 * (y2 - y3) * x1 + y3 * y1 * (y3 - y1) * x2 + y1 * y2 * (y1 - y2) * x3) / denom;
 
 
+		if(reverse){
+			for (int i = resolution; i >=0; i--) {
+				double startPointY = (height / resolution) * i+dStart.getY();
+
+				double startPointX = a * startPointY * startPointY + b * startPointY + c;
+				
+				this.addPoint(startPointX,startPointY);	
+				
+				
+			}	
+		}
+		else{
+		
 		for (int i = 0; i < resolution + 1; i++) {
 			double startPointY = (height / resolution) * i+dStart.getY();
 
@@ -307,20 +334,24 @@ class HalfCurve extends LineCollection{
 			
 			this.addPoint(startPointX,startPointY);	
 		}
+		}
 	}
 	
 private void calculateHorzCurve(Point p1, Point p2, Point control){
 	//System.out.println("calc horz");
 	Point dStart;
 	Point dEnd;
+	boolean reverse=false;
 	this.control= control;
 	if(p1.getX()<=p2.getX()){
 		dStart=p1;
 		dEnd = p2;
+		
 	}
 	else{
 		dStart = p2;
 		dEnd=p1;
+		reverse=true;
 	}
 	
 	/*if(control.getX()<=start.getX()){
@@ -346,22 +377,41 @@ private void calculateHorzCurve(Point p1, Point p2, Point control){
 		double c = (x2 * x3 * (x2 - x3) * y1 + x3 * x1 * (x3 - x1) * y2 + x1 * x2 * (x1 - x2) * y3) / denom;
 
 
+		if(reverse){
+			for (int i = resolution; i >=0; i--) {
+				double startPointX = (width / resolution) * i+ dStart.getX();
+
+				double startPointY = a * startPointX * startPointX+ b * startPointX + c;
+				
+				
+				this.addPoint(startPointX,startPointY);	
+				
+				
+			}	
+		}
+		else{
 		for (int i = 0; i < resolution + 1; i++) {
 			double startPointX = (width / resolution) * i+ dStart.getX();
 
 			double startPointY = a * startPointX * startPointX+ b * startPointX + c;
 			
+			
 			this.addPoint(startPointX,startPointY);	
+			
+			
 		}
+		}
+		
 	}
 	
-	@Override
+	
 	public void addPoint(double x,double y){ //copied from Polygon class
 		
 		Point point = new Point(x,y);
 		
 		int numLines = this.getAllLines().size();
 		int numPoints = this.getAllPoints().size();
+		
 		if(numPoints == 0){
 			this.addPoint(point);
 		}
@@ -379,6 +429,9 @@ private void calculateHorzCurve(Point p1, Point p2, Point control){
 		
 		
 	}
+	
+	
+	
 	
 	
 

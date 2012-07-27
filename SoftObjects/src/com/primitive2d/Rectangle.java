@@ -12,7 +12,7 @@ public class Rectangle extends Polygon {
 	private Line right;
 
 	
-	public Rectangle(double startX, double startY, double width, double height, boolean addToScreen){
+	public Rectangle(double startX, double startY, double width, double height){
 		super();
 		this.origin = new Point(startX,startY);
 		

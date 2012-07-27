@@ -1,5 +1,7 @@
 package com.ui;
 //imports in svgs and converts them to polygons
+import com.ornament.Pattern;
+import com.primitive2d.Line;
 import com.primitive2d.Polygon;
 import java.awt.geom.Point2D;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,13 +23,19 @@ import java.util.Vector;
 public class SVGReader {
 	
 	private Vector< Polygon > polygons;
+	private Pattern pattern;
 	
 	public SVGReader(){
 		polygons = new Vector< Polygon >();
+		pattern = new Pattern();
 	}
 	
 	public Vector< Polygon > getPolygons(){
 		return (Vector< Polygon>)polygons.clone();
+	}
+	
+	public Pattern getPattern(){
+		return pattern;
 	}
 	
 	public boolean readSVGFile(String path){
@@ -42,7 +50,9 @@ public class SVGReader {
 			
 			//Setup the XML parser
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			dbFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd",false);
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			
 			Document doc = dBuilder.parse(fXmlFile);
 			doc.getDocumentElement().normalize();
 			
@@ -66,6 +76,11 @@ public class SVGReader {
 				return false;
 			}
 			
+			if( !parseLines( doc) ){
+				System.out.println("ERROR: Failed to parse a line object from the SVG file");
+				return false;
+			}
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -73,6 +88,42 @@ public class SVGReader {
 		
 		return true;
 		  
+	}
+	
+	
+	private boolean parseLines( Document doc ){
+		NodeList nList = doc.getElementsByTagName("line");
+		
+		for (int i = 0; i < nList.getLength(); i++) {
+		    //Get the ith rectangle node
+			Node nNode = nList.item(i);
+			
+			//If the node has attributes then parse them
+			if( nNode.hasAttributes() ){
+				//Get all the attributes of the rect
+				NamedNodeMap map = nNode.getAttributes();
+				
+				String x1Value = map.getNamedItem( "x1" ).getNodeValue();
+				String y1Value = map.getNamedItem( "y1" ).getNodeValue();
+				String x2Value = map.getNamedItem( "x2" ).getNodeValue();
+				String y2Value = map.getNamedItem( "y2" ).getNodeValue();
+				
+				if( x1Value != "" || y1Value != "" || x2Value != "" || y2Value != " "){
+					double x1 = stringToDouble(x1Value);
+					double y1 = stringToDouble(y1Value);
+					double x2 = stringToDouble(x2Value);
+					double y2 = stringToDouble(y2Value);
+							
+					Line line = new Line(x1,y1,x2,y2);
+					
+					pattern.addLine( line );
+				}
+				
+			}
+			
+		}
+		
+		return true;
 	}
 	
 	private boolean parseRectangles( Document doc ){
@@ -103,7 +154,7 @@ public class SVGReader {
 					p.addPoint(x+w, y);
 					p.addPoint(x+w, y+h);
 					p.addPoint(x, y+h);
-					p.closePoly();
+					//p.closePoly();
 					polygons.add( p );
 				}
 				
@@ -157,7 +208,7 @@ public class SVGReader {
 					}
 					
 					//Close the polygon and add it to the polygons buffer
-					p.closePoly();
+					//p.closePoly();
 					polygons.add( p );
 				}
 			}

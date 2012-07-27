@@ -16,7 +16,7 @@ public class Tree extends Pattern{
 
 	private Point origin = new Point(0,0);//starting angle of the tree
 	
-	public Tree(boolean addToScreen){
+	public Tree(){
 		super();
 		
 	}

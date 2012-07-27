@@ -6,7 +6,7 @@ import com.datatype.Point;
 import com.datatype.DCHalfEdge;
 
 public class Line extends DCHalfEdge implements Drawable {
-
+	public float strokeWeight=1;
 
 	public Line(Point start, Point end) {
 		super(start,end);
@@ -52,5 +52,9 @@ public class Line extends DCHalfEdge implements Drawable {
 	 public Line copy(){
 	    return new Line(start.copy(),end.copy());
 	  }
+	 
+	 public void setStrokeWeight(float strokeWeight){
+	    	this.strokeWeight=strokeWeight;
+	    }
 
 }

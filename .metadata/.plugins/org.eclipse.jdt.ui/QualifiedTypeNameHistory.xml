@@ -6,7 +6,6 @@
 <fullyQualifiedTypeName name="com.math.CompPoint3d"/>
 <fullyQualifiedTypeName name="com.datastruct.DCHalfEdge3d"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
-<fullyQualifiedTypeName name="processing.core.PApplet"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
@@ -19,7 +18,6 @@
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="com.datastruct.DoublyConnectedEdgeList"/>
-<fullyQualifiedTypeName name="com.datastruct.DCHalfEdge"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.design.Base"/>
 <fullyQualifiedTypeName name="processing.core.PFont"/>
@@ -43,4 +41,12 @@
 <fullyQualifiedTypeName name="org.w3c.dom.Document"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
+<fullyQualifiedTypeName name="java.security.Timestamp"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="processing.core.PApplet"/>
+<fullyQualifiedTypeName name="com.primitive2d.Curve"/>
+<fullyQualifiedTypeName name="com.primitive2d.Line"/>
+<fullyQualifiedTypeName name="com.ornament.Pattern"/>
+<fullyQualifiedTypeName name="com.datastruct.DCHalfEdge"/>
 </qualifiedTypeNameHistroy>

@@ -204,6 +204,9 @@ public class ScreenManager {
 	
 	}
 	
+	public void setZoom(double z){
+		posZ=z;
+	}
 	
 	
 	

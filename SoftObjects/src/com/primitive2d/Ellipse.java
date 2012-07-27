@@ -42,6 +42,8 @@ public class Ellipse implements Comparable<Ellipse>, Drawable {
     public boolean kept = false;
     public int numTouching = 0;
     public Vector<Ellipse> discsTouching;
+    
+    public int strokeWeight = 1;
 
     public Ellipse(double x, double y, double radius) {
         this.radius = radius;

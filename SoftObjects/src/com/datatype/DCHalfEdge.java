@@ -38,8 +38,8 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
 
     
     public boolean inner = false; //determines if edge needs to be cut first because it is an inner edge
-    private double m; //directional coefficients satisfying equation y = m*x + b (edge lies on this line)
-    private double b;
+   public double m; //directional coefficients satisfying equation y = m*x + b (edge lies on this line)
+   public double b;
 
     public DCHalfEdge neighbor = null; //twin to edge
     
@@ -124,6 +124,9 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
           return b;
    		
    }
+    public Point getMidPoint(){
+    	return Geom.getMidpoint(this.start, this.end);
+    }
     
     public double getLength(){
     	this.length = Geom.distance(start, end);

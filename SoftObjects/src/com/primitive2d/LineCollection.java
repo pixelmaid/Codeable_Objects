@@ -87,6 +87,10 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		this.setOrigin(this.findBoundingBox().origin);
 	}
 	
+	public void setOriginUpperRight(){
+		this.setOrigin(this.findBoundingBox().origin.getX()+this.getWidth(),this.findBoundingBox().origin.getY());
+	}
+	
 	public void centerOrigin(){
 		Rectangle boundingBox = this.findBoundingBox();
 		this.setOrigin(this.getWidth()/2+boundingBox.getOrigin().getX(),this.getHeight()/2+boundingBox.getOrigin().getY());
@@ -176,6 +180,14 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		this.sliders.add(slider);
 	}
 	
+	
+	public void addCopy(LineCollection lc){
+		this.addAllLines(lc.copyAllLines());
+	}
+	
+	public void addCopy(Curve c){
+		this.addAllLines(c.copyAllLines());
+	}
 	//=============================PRIMITIVE REMOVE METHODS==================================//
 	
 	public void removeDuplicatePoints(){
@@ -205,7 +217,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		
 	}
 	
-	public void removeLine(int index) {
+	public void removeLineAt(int index) {
 		Line line = this.lines.get(index);
 		this.removeLine(line);
 	}
@@ -470,7 +482,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 			  Point currentPoint = points.get(i);
 	            currentPoint.moveBy(x, y);
 	        }
-        
+		 this.origin.moveBy(x,y);
     }
 	
 	@Override
@@ -525,7 +537,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	  double leftY = copyPoints.get(0).getY();
 	  double rightY = copyPoints.get(copyPoints.size()-1).getY();
 	  
-	  return new Rectangle(leftX,leftY,rightX-leftX,rightY-leftY,false);
+	  return new Rectangle(leftX,leftY,rightX-leftX,rightY-leftY);
 	  
    }
    
@@ -556,33 +568,33 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		  return copyPoints.get(copyPoints.size()-1);
 		
 	   }
-   
+ 
 
    
   //=============================DRAW AND PRINT METHODS==================================//
     
     public void draw(PApplet parent, float strokeWeight){
-    	for(int i=0;i<points.size();i++){
+    	/*for(int i=0;i<points.size();i++){
     		points.get(i).draw(parent, strokeWeight);
     		
     		
-    	}
+    	}*/
     	
     	for(int i=0;i<lines.size();i++){
-    		lines.get(i).draw(parent, strokeWeight);
+    		lines.get(i).draw(parent, lines.get(i).strokeWeight);
     		
     		
     	}
 		
 		
 		for(int i=0;i<polygons.size();i++){
-    		polygons.get(i).draw(parent, strokeWeight);
+    		polygons.get(i).draw(parent, polygons.get(i).strokeWeight);
     		
     		
     	}
 		
 		for(int i=0;i<ellipses.size();i++){
-    		ellipses.get(i).draw(parent, strokeWeight);
+    		ellipses.get(i).draw(parent, ellipses.get(i).strokeWeight);
     		
     		
     	}

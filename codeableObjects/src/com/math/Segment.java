@@ -22,10 +22,10 @@ package com.math;
 
 
 import processing.core.PApplet;
-
 import java.util.Vector;
+import com.datastruct.*;
 
-public class Segment implements Comparable<Segment> {
+public class Segment extends DCHalfEdge implements Comparable<DCHalfEdge>  {
     public CompPoint p1;
     public CompPoint p2;
     public int color = 255;
@@ -36,7 +36,8 @@ public class Segment implements Comparable<Segment> {
 
 
     public Segment(PApplet theParent, CompPoint _p1, CompPoint _p2) {
-        myParent = theParent;
+        super(_p1,_p2);
+    	myParent = theParent;
         containedPoints = new Vector<CompPoint>(2);
         //determine start and end points
         if (_p1.getY() < _p2.getY()) {

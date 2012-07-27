@@ -105,6 +105,24 @@ public class Geom {
 	   return new Point(x,y);
    }
     
+   
+   public static boolean isEven(double num){
+	   if (num %2==0){
+		   return true;
+	   }
+	   else{
+		   return false;
+	   }
+   }
+   
+   public static boolean isOdd(double num){
+	   if (num %2==0){
+		   return false;
+	   }
+	   else{
+		   return true;
+	   }
+   }
     
    public static double getHighestAngle(DCHalfEdge edge, Point focus){
     	Point target;
@@ -223,6 +241,17 @@ public class Geom {
     		p.addHalfEdge(new DCHalfEdge(l.get(i).start.copy(),l.get(i).end.copy()));
     	}
     	return p;
+    	
+    }
+    
+    public static LineCollection dCEdgeListToLines(DoublyConnectedEdgeList p){
+   
+    	LineCollection lc = new LineCollection();
+    	Vector<DCHalfEdge> edges = p.edges;
+    	for(int i=0;i<edges.size();i++){
+    		lc.addLine(edges.get(i).start.copy(),edges.get(i).end.copy());
+    	}
+    	return lc;
     	
     }
     

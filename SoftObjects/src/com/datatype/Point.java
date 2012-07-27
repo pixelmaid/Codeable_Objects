@@ -20,15 +20,15 @@
 
 package com.datatype;
 
-import com.math.Geom;
-import com.primitive2d.Drawable;
-
 import java.awt.geom.Point2D;
-import java.util.Comparator;
 
 import processing.core.PApplet;
 
-public class Point extends Point2D implements Comparable<Point>, Drawable{
+import com.primitive2d.Drawable;
+import com.math.*;
+
+
+public class Point extends Point2D implements Comparable<Point>,Drawable{
 	private double x;
 	private double y;
 	public boolean selected = false; // used for mouse events
@@ -39,6 +39,17 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 		y = _y;
 		
 	}
+	
+	
+	public Point(double orgX, double orgY, double theta, double rad) {
+
+        double xPos = Math.cos(theta)*rad+orgX;
+        double yPos =  Math.sin(theta)*rad+orgY;
+
+        x=xPos;
+        y=yPos;
+
+    }
 	
 	public boolean withinRange(double range, double x, double y){
 		
