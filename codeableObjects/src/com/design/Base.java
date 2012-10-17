@@ -71,11 +71,14 @@ public class Base extends Part {
     		DCHalfEdge newEdge =this.expandEdge(this.edges.get(i),dist);
     		DCHalfEdge rightEdge = new DCHalfEdge(newEdge.end,new CompPoint(this.edges.get(i).end.getX(),this.edges.get(i).end.getY()));
     		DCHalfEdge leftEdge = new DCHalfEdge(newEdge.start,new CompPoint(this.edges.get(i).start.getX(),this.edges.get(i).start.getY()));
-    		newEdges.addElement(rightEdge);
+    		
+    	    newEdges.addElement(rightEdge);
+    		
     		newEdges.addElement(newEdge);
     		newEdges.addElement(leftEdge);
     	}
-    	this.edges= newEdges;
+    	this.edges.clear();
+    	this.edges.addAll(newEdges);
     	
     	
     }

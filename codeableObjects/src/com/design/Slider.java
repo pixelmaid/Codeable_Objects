@@ -20,6 +20,10 @@
 
 package com.design;
 
+import java.math.BigDecimal;
+
+import com.math.Geom;
+
 import processing.core.PApplet;
 import processing.core.PFont;
 
@@ -36,7 +40,9 @@ public class Slider {
     private String name;
     private PApplet myParent;
     private PFont font;
-
+    private String units;
+    private double milToInchConversion=25.4;
+    
     public Slider(PApplet myParent) {
         x = 0;
         y = 0;
@@ -52,7 +58,7 @@ public class Slider {
         myParent.textFont(font, 14);
     }
 
-    public void init(float x, float y, float width, float height, float v, float minT, float maxT, String name) {
+    public void init(float x, float y, float width, float height, float v, float minT, float maxT, String name, String units) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -61,6 +67,7 @@ public class Slider {
         this.minTarget = minT;
         this.maxTarget = maxT;
         this.name = name;
+        this.units= units;
     }
 
     public void draw() {
@@ -81,6 +88,8 @@ public class Slider {
         myParent.fill(255);
 
         myParent.text(name, x, y + height + 15);
+        myParent.fill(255, 255, 0);
+        myParent.text(Double.toString(Geom.round(getSliderValue(),2,BigDecimal.ROUND_HALF_UP))+units, x+width+10, y+height/2+7);
 
     }
 

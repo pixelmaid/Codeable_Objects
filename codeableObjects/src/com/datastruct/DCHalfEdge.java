@@ -72,6 +72,20 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
 
 
     }
+    
+    public void setTwin(DCHalfEdge twin){
+    	this.neighbor=twin;
+    }
+    public DCHalfEdge getTwin(){
+    	return this.neighbor;
+    }
+    
+    public void setOrigin(CompPoint origin){
+    	this.start = origin;
+    }
+    public DCHalfEdge getOrigin(){
+    	return this.neighbor;
+    }
 
     public void setleft(CompPoint left) {
         this.left = left;

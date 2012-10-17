@@ -1,6 +1,8 @@
 com.algorithm
+com.algorithm.segmentintersect
 com.datastruct
 com.datastruct.voronoi
 com.design
+com.file
 com.math
 com.primitives2d

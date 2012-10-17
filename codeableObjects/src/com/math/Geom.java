@@ -25,6 +25,7 @@ import com.datastruct.DCHalfEdge;
 import com.datastruct.DoublyConnectedEdgeList;
 import processing.core.PApplet;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -33,6 +34,13 @@ import java.util.Vector;
 
 public class Geom {
 
+	 public static double round(double unrounded, int precision, int roundingMode)
+	    {
+	        BigDecimal bd = new BigDecimal(unrounded);
+	        BigDecimal rounded = bd.setScale(precision, roundingMode);
+	        return rounded.doubleValue();
+	    }
+	
     public static CompPoint polarToCart(double r, double theta) {
         double x = Math.cos(theta * Math.PI / 180.0) * r;
         double y = Math.sin(theta * Math.PI / 180.0) * r;
@@ -44,6 +52,9 @@ public class Geom {
         return new CompPoint(x, y);
 
     }
+    
+    
+   
 
     public static double[] cartToPolar(double x, double y) {
 
@@ -303,6 +314,7 @@ public class Geom {
         }
         return true;
     }
+    
 
 
     //determines if a segment intersects a polygon defined by a doubly connected edge list and returns edges of intersection if they exist

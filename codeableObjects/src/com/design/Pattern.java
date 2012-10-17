@@ -31,6 +31,7 @@ import com.math.PolyBoolean;
 import processing.core.PApplet;
 import processing.core.PFont;
 
+import java.util.Collections;
 import java.util.Random;
 import java.util.Vector;
 
@@ -69,7 +70,7 @@ public class Pattern{
 	}
 
 
-	public void defineVorDiagram(Part shadeBorder, Vector<CompPoint> currentPoints, double contract, double notchLimit) {      //seperate out clipping and draw methods
+	public void defineVorDiagram(Part shadeBorder, Vector<CompPoint> currentPoints, double contract, double minContractTarget, double maxContractTarget, double notchLimit) {      //seperate out clipping and draw methods
 		//init diagram containers
 		faces = new DoublyConnectedEdgeList();
 		clippedFaces = new DoublyConnectedEdgeList();
@@ -131,20 +132,40 @@ public class Pattern{
 			}
 
 			shadeBorderCopy.convertVertexesToEdges();
-			double areaLimit = 30;
+			double areaLimit = 100;
 			for(int i=0;i<faces.faces.size();i++){
+				
 				faces.faces.get(i).orderEdges();
 				DoublyConnectedEdgeList clippedFace =PolyBoolean.booleanSet(shadeBorderCopy,faces.faces.get(i),"difference");
 				if(clippedFace!=null){
 					DCFace newFace = new DCFace(new CompPoint(0,0));
 					newFace.edges=	clippedFace.edges;
-					PolyBoolean.contractPoly(newFace,contract);
-					if(Geom.SignedPolygonArea(newFace)>areaLimit){
-						clippedFaces.addFace(newFace);
+					clippedFaces.addFace(newFace);
+				}
+				
+			}
+			
+			Collections.sort(clippedFaces.faces);
+			double minSource=Geom.SignedPolygonArea(clippedFaces.faces.get(0));
+			double maxSource=Geom.SignedPolygonArea(clippedFaces.faces.get(clippedFaces.faces.size()-1));
+			double minTarget=minContractTarget;
+			double maxTarget=maxContractTarget;
+			DoublyConnectedEdgeList sizedFaces = new DoublyConnectedEdgeList();
+			
+			for(int i=clippedFaces.faces.size()-1;i>=0;i--){
+			
+				DCFace newFace = clippedFaces.faces.get(i);
+					
+					
+					PolyBoolean.contractPoly(newFace,contract,minSource,maxSource,0,maxTarget);
+					if(Geom.SignedPolygonArea(newFace)>=areaLimit){
+						sizedFaces.addFace(newFace);
 					}
 
-				}
+				
 			}
+			clippedFaces.faces.clear();
+			clippedFaces.faces.addAll(sizedFaces.faces);
 		}
 		//PolyBoolean.contractPoly(shadeBorder,1.1);
 
@@ -153,7 +174,7 @@ public class Pattern{
 
 	}
 
-	public void insertTabs( double height,double tabWidth, double tabHeight, int sideNum){
+	public void insertTabs( Part shadeB, double height,double tabWidth, double tabHeight, int sideNum){
 		Notch notch1 = new Notch(1,height);
 		Notch notch2 = new Notch(1,height);
 		Notch notch3 = new Notch(1,height);
@@ -164,28 +185,28 @@ public class Pattern{
 		notch4.focus=new CompPoint(0,0);
 		notches = new Vector<Notch>();
 		this.addTabs(height,tabWidth,tabHeight, notch1,notch2,notch3,notch4,sideNum);
-		leftExtreme = findExtremeEdge("left");
-		rightExtreme = findExtremeEdge("right");
+		leftExtreme = findExtremeEdge("left", shadeB);
+		rightExtreme = findExtremeEdge("right", shadeB);
 		rightEdgesToRemove= new Vector<DCHalfEdge>();
 		leftEdgesToRemove= new Vector<DCHalfEdge>();
 		int gapSize=6;
-		int leftIndex = shadeBorder.edges.indexOf(leftExtreme);
-		int rightIndex = shadeBorder.edges.indexOf(rightExtreme);
+		int leftIndex = shadeB.edges.indexOf(leftExtreme);
+		int rightIndex = shadeB.edges.indexOf(rightExtreme);
 		if(leftIndex<1)
 			leftIndex=1;
-		if(rightIndex<shadeBorder.edges.size()/2+1)
-			rightIndex=shadeBorder.edges.size()/2+1;
+		if(rightIndex<shadeB.edges.size()/2+1)
+			rightIndex=shadeB.edges.size()/2+1;
 
 
 
 		for(int i=leftIndex-gapSize/2; i<leftIndex+gapSize/2+1;i++){
 
-			DCHalfEdge edge =shadeBorder.edges.get(i);
+			DCHalfEdge edge =shadeB.edges.get(i);
 			leftEdgesToRemove.add(edge);
 
 		}
 		for(int i=rightIndex-gapSize/2+1; i<rightIndex+gapSize/2+2;i++){
-			rightEdgesToRemove.add(shadeBorder.edges.get(i));
+			rightEdgesToRemove.add(shadeB.edges.get(i));
 		}
 
 		//tabs.get(0).merge(this.shadeBorder);
@@ -193,7 +214,7 @@ public class Pattern{
 
 		double drawGap =rightExtreme.start.getX()-leftExtreme.start.getX();
 		this.totalWidth=drawGap*this.ribNum;
-		this.totalHeight=shadeBorder.edges.get(shadeBorder.edges.size()/2).start.getY()-shadeBorder.edges.get(0).end.getY();
+		this.totalHeight=shadeB.edges.get(shadeB.edges.size()/2).start.getY()-shadeB.edges.get(0).end.getY();
 
 	}
 
@@ -262,6 +283,8 @@ public class Pattern{
 			}
 		}
 		for(int i=0;i<clippedFaces.faces.size();i++){
+			
+			myParent.strokeWeight(1);
 			clippedFaces.faces.get(i).draw(myParent);
 		}
 		/*if(notches!=null){
@@ -363,7 +386,7 @@ public class Pattern{
 		}
 		//draw border of diagram
 		try {
-
+			
 			for(int k=0;k<ribNum;k++){
 				float newDrawGap = (float)drawGap*k;
 				for (int i = 0; i < shadeBorder.edges.size(); i++) {
@@ -378,7 +401,7 @@ public class Pattern{
 
 							float edgeEndX = (float) (edge.end.getX());
 							float edgeEndY = (float) (edge.end.getY());
-							myParent.stroke(color);
+							myParent.stroke(255,0,0);
 							myParent.strokeWeight(1);
 
 
@@ -394,7 +417,7 @@ public class Pattern{
 
 							float edgeEndX = (float) (edge.end.getX());
 							float edgeEndY = (float) (edge.end.getY());
-							myParent.stroke(color);
+							myParent.stroke(255,0,0);
 							myParent.strokeWeight(1);
 
 
@@ -410,7 +433,7 @@ public class Pattern{
 
 							float edgeEndX = (float) (edge.end.getX());
 							float edgeEndY = (float) (edge.end.getY());
-							myParent.stroke(color);
+							myParent.stroke(255,0,0);
 							myParent.strokeWeight(1);
 
 
@@ -448,12 +471,12 @@ public class Pattern{
 	}
 	
 	
-	private DCHalfEdge findExtremeEdge(String side){
+	private DCHalfEdge findExtremeEdge(String side, Part shadeBorder){
 		DCHalfEdge extreme=null;
 		if(side=="left"){
 			extreme=this.shadeBorder.edges.get(1);
-			for(int i=1;i<this.shadeBorder.edges.size()/2;i++){
-				DCHalfEdge currentEdge = this.shadeBorder.edges.get(i);
+			for(int i=1;i<shadeBorder.edges.size()/2;i++){
+				DCHalfEdge currentEdge =shadeBorder.edges.get(i);
 				CompPoint max;
 				if(extreme.start.getX()<extreme.end.getX()){
 					max=extreme.start;
@@ -468,8 +491,8 @@ public class Pattern{
 
 		}
 		if(side=="right"){
-			extreme=this.shadeBorder.edges.get(this.shadeBorder.edges.size()/2+1);
-			for(int i=this.shadeBorder.edges.size()/2+1;i<this.shadeBorder.edges.size();i++){
+			extreme=this.shadeBorder.edges.get(shadeBorder.edges.size()/2+1);
+			for(int i=this.shadeBorder.edges.size()/2+1;i<shadeBorder.edges.size();i++){
 				DCHalfEdge currentEdge = this.shadeBorder.edges.get(i);
 				CompPoint max;
 				if(extreme.start.getX()>extreme.end.getX()){

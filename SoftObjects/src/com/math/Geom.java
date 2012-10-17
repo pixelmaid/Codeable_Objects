@@ -28,6 +28,7 @@ import com.datatype.DCHalfEdge;
 import com.datatype.DoublyConnectedEdgeList;
 import com.datatype.Point;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -49,6 +50,13 @@ public class Geom {
           return xY;*/
         return new Point(x, y);
 
+    }
+    
+    public static double round(double unrounded, int precision, int roundingMode)
+    {
+        BigDecimal bd = new BigDecimal(unrounded);
+        BigDecimal rounded = bd.setScale(precision, roundingMode);
+        return rounded.doubleValue();
     }
 
     public static double[] cartToPolar(double x, double y) {

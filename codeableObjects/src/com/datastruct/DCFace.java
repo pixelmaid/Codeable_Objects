@@ -33,7 +33,7 @@ import processing.core.PFont;
 import com.math.CompPoint;
 import com.math.Geom;
 
-public class DCFace extends DoublyConnectedEdgeList {
+public class DCFace extends DoublyConnectedEdgeList implements Comparable<DCFace> {
 
     public Vector<DCHalfEdge> innerComponents;
     private CompPoint focus;
@@ -54,9 +54,7 @@ public class DCFace extends DoublyConnectedEdgeList {
     	return this.focus;
     }
    
-    public int compareTo(DCFace f) {
-        return 0;
-    }
+   
     
     
     public void orderEdges(){
@@ -325,7 +323,7 @@ public class DCFace extends DoublyConnectedEdgeList {
 
     	}
     	parent.endShape();*/
-    	parent.stroke(0);
+    	parent.stroke(255,0,0);
     	parent.strokeWeight(2);
     	for(int i=0;i<edges.size();i++){
     		DCHalfEdge edge = edges.get(i);
@@ -360,6 +358,14 @@ public void drawOffset(PApplet parent, double offset){
 	}
 	
 	
+}
+
+
+
+
+public int compareTo(DCFace face) {
+	// TODO Auto-generated method stub
+	return (Geom.SignedPolygonArea(this) < Geom.SignedPolygonArea(face)) ? -1 : (Geom.SignedPolygonArea(this) > Geom.SignedPolygonArea(face)) ? 1 : 0;
 }
 
 }

@@ -41,18 +41,29 @@ public class Rib extends Part {
 
 
     private void setNotch(Notch notch, double pos, double ribNotchOffset, boolean top) {
-        int topEdgeNum = 1;
-        int bottomEdgeNum = 1;
-        for (int i = 1; i < edges.size() / 2 - 1; i++) {
-
-            if (edges.get(i).start.getY() <= pos && edges.get(i + 1).start.getY() >= pos) {
+        int topEdgeNum = 0;
+        int bottomEdgeNum = 0;
+        
+        //this is where the bug is
+        
+        
+        for (int i = 0; i < edges.size() / 2 - 1; i++) {
+        	if(pos==0){
+            	topEdgeNum=0;
+            }
+        	else if (edges.get(i).start.getY() <= pos && edges.get(i + 1).start.getY() >= pos) {
                 topEdgeNum = i;
-                //System.out.println("found level at"+i);
+                if(top){
+                //System.out.println("found top level at"+i);
+                }
             }
 
             if (edges.get(i).end.getY() <= pos && edges.get(i + 1).end.getY() >= pos) {
                 bottomEdgeNum = i;
-                //System.out.println("found level at"+i);
+                if(top){
+                //System.out.println("found bottom level at"+i);
+                //System.out.println("===========\n");
+                }
             }
 
 
@@ -61,6 +72,9 @@ public class Rib extends Part {
             topNotchPos = topEdgeNum;
         } else {
             bottomNotchPos = topEdgeNum;
+            if(bottomNotchPos>=edges.size()-bottomEdgeNum-1){
+            	bottomNotchPos=edges.size()-bottomEdgeNum-1;
+            }
         }
         notch.translate(this.edges.get(topEdgeNum).start.getX() + ribNotchOffset, this.edges.get(topEdgeNum).start.getY());
         notch.merge(this, topEdgeNum, bottomEdgeNum);

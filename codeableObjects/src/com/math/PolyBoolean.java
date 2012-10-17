@@ -1,10 +1,12 @@
 package com.math;
 
+import com.algorithm.segmentintersect.*;
 import com.datastruct.DCHalfEdge;
 import com.datastruct.DoublyConnectedEdgeList;
 
 
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -26,10 +28,22 @@ public class PolyBoolean {
 
 		LinkedList<BooleanPoint> enterPoints = new LinkedList<BooleanPoint>();
 		LinkedList<BooleanPoint> exitPoints = new LinkedList<BooleanPoint>();
+		
+		
+		FindIntersections fi = new FindIntersections();
+		Vector<DoublyConnectedEdgeList> edgeSets = new Vector<DoublyConnectedEdgeList>();
+		edgeSets.add(clip);
+		edgeSets.add(subj);
+		
+		//ArrayList<com.algorithm.segmentintersect.Segment> intersectedSegments = fi.FindIntersectionSets(edgeSets);
+		
+		
+		
 
 		for(int i=0;i<clip.edges.size();i++){
-			clipList.add(new BooleanPoint(clip.edges.get(i).start.getX(),clip.edges.get(i).start.getY()));
-
+			BooleanPoint bp=new BooleanPoint(clip.edges.get(i).start.getX(),clip.edges.get(i).start.getY());
+			
+			clipList.add(bp);
 		}
 
 		for(int i=0;i<subj.edges.size();i++){
@@ -398,15 +412,28 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 	}
 	
 	
+	public static double scaleVal(double x,double minSource,double maxSource,double minTarget,double maxTarget){//scales a number within a range
+			
+			      
+			        return (((x-minSource)*(maxTarget-minTarget))/(maxSource-minSource))+minTarget;
+			    }
 	
 	
-	public static void contractPoly (DoublyConnectedEdgeList poly, double dist){
+	
+	public static void contractPoly (DoublyConnectedEdgeList poly, double dist, double minSource, double maxSource, double minTarget, double maxTarget){
 		poly.centroid=Geom.findCentroid(poly);
+		double area=Geom.SignedPolygonArea(poly);
+		double distMod = scaleVal(area,minSource,maxSource,0,maxTarget)+dist; 
+		
+		
 		Vector<CompPoint> verticies = Geom.removeDuplicateVerts(poly);
-		for(int i=0;i<verticies.size();i++){
-			verticies.get(i).moveToPolar(dist, poly.centroid);
-		}
+		if(distMod<=1){
+            for(int i=0;i<verticies.size();i++){
+		verticies.get(i).moveToPolar(distMod, poly.centroid);
+	     }
+            }
 		DoublyConnectedEdgeList newSubj = new DoublyConnectedEdgeList();
+		
 		for(int i = 0;i<verticies.size();i++){
 			int next = i+1;
 			if(next==verticies.size()){
@@ -421,7 +448,8 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 		
 		
 	}
-
+	
+	
 
 }
 
@@ -434,6 +462,8 @@ class BooleanPoint extends CompPoint{
 		super(_x, _y);
 		// TODO Auto-generated constructor stub
 	}
+	
+
 
 }
 
@@ -479,5 +509,5 @@ class ProximityPointSort implements Comparator<BooleanPoint>{
 	        	return 1;
 	        }
    
-	 }
+	 }	 
 }

@@ -31,32 +31,7 @@ void setup() {
   this may effect the drawing of the 3d model, but will allow you to correctly save out pdfs. We 
   are working to address the changes implemented by the new version of processing*/
 
-  pointController = new Controller(this,"wood"); //intialize the library- enter "wood for wooden lamp, "paper" for paper version
-
-  //CODE FOR CONTROLING LAMP SHAPE ///
-  //All units are in millimeters with exception of resolution, side number and pattern weight
-
-  pointController.setWidth(170);//sets the width of the middle of your lamp.
-  pointController.setHeight(200); // sets the height of your lamp.
-  pointController.setBottomWidth(80); //sets the width of the bottom of your lamp.
-  pointController.setTopWidth(80); // sets the width of the top of your lamp.
-
-  pointController.setSideNum(6);//sets the number of sides of your lamp.
-  pointController.setTopCirclePos(20);//sets the vertical position of your top base
-  pointController.setBottomCirclePos(20);//sets the vertical position of your bottom base
-
-
-  pointController.setNotchWidth(8.92);//sets the width of your notches for the press fit
-  pointController.setNotchHeight( 5.64);//sets the height of your notches for the press fit
-
-
-  pointController.setTopHoleWidth(80);//sets the width of the opening in the top base of your lamp
-  pointController.setBottomHoleWidth(24);//sets the width of the opening in the bottom base of your lamp
-  
-  pointController.setPatternWeight(0.8);//sets the weight of your pattern;
-  //NOTE!! Depending on which side your light fixture will be installed, you must set the hole on bottom or top of your lamp to the diameter of the light fixture
-
-  //////////////////////////////////
+  pointController = new Controller(this,"paper"); //initialize the library- enter "wood for wooden lamp, "paper" for paper version
 
 
 //==========Generate SINE WAVE===============================//

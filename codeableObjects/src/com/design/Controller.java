@@ -39,7 +39,7 @@ public class Controller {
     private Model model; //3d model container
     private Part shadeBorder;
     private ScreenManager screenManager;
-    private double notchLimit = 20;
+    private double notchLimit = 35;
     private String baseType = "top";
     private boolean drawPoints = false; //toggles whether points are drawn or not
     private String type ="wood";
@@ -360,7 +360,7 @@ public class Controller {
         }
         DoublyConnectedEdgeList[] borders = lamp.renderLamp();
         shadeBorder.edges = borders[0].edges;
-        pattern.defineVorDiagram(shadeBorder, currentPoints,this.pattern.thickWeight,notchLimit);
+        pattern.defineVorDiagram(shadeBorder, currentPoints,this.pattern.thickWeight,0,1,notchLimit);
 
         screenManager = new ScreenManager(this.type,lamp, pattern, model, shadeBorder, myParent,notchLimit,baseType);
 

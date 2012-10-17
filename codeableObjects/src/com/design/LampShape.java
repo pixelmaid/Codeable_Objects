@@ -230,8 +230,8 @@ public class LampShape {
 				CompPoint3d topVertex = new CompPoint3d(xMainTop[l][i], yMainTop[l], zMainTop[l][i]);
 				CompPoint3d bottomVertex = new CompPoint3d(xMainBottom[l][i], yMainBottom[l], zMainBottom[l][i]); //will need to save these to a vector
 				model.addEdge(new DCHalfEdge3d(topVertex, bottomVertex));
-
-
+				
+			
 				if (l == rib.bottomNotchPos) {
 
 					CompPoint3d topBottomNotchVertex = new CompPoint3d(xMainTop[l][i], yMainTop[l], zMainTop[l][i]);
@@ -240,6 +240,8 @@ public class LampShape {
 
 
 				}
+			
+			
 
 				if (l == rib.topNotchPos) {
 					CompPoint3d topTopNotchVertex = new CompPoint3d(xMainTop[l][i], yMainTop[l], zMainTop[l][i]);
@@ -331,17 +333,20 @@ public class LampShape {
 
 	private void generateBases(int sides) {
 
-
+     
 		for (int i = 0; i < sides + 1; i++) {
 			int after = i + 1;
 			if (i == sides) {
 				after = 0;
 			}
-
-
-			DCHalfEdge outerBottomCircle = new DCHalfEdge(new CompPoint(xMainTop[rib.bottomNotchPos][i], zMainTop[rib.bottomNotchPos][i]), new CompPoint(xMainTop[rib.bottomNotchPos][after], zMainTop[rib.bottomNotchPos][after]));
+			DCHalfEdge  outerBottomCircle = null;
+			try{
+				outerBottomCircle = new DCHalfEdge(new CompPoint(xMainTop[rib.bottomNotchPos][i], zMainTop[rib.bottomNotchPos][i]), new CompPoint(xMainTop[rib.bottomNotchPos][after], zMainTop[rib.bottomNotchPos][after]));
 			//DCHalfEdge innerBottomCircle = new DCHalfEdge(new CompPoint(xMainTop[bottomCutoff-5][i], zMainTop[bottomCutoff-5][i]), new CompPoint(xMainTop[bottomCutoff-5][after], zMainTop[bottomCutoff-5][after]));
-
+			}
+			catch (NullPointerException e) {
+				 System.out.println("error="+ e);
+			}
 			DCHalfEdge outerTopCircle = new DCHalfEdge(new CompPoint(xMainTop[rib.topNotchPos][i], zMainTop[rib.topNotchPos][i]), new CompPoint(xMainTop[rib.topNotchPos][after], zMainTop[rib.topNotchPos][after]));
 			//DCHalfEdge innerTopCircle = new DCHalfEdge(new CompPoint(xMainTop[topCutoff-5][i], zMainTop[topCutoff-5][i]),new CompPoint(xMainTop[topCutoff-5][after], zMainTop[topCutoff-5][after]));
 
@@ -351,7 +356,9 @@ public class LampShape {
 			topBase.addHalfEdge(outerTopCircle);
 			//topBase.addHalfEdge(innerTopCircle);
 
-		}
+		
+     }
+     
 	}
 
 	public Base generatePaperBase(String type) {
@@ -359,7 +366,7 @@ public class LampShape {
 
 		if(type=="bottom"){
 
-			for (int i = 0; i < this.ribNum + 1; i++) {
+			for (int i = 0; i < this.ribNum; i++) {
 				int after = i + 1;
 				if (i == this.ribNum) {
 					after = 0;
@@ -367,50 +374,36 @@ public class LampShape {
 
 
 				DCHalfEdge outerBottomCircle = new DCHalfEdge(new CompPoint(xMainTop[rib.bottomNotchPos][i], zMainTop[rib.bottomNotchPos][i]), new CompPoint(xMainTop[rib.bottomNotchPos][after], zMainTop[rib.bottomNotchPos][after]));
-				//DCHalfEdge innerBottomCircle = new DCHalfEdge(new CompPoint(xMainTop[bottomCutoff-5][i], zMainTop[bottomCutoff-5][i]), new CompPoint(xMainTop[bottomCutoff-5][after], zMainTop[bottomCutoff-5][after]));
 
 
 				paperBase.addHalfEdge(outerBottomCircle);
-
-				//bottomBase.addHalfEdge(innerBottomCircle);
-
-
 
 			}
 			double tabWidth = -100;
 			paperBase.largeTabs(tabWidth);
 
-			paperBase.generateHole(bottomHoleWidth);
-			//paperBase.rotate(180,paperBase.focus);
+			paperBase.generateHole(bottomHoleWidth/2);
 		}
 		if(type == "top"){
-			for (int i = 0; i < this.ribNum + 1; i++) {
+			for (int i = 0; i < this.ribNum; i++) {
 				int after = i + 1;
 				if (i == this.ribNum) {
 					after = 0;
 				}
 
 				DCHalfEdge outerTopCircle = new DCHalfEdge(new CompPoint(xMainTop[rib.topNotchPos][i], zMainTop[rib.topNotchPos][i]), new CompPoint(xMainTop[rib.topNotchPos][after], zMainTop[rib.topNotchPos][after]));
-				//DCHalfEdge innerTopCircle = new DCHalfEdge(new CompPoint(xMainTop[topCutoff-5][i], zMainTop[topCutoff-5][i]),new CompPoint(xMainTop[topCutoff-5][after], zMainTop[topCutoff-5][after]));
 
 
 
 				paperBase.addHalfEdge(outerTopCircle);
 
-
-
-
-
-
 			}
 			double tabWidth = -100;
 			paperBase.largeTabs(tabWidth);
 
-			paperBase.generateHole(topHoleWidth);
-			//paperBase.rotate(180,paperBase.focus);
+			paperBase.generateHole(topHoleWidth/2);
 		}
 
-		//paperBase.addNotches(notchWidth * 2, notchHeight, ribNotchOffset, ribNum,true);
 
 		return paperBase;
 	}

@@ -38,10 +38,27 @@ public class DoublyConnectedEdgeList {
     public DoublyConnectedEdgeList() {
 
     }
+    
+    public Vector<CompPoint> getVertextList(){
+    		return verticies;
+    
+    }
+    
+    public void setVertextList(Vector<CompPoint> v){
+		this.verticies=v;
+
+    }
 
 
     public void addVertex(CompPoint p) {
 
+        
+        for(int i=0; i< verticies.size(); i++){
+			if ( this.verticies.get(i).distance(p) == 0 ){
+				return;
+			}
+		}
+        
         verticies.addElement(p);
 
     }
@@ -74,6 +91,11 @@ public class DoublyConnectedEdgeList {
     public void addFace(DCFace face) {
     	 
     	faces.add(face);
+    }
+    
+    public void removeFace(DCFace face) {
+   	 
+    	faces.remove(face);
     }
     
     public DCFace getFaceByFocus(CompPoint focus) {

@@ -21,10 +21,14 @@
 package com.design;
 
 import com.datastruct.DoublyConnectedEdgeList;
+import com.file.FileReadWrite;
 import com.math.CompPoint;
+import com.math.Geom;
+
 import processing.core.PApplet;
 import processing.core.PFont;
 
+import java.math.BigDecimal;
 import java.util.Vector;
 
 /**
@@ -40,6 +44,9 @@ public class ScreenManager {
 	private Model model;
 	private Part shadeBorder;
 	private double notchLimit;
+	
+	private double minTarget=0;
+	private double maxTarget=0.5;
 
 	private Slider notchWidthSlider;
 	private Slider notchHeightSlider;
@@ -55,6 +62,8 @@ public class ScreenManager {
 	private Slider topPosSlider;
 	private Slider resSlider;
 	private Slider patternSlider;
+	//private Slider minTargetSlider;
+	private Slider maxTargetSlider;
 
 	private Button modelViewButton;
 	private Button partViewButton;
@@ -71,6 +80,7 @@ public class ScreenManager {
 	private double milToInchConversion=25.4;
 
 	public String paperBaseType = "top";
+	private FileReadWrite file;
 	private String type;
 
 	public ScreenManager(String type, LampShape lamp, Pattern pattern, Model model,Part shadeBorder, PApplet myParent, double notchLimit, String baseSide) {
@@ -83,69 +93,79 @@ public class ScreenManager {
 		this.height = myParent.height;
 		this.myParent = myParent;
 
-		float sliderX = (float) this.width - 150;
-		float sliderY = (float) this.height - 600;
+		float sliderX = (float) this.width - 180;
+		float sliderY = 80;
 		float sliderW = 100;
 		float sliderH = 20;
 		this.notchLimit = notchLimit;
+		
+		file = new FileReadWrite("params.txt",myParent);
+		
+		double[] vars =file.readFile();
+		
+		
 
 		//sliders
-
-		resSlider = new Slider(myParent);
-		resSlider.init(sliderX, sliderY, sliderW, sliderH, (float) lamp.curveResolution / 2, 10, 100, "resolution");
+		
+		middleWidthSlider = new Slider(myParent);
+		middleWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[0]), 100, 300, "width", "mm");
 		sliderY += sliderH + 25;
-
+		
+		heightSlider = new Slider(myParent);
+		heightSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[1]), 100, 300, "height", "mm");
+		sliderY += sliderH + 25;
+		
+		bottomWidthSlider = new Slider(myParent);
+		bottomWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[2]), 50, 300, "bottom width", "mm");
+		sliderY += sliderH + 25;
+		
+		topWidthSlider = new Slider(myParent);
+		topWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[3] ), 50, 300, "top width", "mm");
+		sliderY += sliderH + 25;
 
 		ribSlider = new Slider(myParent);
-		ribSlider.init(sliderX, sliderY, sliderW, sliderH, (float) lamp.ribNum, 4, 20, "side number");
+		ribSlider.init(sliderX, sliderY, sliderW, sliderH, (float) vars[4], 4, 20, "side number", "");
 		sliderY += sliderH + 25;
 
-
-
-		middleWidthSlider = new Slider(myParent);
-		middleWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.maxWidth / lamp.ptMilConversion), 100, 300, "width");
-		sliderY += sliderH + 25;
-
-		heightSlider = new Slider(myParent);
-		heightSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.maxHeight / lamp.ptMilConversion), 100, 300, "height");
-		sliderY += sliderH + 25;
-
-
-		topWidthSlider = new Slider(myParent);
-		topWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.topWidth / lamp.ptMilConversion), 50, 300, "top width");
-		sliderY += sliderH + 25;
-
-		bottomWidthSlider = new Slider(myParent);
-		bottomWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.bottomWidth / lamp.ptMilConversion), 50, 300, "bottom width");
-		sliderY += sliderH + 25;
-
-		bottomPosSlider = new Slider(myParent);
-		bottomPosSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.bottomCirclePos / lamp.ptMilConversion),5, 150, "bottom base position");
-		sliderY += sliderH + 25;
 
 		topPosSlider = new Slider(myParent);
-		topPosSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.topCirclePos / lamp.ptMilConversion), 5, 150, "top base position");
+		topPosSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[5]), 0, 150, "top base position", "mm");
 		sliderY += sliderH + 25;
-
-		bottomHoleSlider = new Slider(myParent);
-		bottomHoleSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.bottomHoleWidth / lamp.ptMilConversion), 10, 280, "bottom hole width");
+		
+		bottomPosSlider = new Slider(myParent);
+		bottomPosSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[6] ),5, 150, "bottom base position", "mm");
 		sliderY += sliderH + 25;
-
-		topHoleSlider = new Slider(myParent);
-		topHoleSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.topHoleWidth / lamp.ptMilConversion), 10, 280, "top hole width");
-		sliderY += sliderH + 20;
-
-		patternSlider = new Slider(myParent);
-		patternSlider.init(sliderX, sliderY, sliderW, sliderH, (float) pattern.thickWeight, (float)0.3,(float) 0.95, "pattern thickness");
-		sliderY += sliderH + 20;
-
+		
 		notchWidthSlider = new Slider(myParent);
-		notchWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.notchWidth / lamp.ptMilConversion), 1, 10, "notch width");
+		notchWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[7]), 1, 10, "notch width", "mm");
 		sliderY += sliderH + 20;
 
 		notchHeightSlider = new Slider(myParent);
-		notchHeightSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (lamp.notchHeight / lamp.ptMilConversion), 1, 10, "notch height");
+		notchHeightSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[8]), 1, 10, "notch height", "mm");
 		sliderY += sliderH + 20;
+		
+
+		topHoleSlider = new Slider(myParent);
+		topHoleSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[9]), 10, 280, "top hole width", "mm");
+		sliderY += sliderH + 20;
+
+		bottomHoleSlider = new Slider(myParent);
+		bottomHoleSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[10]), 10, 280, "bottom hole width", "mm");
+		sliderY += sliderH + 25;
+
+		patternSlider = new Slider(myParent);
+		patternSlider.init(sliderX, sliderY, sliderW, sliderH, (float) vars[11], (float)0.3,(float) 1, "pattern thickness", "");
+		sliderY += sliderH + 20;
+		
+	
+		maxTargetSlider = new Slider(myParent);
+		maxTargetSlider.init(sliderX, sliderY, sliderW, sliderH, (float) vars[12], (float)0,(float) 0.5, "maxTarget", "");
+		sliderY += sliderH + 20;
+
+	
+		resSlider = new Slider(myParent);
+		resSlider.init(sliderX, sliderY, sliderW, sliderH, (float) lamp.curveResolution / 2, 10, 100, "resolution", "");
+		sliderY += sliderH + 25;
 
 
 		//buttons
@@ -201,11 +221,11 @@ public class ScreenManager {
 	public void draw(boolean drawPoints, Vector<CompPoint> currentPoints) {
 		this.currentPoints = currentPoints;
 		recomputeLamp();
-		try {
+		
 			lamp.renderLamp();
-		} catch (NullPointerException e) {
-			System.out.println("something went wrong with the base");
-		}
+		
+			
+		
 		if (modelViewButton.getValue()) {
 
 
@@ -243,6 +263,8 @@ public class ScreenManager {
 		bottomHoleSlider.draw();
 		ribSlider.draw();
 		patternSlider.draw();
+		//minTargetSlider.draw();
+		maxTargetSlider.draw();
 		modelViewButton.draw();
 		partViewButton.draw();
 		//resSlider.draw();
@@ -264,7 +286,7 @@ public class ScreenManager {
 		boolean actioned = false;
 
 		if (middleWidthSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
-		;
+		
 		if (heightSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
 		if (bottomWidthSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
 		if (topWidthSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
@@ -275,6 +297,8 @@ public class ScreenManager {
 		if (bottomPosSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
 		if (topPosSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
 		if (patternSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
+		//if (minTargetSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
+		if (maxTargetSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
 		if (notchWidthSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
 		if (notchHeightSlider.checkForMousePress(mouseX, mouseY)) actioned = true;
 
@@ -319,6 +343,8 @@ public class ScreenManager {
 		if (topPosSlider.checkForMouseDrag(mouseX, mouseY)) actioned = true;
 		if (resSlider.checkForMouseDrag(mouseX, mouseY)) actioned = true;
 		if (patternSlider.checkForMouseDrag(mouseX, mouseY)) actioned = true;
+		//if (minTargetSlider.checkForMouseDrag(mouseX, mouseY)) actioned = true;
+		if (maxTargetSlider.checkForMouseDrag(mouseX, mouseY)) actioned = true;
 		if (notchWidthSlider.checkForMouseDrag(mouseX, mouseY)) actioned = true;
 		if (notchHeightSlider.checkForMouseDrag(mouseX, mouseY)) actioned = true;
 
@@ -384,6 +410,27 @@ public class ScreenManager {
 		}
 
 		saveButton.setValue(false);
+		double [] vars = new double[14];
+		
+		vars[0]= middleWidthSlider.getSliderValue();
+		vars[1]=heightSlider.getSliderValue();
+		vars[2]=bottomWidthSlider.getSliderValue();
+		vars[3]=topWidthSlider.getSliderValue();
+		vars[4]=ribSlider.getSliderValue();
+		vars[5]=topPosSlider.getSliderValue();
+		vars[6]=bottomPosSlider.getSliderValue();
+		vars[7]=notchWidthSlider.getSliderValue();
+		vars[8]=notchHeightSlider.getSliderValue();
+		vars[9]= topHoleSlider.getSliderValue();
+		vars[10]= bottomHoleSlider.getSliderValue();
+		vars[11] = patternSlider.getSliderValue();
+		vars[12]= maxTargetSlider.getSliderValue();
+		vars[13]=resSlider.getSliderValue();
+		
+		
+		file.writeFile(vars);
+		
+		myParent.exit();
 
 
 
@@ -444,8 +491,15 @@ public class ScreenManager {
 	}
 
 	private void drawParts(float zoom, float color, boolean shadeDraw, boolean partsDraw) {
-
+		DoublyConnectedEdgeList[] borders = lamp.renderLamp();
+		shadeBorder.edges = borders[0].edges;
 		lamp.draw(zoom, color,shadeDraw,partsDraw);
+		PFont font = myParent.loadFont("din_bold.vlw");
+		pattern.insertTabs(shadeBorder,30,25,40,this.lamp.ribNum);
+		myParent.textFont(font, 14);
+		myParent.fill(255);
+		this.myParent.text("Total Width="+(float)Geom.round(pattern.totalWidth/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,20);
+		this.myParent.text("Total Height="+(float)Geom.round(pattern.totalHeight/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,40);
 
 	}
 
@@ -456,14 +510,14 @@ public class ScreenManager {
 
 		DoublyConnectedEdgeList[] borders = lamp.renderLamp();
 		shadeBorder.edges = borders[0].edges;
-		pattern.defineVorDiagram(shadeBorder, currentPoints,thickness,notchLimit);
-		pattern.insertTabs(30,25,40,this.lamp.ribNum);
+		pattern.defineVorDiagram(shadeBorder, currentPoints,thickness,0, maxTargetSlider.getSliderValue(),notchLimit);
+		pattern.insertTabs(shadeBorder, 30,25,40,this.lamp.ribNum);
 		pattern.draw(drawPoints, color);
 		PFont font = myParent.loadFont("din_bold.vlw");
 		myParent.textFont(font, 14);
 		myParent.fill(255);
-		this.myParent.text("Total Width="+(float)(pattern.totalWidth/lamp.ptMilConversion/this.milToInchConversion)+" in.",20,20);
-		this.myParent.text("Total Height="+(float)(pattern.totalHeight/lamp.ptMilConversion/this.milToInchConversion)+" in.",20,40);
+		this.myParent.text("Total Width="+(float)Geom.round(pattern.totalWidth/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,20);
+		this.myParent.text("Total Height="+(float)Geom.round(pattern.totalHeight/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,40);
 
 	}
 
@@ -474,16 +528,23 @@ public class ScreenManager {
 		}else{
 			DoublyConnectedEdgeList[] borders = lamp.renderLamp();
 			shadeBorder.edges = borders[0].edges;
-			pattern.defineVorDiagram(shadeBorder, currentPoints,thickness,notchLimit);
-			pattern.insertTabs(30,25,40,this.lamp.ribNum);
+			pattern.defineVorDiagram(shadeBorder, currentPoints,thickness,0,maxTargetSlider.getSliderValue(),notchLimit);
+			pattern.insertTabs(shadeBorder,30,25,40,this.lamp.ribNum);
 			pattern.print(color,drawShade,this.lamp.generatePaperBase(this.paperBaseType),drawBase);
 
 		}
 	}
 
 	private void drawModel() {
-
+		DoublyConnectedEdgeList[] borders = lamp.renderLamp();
+		shadeBorder.edges = borders[0].edges;
 		model.draw(lamp.maxWidth, lamp.maxHeight);
+		PFont font = myParent.loadFont("din_bold.vlw");
+		pattern.insertTabs(shadeBorder, 30,25,40,this.lamp.ribNum);
+		myParent.textFont(font, 14);
+		myParent.fill(255);
+		this.myParent.text("Total Width="+(float)Geom.round(pattern.totalWidth/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,20);
+		this.myParent.text("Total Height="+(float)Geom.round(pattern.totalHeight/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,40);
 	}
 
 }
