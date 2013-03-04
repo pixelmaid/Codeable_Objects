@@ -54,8 +54,7 @@ public class Slider {
         selected = false;
         value = (float) 0.5;
         this.myParent = myParent;
-        font = myParent.loadFont("din_bold.vlw");
-        myParent.textFont(font, 14);
+   
     }
 
     public void init(float x, float y, float width, float height, float v, float minT, float maxT, String name, String units) {
@@ -87,7 +86,7 @@ public class Slider {
 
         myParent.fill(255);
 
-        myParent.text(name, x, y + height + 15);
+       myParent.text(name, x, y + height + 15);
         myParent.fill(255, 255, 0);
         myParent.text(Double.toString(Geom.round(getSliderValue(),2,BigDecimal.ROUND_HALF_UP))+units, x+width+10, y+height/2+7);
 

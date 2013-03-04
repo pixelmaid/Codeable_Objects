@@ -102,8 +102,8 @@ public class ScreenManager {
 		file = new FileReadWrite("params.txt",myParent);
 		
 		double[] vars =file.readFile();
-		
-		
+		 PFont f = myParent.createFont("Sans", 14);
+		 myParent.textFont(f);		
 
 		//sliders
 		
@@ -112,15 +112,15 @@ public class ScreenManager {
 		sliderY += sliderH + 25;
 		
 		heightSlider = new Slider(myParent);
-		heightSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[1]), 100, 300, "height", "mm");
+		heightSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[1]), 40, 300, "height", "mm");
 		sliderY += sliderH + 25;
 		
 		bottomWidthSlider = new Slider(myParent);
-		bottomWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[2]), 50, 300, "bottom width", "mm");
+		bottomWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[2]), 0, 300, "bottom width", "mm");
 		sliderY += sliderH + 25;
 		
 		topWidthSlider = new Slider(myParent);
-		topWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[3] ), 50, 300, "top width", "mm");
+		topWidthSlider.init(sliderX, sliderY, sliderW, sliderH, (float) (vars[3] ), 0, 300, "top width", "mm");
 		sliderY += sliderH + 25;
 
 		ribSlider = new Slider(myParent);
@@ -222,9 +222,9 @@ public class ScreenManager {
 		this.currentPoints = currentPoints;
 		recomputeLamp();
 		
-			lamp.renderLamp();
+		lamp.renderLamp();
 		
-			
+		
 		
 		if (modelViewButton.getValue()) {
 
@@ -254,7 +254,6 @@ public class ScreenManager {
 			baseTypeButton.name="light in top";
 		}
 
-
 		middleWidthSlider.draw();
 		heightSlider.draw();
 		bottomWidthSlider.draw();
@@ -276,7 +275,7 @@ public class ScreenManager {
 		pointsButton.draw();
 		baseTypeButton.draw();
 		saveButton.draw();
-
+	
 
 	}
 
@@ -494,9 +493,8 @@ public class ScreenManager {
 		DoublyConnectedEdgeList[] borders = lamp.renderLamp();
 		shadeBorder.edges = borders[0].edges;
 		lamp.draw(zoom, color,shadeDraw,partsDraw);
-		PFont font = myParent.loadFont("din_bold.vlw");
+		
 		pattern.insertTabs(shadeBorder,30,25,40,this.lamp.ribNum);
-		myParent.textFont(font, 14);
 		myParent.fill(255);
 		this.myParent.text("Total Width="+(float)Geom.round(pattern.totalWidth/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,20);
 		this.myParent.text("Total Height="+(float)Geom.round(pattern.totalHeight/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,40);
@@ -513,8 +511,6 @@ public class ScreenManager {
 		pattern.defineVorDiagram(shadeBorder, currentPoints,thickness,0, maxTargetSlider.getSliderValue(),notchLimit);
 		pattern.insertTabs(shadeBorder, 30,25,40,this.lamp.ribNum);
 		pattern.draw(drawPoints, color);
-		PFont font = myParent.loadFont("din_bold.vlw");
-		myParent.textFont(font, 14);
 		myParent.fill(255);
 		this.myParent.text("Total Width="+(float)Geom.round(pattern.totalWidth/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,20);
 		this.myParent.text("Total Height="+(float)Geom.round(pattern.totalHeight/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,40);
@@ -539,9 +535,9 @@ public class ScreenManager {
 		DoublyConnectedEdgeList[] borders = lamp.renderLamp();
 		shadeBorder.edges = borders[0].edges;
 		model.draw(lamp.maxWidth, lamp.maxHeight);
-		PFont font = myParent.loadFont("din_bold.vlw");
+		
 		pattern.insertTabs(shadeBorder, 30,25,40,this.lamp.ribNum);
-		myParent.textFont(font, 14);
+	//	myParent.textFont(font, 14);
 		myParent.fill(255);
 		this.myParent.text("Total Width="+(float)Geom.round(pattern.totalWidth/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,20);
 		this.myParent.text("Total Height="+(float)Geom.round(pattern.totalHeight/lamp.ptMilConversion,2,BigDecimal.ROUND_HALF_UP)+" mm",20,40);

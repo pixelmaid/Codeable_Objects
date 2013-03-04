@@ -38,10 +38,12 @@ void setup() {
    
   int centerLimit = 100; // variable to control the maximum diameter of the spiral
   float rad = 0; //like the radius of your circle, but increases with every point in your spiral, producing the spiral effect.
+  float theta=0; // the angle of the current point of the spiral incremented on each iteration of the loop
   //this will draw one spiral 
   for(int i=0;i<centerLimit;i+=1){     
-        rad +=1; //change to alter the tightness of your spiral
-       pointController.addPolarPoint(width/2, height/2, rad, rad);// adds the point to your design
+       rad +=1; //change to alter the tightness of your spiral
+       theta+=0.5;//change to alter the rate of angle change in your spiral
+       pointController.addPolarPoint(width/2, height/2, theta, rad);// adds the point to your design
         
       }
 }
@@ -56,7 +58,6 @@ void mousePressed() {
 
 void mouseDragged() {
 }
-
 
 
 

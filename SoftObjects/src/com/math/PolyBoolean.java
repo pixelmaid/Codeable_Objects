@@ -360,9 +360,9 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 		if (!startInPolygon && !endInPolygon) {
 
 			//myParent.println("deleted edge");
-
+			System.out.println("intersected edges size ="+intersectedEdges.size());
 			if (intersectedEdges.size() != 0) {
-
+				System.out.println("get at 1 and 0");
 				Point intersection1 = Geom.findIntersectionPoint(edge, intersectedEdges.get(0));
 				Point intersection2 = Geom.findIntersectionPoint(edge, intersectedEdges.get(1));
 				DCHalfEdge newEdge = new DCHalfEdge(intersection1, intersection2);
@@ -377,6 +377,7 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 			return edge;
 
 		} else {
+			System.out.println("only get at 0");
 			DCHalfEdge borderEdge = intersectedEdges.get(0);
 			if (startInPolygon && !endInPolygon) {
 
@@ -402,12 +403,13 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 		//System.out.println("start in polygon ="+ startInPolygon);
 		//System.out.println("end in polygon ="+ endInPolygon);
 		Vector<Line> intersectedEdges = Geom.edgeIntersectsPolygon(edge, border.getAllLines());
-		//System.out.println("intersectedEdges size="+intersectedEdges.size());
+		System.out.println("intersectedEdges size="+intersectedEdges.size());
 		if  (!startInPolygon && !endInPolygon) {
 
 			//myParent.println("deleted edge");
 
 			if (intersectedEdges.size() != 0) {
+				System.out.println("get at 1 and 0");
 
 				Point intersection1 = Geom.findIntersectionPoint(edge, intersectedEdges.get(0));
 				Point intersection2 = Geom.findIntersectionPoint(edge, intersectedEdges.get(1));
@@ -424,6 +426,8 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 			return edge;
 
 		} else {
+			System.out.println("get at 0");
+			System.out.println("start in polygon="+startInPolygon+ " end in polygon="+endInPolygon);
 			Line borderEdge = new Line(intersectedEdges.get(0).start,intersectedEdges.get(0).end);
 			//System.out.println("intersected edge is at ="+intersectedEdges.get(0).start.getX()+","+intersectedEdges.get(0).start.getY()+","+intersectedEdges.get(0).end.getX()+","+intersectedEdges.get(0).end.getY());
 			if (startInPolygon && !endInPolygon) {
@@ -442,6 +446,7 @@ private static void mergeRecurseExit(BooleanPoint transition,DoublyConnectedEdge
 			return edge;
 
 		}
+		
 	}
 	
 	

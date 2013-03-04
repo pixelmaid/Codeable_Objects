@@ -198,15 +198,41 @@ public class Pattern{
 			rightIndex=shadeB.edges.size()/2+1;
 
 
-
-		for(int i=leftIndex-gapSize/2; i<leftIndex+gapSize/2+1;i++){
-
-			DCHalfEdge edge =shadeB.edges.get(i);
+		int i;
+		int limit = leftIndex+gapSize/2+1;
+		if (limit> shadeB.edges.size()){
+			limit = shadeB.edges.size();
+		}
+		for(i=leftIndex-gapSize/2; i<limit;i++){
+			if (i<0){
+				i=0;
+			}
+			try{
+				DCHalfEdge edge =shadeB.edges.get(i);
+			
 			leftEdgesToRemove.add(edge);
+			}
+			catch (java.lang.ArrayIndexOutOfBoundsException e){
+				System.out.println("couldn't get edge at"+i);
+				
+			}
 
 		}
-		for(int i=rightIndex-gapSize/2+1; i<rightIndex+gapSize/2+2;i++){
+		limit = rightIndex+gapSize/2+2;
+		if (limit> shadeB.edges.size()){
+			limit = shadeB.edges.size();
+		}
+		for( i=rightIndex-gapSize/2+1; i<limit;i++){
+			if (i<0){
+				i=0;
+			}
+			try{
 			rightEdgesToRemove.add(shadeB.edges.get(i));
+			}
+			catch (java.lang.ArrayIndexOutOfBoundsException e){
+				System.out.println("couldn't get edge at"+i);
+				
+			}
 		}
 
 		//tabs.get(0).merge(this.shadeBorder);
@@ -374,7 +400,7 @@ public class Pattern{
 			float newDrawGap = (float)drawGap*k;
 			for(int i =0;i<notches.size();i++){
 
-				notches.get(i).drawOffset(myParent,1, (int)color, newDrawGap-widthOffset);
+				notches.get(i).drawOffset(myParent,1, (int)180, newDrawGap-widthOffset);
 			}
 		}
 		if(!justShade){

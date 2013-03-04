@@ -42,8 +42,6 @@ public class Button {
         height = 0;
         on = false;
         this.myParent = myParent;
-        font = myParent.loadFont("din_bold.vlw");
-        myParent.textFont(font, 14);
     }
 
     public void init(float x, float y, float width, float height, boolean on, boolean toggle, String name) {

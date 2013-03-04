@@ -28,7 +28,6 @@ import com.math.CompPoint3d;
 import processing.core.PApplet;
 
 
-import java.util.Vector;
 
 public class LampShape {
 
@@ -46,7 +45,6 @@ public class LampShape {
 
 	public int curveResolution = 100;//resolution of the curve of the lamp;
 
-	private double[][] radArray; //contains the radiuses of all of the cylinders
 
 	public double maxWidth = 100 * ptMilConversion; //max width and height of the lamp
 	public double maxHeight = 300 * ptMilConversion;
@@ -379,7 +377,7 @@ public class LampShape {
 				paperBase.addHalfEdge(outerBottomCircle);
 
 			}
-			double tabWidth = -100;
+			double tabWidth = -50;
 			paperBase.largeTabs(tabWidth);
 
 			paperBase.generateHole(bottomHoleWidth/2);
@@ -398,7 +396,7 @@ public class LampShape {
 				paperBase.addHalfEdge(outerTopCircle);
 
 			}
-			double tabWidth = -100;
+			double tabWidth = -50;
 			paperBase.largeTabs(tabWidth);
 
 			paperBase.generateHole(topHoleWidth/2);

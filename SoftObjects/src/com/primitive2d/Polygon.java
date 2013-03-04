@@ -83,14 +83,22 @@ private int fB=0;
 	}
 	
 	
-	public void clipPattern(Pattern pattern){
+	public void clipTo(Polygon poly){
+		poly.clipPattern(this);
+	}
+	
+	public void clipPattern(LineCollection pattern){
 		System.out.println("clipping to shape with "+this.getAllPoints().size()+" verticies");
 		this.orderEdges();
 		Vector<Line> patternEdges = pattern.getAllLines();
+		
+		System.out.println("pattern edges num="+patternEdges.size());
+		System.out.println("pattern edges last="+patternEdges.get(patternEdges.size()-1));
+
 		Vector<Line> patternNewEdges = new Vector<Line>();
 		pattern.removeAllPoints();
 		
-		for(int i=patternEdges.size();i>=0;i--){
+		for(int i=patternEdges.size()-1;i>=0;i--){
 			try{
 				Line newEdge = PolyBoolean.clipInBorder(patternEdges.get(i),this);
 			
@@ -99,7 +107,7 @@ private int fB=0;
 				pattern.addPoint(newEdge.start);
 				pattern.addPoint(newEdge.end);
 			}
-			}
+		}
 			catch (Exception e){
 				System.out.println("missed edge at:"+i);
 				System.out.println(e);
@@ -266,6 +274,7 @@ private int fB=0;
 		else{
 			parent.noFill();
 		}
+		
 		parent.stroke(r,g,b);
 		parent.beginShape();
 		this.orderEdges();
@@ -285,6 +294,7 @@ private int fB=0;
 	    	this.fR=r;
 	    	this.fG=g;
 	    	this.fB=b;
+	    	this.fill=true;
 	    }
 	@Override
 	public Polygon copy(){

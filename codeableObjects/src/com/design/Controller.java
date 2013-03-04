@@ -22,11 +22,9 @@ package com.design;
 
 import com.datastruct.DoublyConnectedEdgeList;
 import com.math.CompPoint;
-import com.math.Geom;
 import processing.core.PApplet;
+import processing.event.*;
 
-
-import java.awt.event.MouseEvent;
 import java.util.Vector;
 
 public class Controller {
@@ -60,8 +58,8 @@ public class Controller {
         
         //this should be defined differently
         this.shadeBorder = new Part(0,0);
-        myParent.registerDraw(this);
-        myParent.registerMouseEvent(this);
+        myParent.registerMethod("draw", this);
+        myParent.registerMethod("mouseEvent", this);
         
 
     }
@@ -266,22 +264,22 @@ public class Controller {
     public void mouseEvent(MouseEvent event) {
         int x = event.getX();
         int y = event.getY();
-
-        switch (event.getID()) {
-            case MouseEvent.MOUSE_PRESSED:
+   
+    	switch(event.getAction()){
+            case processing.event.MouseEvent.PRESS:
                 this.mousePressed(x,y);
                 break;
-            case MouseEvent.MOUSE_RELEASED:
+            case processing.event.MouseEvent.RELEASE:
                 // do something for mouse released
                 break;
-            case MouseEvent.MOUSE_CLICKED:
+            case processing.event.MouseEvent.CLICK:
                 // do something for mouse clicked
                 break;
-            case MouseEvent.MOUSE_DRAGGED:
+            case processing.event.MouseEvent.DRAG:
                 this.mouseDragged(x,y);
 
                 break;
-            case MouseEvent.MOUSE_MOVED:
+            case processing.event.MouseEvent.MOVE:
                 // umm... forgot
                 break;
         }

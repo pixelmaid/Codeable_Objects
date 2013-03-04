@@ -24,6 +24,7 @@ import com.datastruct.DCHalfEdge3d;
 import com.datastruct.DoublyConnectedEdgeList;
 import com.math.CompPoint3d;
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 import java.util.Vector;
 
@@ -40,7 +41,7 @@ public class Model {
         this.myParent = myParent;
         this.width = myParent.width;
         this.height = myParent.height;
-        edges = new Vector<DCHalfEdge3d>();
+        	
         topEdges = new Vector<DCHalfEdge3d>();
         bottomEdges = new Vector<DCHalfEdge3d>();
     }
@@ -80,26 +81,22 @@ public class Model {
         myParent.stroke(255);
         myParent.strokeWeight(2);
         myParent.rotateY((float) (myParent.frameCount * Math.PI / 400));
-        myParent.beginShape(myParent.QUAD_STRIP);
+      
+        myParent.beginShape(PConstants.QUAD_STRIP);
 
         for (int j = 0; j < edges.size(); j++) {
             CompPoint3d top = edges.get(j).start;
             CompPoint3d bottom = edges.get(j).end;
-            //if(j%2==0){
+            
             	myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
             	myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
-            //}
-           // else{
-            	//myParent.vertex((float) bottom.getX(), (float) bottom.getY(), (float) bottom.getZ());
-
-            	//myParent.vertex((float) top.getX(), (float) top.getY(), (float) top.getZ());
-           //}
+          
 
         }
 
         myParent.endShape();
         myParent.stroke(255, 0, 0);
-        myParent.beginShape(myParent.QUAD_STRIP);
+        myParent.beginShape(PConstants.QUAD_STRIP);
 
         for (int j = 0; j < topEdges.size(); j++) {
             CompPoint3d top = topEdges.get(j).start;
@@ -138,7 +135,7 @@ public class Model {
 
         myParent.endShape();
         myParent.popMatrix();
-
+        
     }
 
 

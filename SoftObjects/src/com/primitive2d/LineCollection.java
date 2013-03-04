@@ -581,7 +581,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     	}*/
     	
     	for(int i=0;i<lines.size();i++){
-    		lines.get(i).draw(parent, lines.get(i).strokeWeight);
+    		lines.get(i).draw(parent, this.strokeWeight);
     		
     		
     	}

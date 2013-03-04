@@ -45,7 +45,7 @@ void setup() {
 
   for (int i=0;i<drawLimit;i++) { //loop over the number of points in the circle
 
-    float theta = i*(float)Math.PI*2/drawLimit; // determines the degree position of your current point in radians
+    float theta = i*(PI*2/drawLimit); // determines the degree position of your current point in radians
     pointController.addPolarPoint(width/2, height/2, theta, rad);// adds the point to your design
   }
 }

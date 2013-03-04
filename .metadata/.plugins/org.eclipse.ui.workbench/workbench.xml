@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="21" version="2.0">
+<workbench progressCount="23" version="2.0">
 <workbenchAdvisor/>
 <window height="778" maximized="true" width="1916" x="4" y="22">
 <fastViewData fastViewLocation="1024"/>
@@ -8,21 +8,23 @@
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="106" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="208" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ant.ui.internal.editor.AntEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.pde.ui.buildEditor" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="98" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.pde.ui.buildEditor" itemType="typePlaceholder" x="32" y="22"/>
-<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ant.ui.internal.editor.AntEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -43,125 +45,65 @@
 <part id="8"/>
 <part id="9"/>
 <part id="10"/>
-<part id="11"/>
-<part id="12"/>
-<part id="13"/>
-<part id="14"/>
-<part id="15"/>
-<part id="16"/>
-<part id="17"/>
-<part id="18"/>
-<part id="19"/>
-<part id="20"/>
-<part id="21"/>
-<part id="22"/>
-<part id="23"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Pattern.java" partName="Pattern.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/design/Pattern.java" title="Pattern.java" tooltip="codeableObjects/src/com/design/Pattern.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/design/Pattern.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="16007" selectionTopPixel="6270"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Controller.java" partName="Controller.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/Controller.java" title="Controller.java" tooltip="CodeableObjects2.0/src/com/design/Controller.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/Controller.java"/>
+<editorState selectionHorizontalPixel="2" selectionLength="0" selectionOffset="6281" selectionTopPixel="2921"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PolyBoolean.java" partName="PolyBoolean.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/math/PolyBoolean.java" title="PolyBoolean.java" tooltip="codeableObjects/src/com/math/PolyBoolean.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/math/PolyBoolean.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1349" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ScreenManager.java" partName="ScreenManager.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/ScreenManager.java" title="ScreenManager.java" tooltip="CodeableObjects2.0/src/com/design/ScreenManager.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/ScreenManager.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3139" selectionTopPixel="1311"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Controller.java" partName="Controller.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/design/Controller.java" title="Controller.java" tooltip="codeableObjects/src/com/design/Controller.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/design/Controller.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="2" selectionOffset="1596" selectionTopPixel="1843"/>
+<editor id="org.eclipse.pde.ui.buildEditor" name="build.properties" partName="build.properties" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/resources/build.properties" title="build.properties" tooltip="CodeableObjects2.0/resources/build.properties" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/resources/build.properties"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ScreenManager.java" partName="ScreenManager.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/design/ScreenManager.java" title="ScreenManager.java" tooltip="codeableObjects/src/com/design/ScreenManager.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/design/ScreenManager.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="34" selectionOffset="7231" selectionTopPixel="7426"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LampShape.java" partName="LampShape.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/LampShape.java" title="LampShape.java" tooltip="CodeableObjects2.0/src/com/design/LampShape.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/LampShape.java"/>
+<editorState selectionHorizontalPixel="26" selectionLength="0" selectionOffset="2607" selectionTopPixel="672"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LampShape.java" partName="LampShape.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/design/LampShape.java" title="LampShape.java" tooltip="codeableObjects/src/com/design/LampShape.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/design/LampShape.java"/>
-<editorState selectionHorizontalPixel="23" selectionLength="0" selectionOffset="10833" selectionTopPixel="4557"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Model.java" partName="Model.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/Model.java" title="Model.java" tooltip="CodeableObjects2.0/src/com/design/Model.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/Model.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2848" selectionTopPixel="1227"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DoublyConnectedEdgeList.java" partName="DoublyConnectedEdgeList.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/datastruct/DoublyConnectedEdgeList.java" title="DoublyConnectedEdgeList.java" tooltip="codeableObjects/src/com/datastruct/DoublyConnectedEdgeList.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/datastruct/DoublyConnectedEdgeList.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2529" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Slider.java" partName="Slider.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/Slider.java" title="Slider.java" tooltip="CodeableObjects2.0/src/com/design/Slider.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/Slider.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2429" selectionTopPixel="281"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Polygon.java" partName="Polygon.java" path="/Users/jenniferjacobs/Documents/workspace/SoftObjects/src/com/primitive2d/Polygon.java" title="Polygon.java" tooltip="SoftObjects/src/com/primitive2d/Polygon.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/primitive2d/Polygon.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="4180" selectionOffset="2505" selectionTopPixel="1396"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Button.java" partName="Button.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/Button.java" title="Button.java" tooltip="CodeableObjects2.0/src/com/design/Button.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/Button.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1438" selectionTopPixel="177"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventPointSegment.java" partName="EventPointSegment.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/algorithm/segmentintersect/EventPointSegment.java" title="EventPointSegment.java" tooltip="codeableObjects/src/com/algorithm/segmentintersect/EventPointSegment.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/algorithm/segmentintersect/EventPointSegment.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="721" selectionTopPixel="226"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Pattern.java" partName="Pattern.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/Pattern.java" title="Pattern.java" tooltip="CodeableObjects2.0/src/com/design/Pattern.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/Pattern.java"/>
+<editorState selectionHorizontalPixel="28" selectionLength="0" selectionOffset="14100" selectionTopPixel="6090"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Key.java" partName="Key.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/algorithm/segmentintersect/Key.java" title="Key.java" tooltip="codeableObjects/src/com/algorithm/segmentintersect/Key.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/algorithm/segmentintersect/Key.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="140" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tab.java" partName="Tab.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/Tab.java" title="Tab.java" tooltip="CodeableObjects2.0/src/com/design/Tab.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/Tab.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1252" selectionTopPixel="205"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PriorityQueueAdv.java" partName="PriorityQueueAdv.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/algorithm/segmentintersect/PriorityQueueAdv.java" title="PriorityQueueAdv.java" tooltip="codeableObjects/src/com/algorithm/segmentintersect/PriorityQueueAdv.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/algorithm/segmentintersect/PriorityQueueAdv.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="102" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Part.java" partName="Part.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/Part.java" title="Part.java" tooltip="CodeableObjects2.0/src/com/design/Part.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/Part.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="8243" selectionTopPixel="2626"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventPointSegmentComparator.java" partName="EventPointSegmentComparator.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/algorithm/segmentintersect/EventPointSegmentComparator.java" title="EventPointSegmentComparator.java" tooltip="codeableObjects/src/com/algorithm/segmentintersect/EventPointSegmentComparator.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/algorithm/segmentintersect/EventPointSegmentComparator.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="326" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Segment.java" partName="Segment.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/algorithm/segmentintersect/Segment.java" title="Segment.java" tooltip="codeableObjects/src/com/algorithm/segmentintersect/Segment.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/algorithm/segmentintersect/Segment.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="7" selectionOffset="293" selectionTopPixel="195"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CompPoint.java" partName="CompPoint.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/math/CompPoint.java" title="CompPoint.java" tooltip="codeableObjects/src/com/math/CompPoint.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/math/CompPoint.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="1319" selectionTopPixel="30"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Intersection.java" partName="Intersection.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/algorithm/segmentintersect/Intersection.java" title="Intersection.java" tooltip="codeableObjects/src/com/algorithm/segmentintersect/Intersection.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/algorithm/segmentintersect/Intersection.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="381" selectionTopPixel="57"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DCHalfEdge.java" partName="DCHalfEdge.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/datastruct/DCHalfEdge.java" title="DCHalfEdge.java" tooltip="codeableObjects/src/com/datastruct/DCHalfEdge.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/datastruct/DCHalfEdge.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="1105" selectionOffset="4763" selectionTopPixel="1519"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DCHalfEdge.java" partName="DCHalfEdge.java" path="/Users/jenniferjacobs/Documents/workspace/SoftObjects/src/com/datatype/DCHalfEdge.java" title="DCHalfEdge.java" tooltip="SoftObjects/src/com/datatype/DCHalfEdge.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/datatype/DCHalfEdge.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="4500" selectionTopPixel="980"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Geom.java" partName="Geom.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/math/Geom.java" title="Geom.java" tooltip="codeableObjects/src/com/math/Geom.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/math/Geom.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1556" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Intersection.java" partName="Intersection.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/math/Intersection.java" title="Intersection.java" tooltip="codeableObjects/src/com/math/Intersection.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/math/Intersection.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FindIntersections.java" partName="FindIntersections.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/algorithm/segmentintersect/FindIntersections.java" title="FindIntersections.java" tooltip="codeableObjects/src/com/algorithm/segmentintersect/FindIntersections.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/algorithm/segmentintersect/FindIntersections.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2705" selectionTopPixel="496"/>
-</editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="params.txt" partName="params.txt" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/examples/sine/data/params.txt" title="params.txt" tooltip="codeableObjects/examples/sine/data/params.txt" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/examples/sine/data/params.txt"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="121" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Slider.java" partName="Slider.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/design/Slider.java" title="Slider.java" tooltip="codeableObjects/src/com/design/Slider.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/design/Slider.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1956" selectionTopPixel="383"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base.java" partName="Base.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/design/Base.java" title="Base.java" tooltip="codeableObjects/src/com/design/Base.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/design/Base.java"/>
-<editorState selectionHorizontalPixel="16" selectionLength="12" selectionOffset="3475" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Rib.java" partName="Rib.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/design/Rib.java" title="Rib.java" tooltip="codeableObjects/src/com/design/Rib.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/design/Rib.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1890" selectionTopPixel="384"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Model.java" partName="Model.java" path="/Users/jenniferjacobs/Documents/workspace/codeableObjects/src/com/design/Model.java" title="Model.java" tooltip="codeableObjects/src/com/design/Model.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/codeableObjects/src/com/design/Model.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1872" selectionTopPixel="1376"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Notch.java" partName="Notch.java" path="/Users/jenniferjacobs/Documents/workspace/CodeableObjects2.0/src/com/design/Notch.java" title="Notch.java" tooltip="CodeableObjects2.0/src/com/design/Notch.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CodeableObjects2.0/src/com/design/Notch.java"/>
+<editorState selectionHorizontalPixel="2" selectionLength="0" selectionOffset="3" selectionTopPixel="781"/>
 </editor>
 </editors>
 <views>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.jdt.ui.JavaSearchResultPage" org.eclipse.jdt.search.resultpage.grouping="3" org.eclipse.jdt.search.resultpage.limit="1000" org.eclipse.jdt.search.resultpage.limit_enabled="TRUE" org.eclipse.jdt.search.resultpage.sorting="1" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2"/>
+</viewState>
+</view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (100 of 281 items)"/>
+<category IMemento.internal.id="Warnings (100 of 282 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="1354"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -205,8 +147,7 @@
 </view>
 <view id="org.eclipse.ant.ui.views.AntView" partName="Ant">
 <viewState>
-<project default="clean" error="false" name="ProcessingLibs" path="/codeableObjects/resources/build.xml"/>
-<project default="clean" error="false" name="ProcessingLibs" path="/SoftObjects/resources/build.xml"/>
+<project default="clean" error="false" name="ProcessingLibs" path="/CodeableObjects2.0/resources/build.xml"/>
 <filterInternalTargets value="true"/>
 </viewState>
 </view>
@@ -216,7 +157,7 @@
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.ant.ui.views.AntView" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -234,6 +175,9 @@
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="org.deved.antlride.debug.ui.AntlrDebugActionSet"/>
+<alwaysOnActionSet id="com.google.gdt.eclipse.designer.actionset"/>
+<alwaysOnActionSet id="org.eclipse.wb.core.ui.actionset"/>
 <show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
 <show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <show_view_action id="org.eclipse.jdt.ui.SourceView"/>
@@ -270,6 +214,7 @@
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.ant.ui.views.AntView"/>
@@ -296,14 +241,14 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.1256917" ratioLeft="159" ratioRight="1106" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.20948617" ratioLeft="265" ratioRight="1000" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.7814433" ratioLeft="758" ratioRight="212" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -311,6 +256,7 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
@@ -332,166 +278,166 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/Base.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/ScreenManager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/LampShape.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/Rib.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/Model.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/Base.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/ScreenManager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/LampShape.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/codeableObjects/examples/sine/data/params.txt"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/codeableObjects/src/com/design/Model.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/Controller.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/ScreenManager.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/LampShape.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/Model.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/Slider.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/Button.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/Pattern.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/Tab.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/Part.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CodeableObjects2.0/src/com/design/Notch.java"/>
 </editors>
+<item historyLabel="Controller.java" index="0">
+<position info="not_deleted" x="8157" y="10"/>
+</item>
 <item historyLabel="ScreenManager.java" index="1">
-<position info="not_deleted" x="7231" y="34"/>
+<position info="not_deleted" x="7231" y="0"/>
+</item>
+<item historyLabel="Model.java" index="3">
+<position info="not_deleted" x="4468" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="7334" y="0"/>
+</item>
+<item historyLabel="Model.java" index="3">
+<position info="not_deleted" x="3030" y="0"/>
 </item>
 <item historyLabel="LampShape.java" index="2">
-<position info="not_deleted" x="13043" y="15"/>
+<position info="not_deleted" x="7015" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="7334" y="0"/>
+</item>
+<item historyLabel="Model.java" index="3">
+<position info="not_deleted" x="3030" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="18344" y="0"/>
+</item>
+<item historyLabel="Controller.java" index="0">
+<position info="not_deleted" x="7885" y="0"/>
+</item>
+<item historyLabel="Model.java" index="3">
+<position info="not_deleted" x="2848" y="0"/>
 </item>
 <item historyLabel="LampShape.java" index="2">
-<position info="not_deleted" x="10829" y="0"/>
+<position info="not_deleted" x="7015" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="7700" y="0"/>
+</item>
+<item historyLabel="Controller.java" index="0">
+<position info="not_deleted" x="7885" y="0"/>
+</item>
+<item historyLabel="Controller.java" index="0">
+<position info="not_deleted" x="6829" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="8229" y="0"/>
+</item>
+<item historyLabel="Slider.java" index="4">
+<position info="not_deleted" x="2713" y="0"/>
+</item>
+<item historyLabel="Button.java" index="5">
+<position info="not_deleted" x="2135" y="0"/>
+</item>
+<item historyLabel="Controller.java" index="0">
+<position info="not_deleted" x="6281" y="0"/>
+</item>
+<item historyLabel="Slider.java" index="4">
+<position info="not_deleted" x="2713" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="8229" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="3155" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="3119" y="10"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="3062" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="3185" y="0"/>
+</item>
+<item historyLabel="Slider.java" index="4">
+<position info="not_deleted" x="2429" y="0"/>
+</item>
+<item historyLabel="Button.java" index="5">
+<position info="not_deleted" x="2007" y="0"/>
+</item>
+<item historyLabel="Slider.java" index="4">
+<position info="not_deleted" x="2429" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="18344" y="0"/>
+</item>
+<item historyLabel="Button.java" index="5">
+<position info="not_deleted" x="1438" y="0"/>
+</item>
+<item historyLabel="Controller.java" index="0">
+<position info="not_deleted" x="6281" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="18344" y="0"/>
 </item>
 <item historyLabel="LampShape.java" index="2">
-<position info="not_deleted" x="10899" y="0"/>
+<position info="not_deleted" x="7015" y="0"/>
+</item>
+<item historyLabel="Model.java" index="3">
+<position info="not_deleted" x="2848" y="0"/>
 </item>
 <item historyLabel="LampShape.java" index="2">
-<position info="not_deleted" x="10829" y="0"/>
+<position info="not_deleted" x="2607" y="0"/>
 </item>
-<item historyLabel="LampShape.java" index="2">
-<position info="not_deleted" x="10835" y="0"/>
+<item historyLabel="Slider.java" index="4">
+<position info="not_deleted" x="2429" y="0"/>
 </item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="1448" y="10"/>
+<item historyLabel="Button.java" index="5">
+<position info="not_deleted" x="1438" y="0"/>
 </item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2417" y="0"/>
-</item>
-<item historyLabel="Base.java" index="0">
-<position info="not_deleted" x="3475" y="12"/>
-</item>
-<item historyLabel="LampShape.java" index="2">
-<position info="not_deleted" x="10835" y="64"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2416" y="0"/>
-</item>
-<item historyLabel="Base.java" index="0">
-<position info="not_deleted" x="3475" y="12"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2416" y="0"/>
-</item>
-<item historyLabel="Base.java" index="0">
-<position info="not_deleted" x="3475" y="12"/>
-</item>
-<item historyLabel="LampShape.java" index="2">
-<position info="not_deleted" x="13694" y="4"/>
-</item>
-<item historyLabel="Model.java" index="4">
-<position info="not_deleted" x="1737" y="0"/>
-</item>
-<item historyLabel="LampShape.java" index="2">
-<position info="not_deleted" x="7538" y="0"/>
-</item>
-<item historyLabel="Model.java" index="4">
-<position info="not_deleted" x="1737" y="0"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2416" y="0"/>
-</item>
-<item historyLabel="Base.java" index="5">
+<item historyLabel="Pattern.java" index="6">
 <position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="Base.java" index="5">
-<position info="not_deleted" x="3475" y="12"/>
+<item historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="17166" y="12"/>
 </item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2661" y="0"/>
+<item historyLabel="Pattern.java" index="6">
+<position info="not_deleted" x="16500" y="9"/>
 </item>
-<item historyLabel="ScreenManager.java" index="6">
+<item historyLabel="Tab.java" index="7">
 <position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="ScreenManager.java" index="6">
-<position info="not_deleted" x="7231" y="34"/>
+<item historyLabel="Pattern.java" index="6">
+<position info="not_deleted" x="16337" y="4"/>
 </item>
-<item historyLabel="Base.java" index="5">
-<position info="not_deleted" x="3475" y="12"/>
+<item historyLabel="Tab.java" index="7">
+<position info="not_deleted" x="1252" y="0"/>
 </item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2661" y="0"/>
+<item historyLabel="Pattern.java" index="6">
+<position info="not_deleted" x="16349" y="10"/>
 </item>
-<item historyLabel="LampShape.java" index="7">
+<item historyLabel="Part.java" index="8">
+<position info="not_deleted" x="8243" y="10"/>
+</item>
+<item historyLabel="Tab.java" index="7">
+<position info="not_deleted" x="1252" y="0"/>
+</item>
+<item historyLabel="Pattern.java" index="6">
+<position info="not_deleted" x="6601" y="6"/>
+</item>
+<item historyLabel="Notch.java" index="9">
 <position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="7538" y="0"/>
+<item historyLabel="Pattern.java" index="6">
+<position info="not_deleted" x="14100" y="0"/>
 </item>
-<item historyLabel="params.txt" index="8">
-<position info="not_deleted" x="121" y="0"/>
-</item>
-<item historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="11935" y="9"/>
-</item>
-<item historyLabel="ScreenManager.java" index="6">
-<position info="not_deleted" x="7231" y="34"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2661" y="0"/>
-</item>
-<item historyLabel="ScreenManager.java" index="6">
-<position info="not_deleted" x="7231" y="34"/>
-</item>
-<item historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="11967" y="9"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2542" y="0"/>
-</item>
-<item historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="11967" y="9"/>
-</item>
-<item historyLabel="ScreenManager.java" index="6">
-<position info="not_deleted" x="7231" y="34"/>
-</item>
-<item historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="10770" y="0"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2501" y="0"/>
-</item>
-<item historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="10770" y="0"/>
-</item>
-<item historyLabel="Model.java" index="9">
-<position info="not_deleted" x="3" y="0"/>
-</item>
-<item historyLabel="Model.java" index="9">
-<position info="not_deleted" x="1872" y="0"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="2501" y="0"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="1590" y="8"/>
-</item>
-<item historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="10898" y="0"/>
-</item>
-<item historyLabel="ScreenManager.java" index="6">
-<position info="not_deleted" x="7231" y="34"/>
-</item>
-<item historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="11862" y="0"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="1590" y="8"/>
-</item>
-<item historyLabel="Rib.java" index="3">
-<position info="not_deleted" x="1890" y="0"/>
-</item>
-<item active="true" historyLabel="LampShape.java" index="7">
-<position info="not_deleted" x="11862" y="0"/>
+<item active="true" historyLabel="ScreenManager.java" index="1">
+<position info="not_deleted" x="17166" y="12"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -499,6 +445,12 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="right"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -506,54 +458,52 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Model.java" tooltip="codeableObjects/src/com/design/Model.java">
-<persistable path="/codeableObjects/src/com/design/Model.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Notch.java" tooltip="CodeableObjects2.0/src/com/design/Notch.java">
+<persistable path="/CodeableObjects2.0/src/com/design/Notch.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Rib.java" tooltip="codeableObjects/src/com/design/Rib.java">
-<persistable path="/codeableObjects/src/com/design/Rib.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Part.java" tooltip="CodeableObjects2.0/src/com/design/Part.java">
+<persistable path="/CodeableObjects2.0/src/com/design/Part.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base.java" tooltip="codeableObjects/src/com/design/Base.java">
-<persistable path="/codeableObjects/src/com/design/Base.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tab.java" tooltip="CodeableObjects2.0/src/com/design/Tab.java">
+<persistable path="/CodeableObjects2.0/src/com/design/Tab.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Geom.java" tooltip="SoftObjects/src/com/math/Geom.java">
-<persistable path="/SoftObjects/src/com/math/Geom.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Pattern.java" tooltip="CodeableObjects2.0/src/com/design/Pattern.java">
+<persistable path="/CodeableObjects2.0/src/com/design/Pattern.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Slider.java" tooltip="codeableObjects/src/com/design/Slider.java">
-<persistable path="/codeableObjects/src/com/design/Slider.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Button.java" tooltip="CodeableObjects2.0/src/com/design/Button.java">
+<persistable path="/CodeableObjects2.0/src/com/design/Button.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="params.txt" tooltip="codeableObjects/examples/sine/data/params.txt">
-<persistable path="/codeableObjects/examples/sine/data/params.txt"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Slider.java" tooltip="CodeableObjects2.0/src/com/design/Slider.java">
+<persistable path="/CodeableObjects2.0/src/com/design/Slider.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Model.java" tooltip="CodeableObjects2.0/src/com/design/Model.java">
+<persistable path="/CodeableObjects2.0/src/com/design/Model.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LampShape.java" tooltip="CodeableObjects2.0/src/com/design/LampShape.java">
+<persistable path="/CodeableObjects2.0/src/com/design/LampShape.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.buildEditor" name="build.properties" tooltip="CodeableObjects2.0/resources/build.properties">
+<persistable path="/CodeableObjects2.0/resources/build.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ScreenManager.java" tooltip="CodeableObjects2.0/src/com/design/ScreenManager.java">
+<persistable path="/CodeableObjects2.0/src/com/design/ScreenManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Controller.java" tooltip="CodeableObjects2.0/src/com/design/Controller.java">
+<persistable path="/CodeableObjects2.0/src/com/design/Controller.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SVGReader.java" tooltip="SoftObjects/src/com/ui/SVGReader.java">
 <persistable path="/SoftObjects/src/com/ui/SVGReader.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FileReadWrite.java" tooltip="codeableObjects/src/com/file/FileReadWrite.java">
-<persistable path="/codeableObjects/src/com/file/FileReadWrite.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Geom.java" tooltip="SoftObjects/src/com/math/Geom.java">
+<persistable path="/SoftObjects/src/com/math/Geom.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FindIntersections.java" tooltip="codeableObjects/src/com/algorithm/segmentintersect/FindIntersections.java">
-<persistable path="/codeableObjects/src/com/algorithm/segmentintersect/FindIntersections.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Intersection.java" tooltip="codeableObjects/src/com/math/Intersection.java">
-<persistable path="/codeableObjects/src/com/math/Intersection.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Geom.java" tooltip="codeableObjects/src/com/math/Geom.java">
-<persistable path="/codeableObjects/src/com/math/Geom.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DCHalfEdge.java" tooltip="SoftObjects/src/com/datatype/DCHalfEdge.java">
-<persistable path="/SoftObjects/src/com/datatype/DCHalfEdge.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DCHalfEdge.java" tooltip="codeableObjects/src/com/datastruct/DCHalfEdge.java">
-<persistable path="/codeableObjects/src/com/datastruct/DCHalfEdge.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VoronoiGenerator.java" tooltip="codeableObjects/src/com/algorithm/VoronoiGenerator.java">
-<persistable path="/codeableObjects/src/com/algorithm/VoronoiGenerator.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tab.java" tooltip="codeableObjects/src/com/design/Tab.java">
-<persistable path="/codeableObjects/src/com/design/Tab.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Line.java" tooltip="SoftObjects/src/com/primitive2d/Line.java">
+<persistable path="/SoftObjects/src/com/primitive2d/Line.java"/>
 </file>
 </mruList>
 </workbench>

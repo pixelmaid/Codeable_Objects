@@ -4,13 +4,14 @@
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 		<item value="-54" key="DIALOG_X_ORIGIN"/>
 	</section>
-	<section name="NewWizardAction">
-	</section>
 	<section name="ZipFileImportWizard">
 		<item value="false" key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/Users/jenniferjacobs/Downloads/library-template-0.4.9.zip"/>
 			<item value="/Users/jenniferjacobs/Downloads/processingLibraryTemplate_20100507.zip"/>
 		</list>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 	<section name="ImportExportAction">
 		<item value="org.eclipse.ui.wizards.import.ZipFile" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
